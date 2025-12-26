@@ -7,6 +7,10 @@ const nextConfig = {
           source: '/:path*',
           destination: 'https://updates.wegov.nyc/:path*',
         },
+        {
+          source: '/:path*/',
+          destination: 'https://updates.wegov.nyc/:path*/',
+        },
       ],
     };
   },
