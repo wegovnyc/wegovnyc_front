@@ -4,7 +4,7 @@ import SectionRenderer from '@/components/sections/SectionRenderer';
 
 import { draftMode } from 'next/headers';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
 
 async function getHomePage() {
   const { isEnabled } = await draftMode();
