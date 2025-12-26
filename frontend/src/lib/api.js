@@ -29,8 +29,23 @@ export async function fetchAPI(path, options = {}) {
     const response = await fetch(requestUrl, mergedOptions);
 
     if (!response.ok) {
-        console.error(response.statusText);
-        throw new Error(`An error occurred while fetching the API: ${response.statusText}`);
+        console.error("Fetch failed:", response.status, response.statusText);
+        let errorDetails = response.statusText;
+        try {
+            const errorJson = await response.json();
+            console.error("Strapi Error JSON:", JSON.stringify(errorJson, null, 2));
+            if (errorJson.error) {
+                errorDetails = `${errorJson.error.message} (${errorJson.error.name})`;
+                if (errorJson.error.details) {
+                    errorDetails += ` - ${JSON.stringify(errorJson.error.details)}`;
+                }
+            }
+        } catch (e) {
+            console.error("Could not parse error JSON:", e);
+        }
+
+        console.error("Failed URL:", requestUrl);
+        throw new Error(`API Error (${response.status}): ${errorDetails} | URL: ${requestUrl}`);
     }
 
     const data = await response.json();
