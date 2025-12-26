@@ -5,7 +5,7 @@ const nextConfig = {
       fallback: [
         {
           source: '/:path*',
-          destination: 'https://wp.wegov.nyc/:path*',
+          destination: 'https://updates.wegov.nyc/:path*',
         },
       ],
     };
