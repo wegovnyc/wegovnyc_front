@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://127.0.0.1:1337';
+const STRAPI_URL = (process.env.NEXT_PUBLIC_STRAPI_URL || 'http://127.0.0.1:1337').replace(/\/$/, '');
 
 export async function fetchAPI(path, options = {}) {
     const { headers, cache, isDraftMode, ...queryParams } = options;
