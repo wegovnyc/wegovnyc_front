@@ -16,7 +16,7 @@ async function getHomePage() {
     return response.data[0];
   } catch (error) {
     console.error("Error fetching home page:", error);
-    return null;
+    return { error: error.message };
   }
 }
 
@@ -25,6 +25,19 @@ export default async function Home() {
 
   if (!page) {
     return <div>Loading... (or no Home page found)</div>;
+  }
+
+  if (page.error) {
+    return (
+      <div style={{ padding: '50px', maxWidth: '800px', margin: '0 auto' }}>
+        <h1>Error Loading Content</h1>
+        <p>Could not fetch data from Strapi.</p>
+        <pre style={{ background: '#f4f4f4', padding: '15px', borderRadius: '5px' }}>
+          {page.error}
+        </pre>
+        <p>Check <code>NEXT_PUBLIC_STRAPI_URL</code> environment variable.</p>
+      </div>
+    );
   }
 
   return (
