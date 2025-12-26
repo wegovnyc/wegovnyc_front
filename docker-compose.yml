@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: wegov_strapi
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATABASE_CLIENT: sqlite
+      DATABASE_FILENAME: .tmp/data.db
+    volumes:
+      - ./backend/config:/opt/app/config
+      - ./backend/.tmp:/opt/app/.tmp
+      - ./backend/public/uploads:/opt/app/public/uploads
+      - ./backend/database:/opt/app/database
+    ports:
+      - "1337:1337"
+
+  frontend:
+    container_name: wegov_nextjs
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_STRAPI_API_URL: ${STRAPI_URL:-http://localhost:1337}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

@@ -1,0 +1,229 @@
+/* Amsterdam Theme */
+/* Based on https://github.com/Amsterdam/design-system */
+
+:root[data-theme='amsterdam'] {
+    /* Core Colors */
+    --background: #ffffff;
+    --foreground: #181818;
+    /* High contrast dark grey/black */
+    --primary-color: #004699;
+    /* Amsterdam Blue */
+    --accent-color: #EC0000;
+    /* Amsterdam Red */
+    --link-color: #004699;
+
+    /* Layout Variables */
+    --header-bg: #ffffff;
+    --header-text: #181818;
+    --header-border: 2px solid #EC0000;
+    /* Distinctive red border often found in Amsterdam sites */
+
+    /* Typography */
+    --font-family: 'Amsterdam Sans', 'Arial', sans-serif;
+
+    /* Shapes */
+    --radius: 0px;
+    /* SHARP CORNERS are strict */
+}
+
+/* Global Overrides for Amsterdam */
+:root[data-theme='amsterdam'] body {
+    font-family: var(--font-family);
+    border-top: 4px solid var(--accent-color);
+    /* Brand red top bar */
+}
+
+:root[data-theme='amsterdam'] main {
+    max-width: 100%;
+}
+
+:root[data-theme='amsterdam'] h1,
+:root[data-theme='amsterdam'] h2,
+:root[data-theme='amsterdam'] h3 {
+    font-weight: 800;
+    /* Extra Bold */
+    color: var(--primary-color);
+}
+
+/* Navbar Overrides */
+:root[data-theme='amsterdam'] .site-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+    padding: 1rem 0;
+    /* More vertical breathing room */
+}
+
+:root[data-theme='amsterdam'] .navbar-container {
+    max-width: 100%;
+    /* Full width for that expansive feel */
+    padding: 0 4rem;
+    /* But strictly padded on sides */
+}
+
+:root[data-theme='amsterdam'] .navbar-logo {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.8rem;
+    /* Slightly larger */
+}
+
+:root[data-theme='amsterdam'] .navbar-links {
+    gap: 3rem;
+    /* Much wider gap */
+}
+
+:root[data-theme='amsterdam'] .navbar-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    padding: 12px 16px;
+    /* Larger hit area */
+    display: inline-block;
+}
+
+:root[data-theme='amsterdam'] .navbar-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+/* Button Overrides */
+:root[data-theme='amsterdam'] .btn,
+:root[data-theme='amsterdam'] button {
+    border-radius: 0px !important;
+    font-weight: 700;
+    border: 2px solid transparent;
+    text-transform: none;
+    box-shadow: none;
+}
+
+:root[data-theme='amsterdam'] .btn-primary,
+:root[data-theme='amsterdam'] button.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+:root[data-theme='amsterdam'] .btn-primary:hover,
+:root[data-theme='amsterdam'] button.primary:hover {
+    background-color: #003366;
+    /* Darker blue */
+    text-decoration: underline;
+}
+
+/* Card Overrides */
+:root[data-theme='amsterdam'] .card {
+    border-radius: 0px !important;
+    border: 2px solid #ddd;
+    /* Thicker borders */
+    box-shadow: none;
+    /* Flat design */
+    transition: none;
+    /* Determine if they use motion, but flat is safer */
+}
+
+:root[data-theme='amsterdam'] .card:hover {
+    border-color: var(--primary-color);
+    transform: none;
+}
+
+:root[data-theme='amsterdam'] .card-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Hero Section Overrides */
+:root[data-theme='amsterdam'] .hero {
+    background-color: #f3f3f3;
+    /* Light grey background */
+    color: var(--foreground);
+    text-align: left;
+    /* Amsterdam style is often left-aligned strict grid */
+    border-bottom: 2px solid var(--primary-color);
+}
+
+:root[data-theme='amsterdam'] .hero h1 {
+    color: var(--primary-color);
+    font-size: 4rem;
+    /* Big typography */
+}
+
+:root[data-theme='amsterdam'] .hero .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    color: #333;
+    font-size: 1.25rem;
+    max-width: 600px;
+}
+
+/* News Feed Overrides */
+:root[data-theme='amsterdam'] .news-card {
+    border-radius: 0px;
+    border: 2px solid #ddd;
+    box-shadow: none;
+    background-color: white;
+    /* Ensure white background */
+}
+
+:root[data-theme='amsterdam'] .news-card:hover {
+    border-color: var(--primary-color);
+}
+
+:root[data-theme='amsterdam'] .news-title {
+    color: var(--primary-color);
+    /* Blue title */
+    font-weight: 800;
+}
+
+:root[data-theme='amsterdam'] .news-excerpt {
+    color: #181818 !important;
+    /* Force dark text for excerpt */
+}
+
+:root[data-theme='amsterdam'] .news-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* News Feed Image Overrides */
+:root[data-theme='amsterdam'] .news-image-wrapper {
+    border-radius: 0px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Project Network Overrides */
+:root[data-theme='amsterdam'] .project-card {
+    border-radius: 0px;
+    border: 2px solid #ddd;
+    box-shadow: none;
+    background-color: white;
+}
+
+:root[data-theme='amsterdam'] .project-card:hover {
+    border-color: var(--primary-color);
+    transform: none;
+    /* Disable lift on Amsterdam theme */
+    box-shadow: 4px 4px 0px var(--primary-color);
+    /* Hard shadow instead */
+}
+
+:root[data-theme='amsterdam'] .project-content h3 {
+    color: var(--primary-color) !important;
+    font-weight: 800;
+}
+
+:root[data-theme='amsterdam'] .project-content .btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0px;
+    font-weight: 700;
+}
+
+:root[data-theme='amsterdam'] .project-content .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}

@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_sections_ctas",
+    "info": {
+        "displayName": "Call to Action",
+        "icon": "bullhorn",
+        "description": "Simple CTA section"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "text": {
+            "type": "text"
+        },
+        "buttons": {
+            "type": "component",
+            "repeatable": true,
+            "component": "elements.link"
+        }
+    }
+}

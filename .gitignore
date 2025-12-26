@@ -1,0 +1,6 @@
+.DS_Store
+temp_upload.js
+api_response.json
+node_modules
+.env
+.idea

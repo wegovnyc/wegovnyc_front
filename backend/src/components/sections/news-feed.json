@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_sections_news_feeds",
+    "info": {
+        "displayName": "News Feed",
+        "description": "Displays the RSS news feed"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "News & Events"
+        },
+        "description": {
+            "type": "text",
+            "description": "Optional description"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.tmp/
+.git/
+node_modules/
+build/
+dist/
+.env
+.env.production

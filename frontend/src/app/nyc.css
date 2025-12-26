@@ -1,0 +1,105 @@
+/* NYC Theme */
+:root[data-theme='nyc'] {
+    --background: #ffffff;
+    --foreground: #000000;
+    /* Strict Black */
+    /* Dark Gray */
+    --primary-color: #000000;
+    /* Light Gray wrapper */
+    --accent-color: #F15A22;
+    /* NYC Orange */
+    --header-bg: #000000;
+    --header-text: #ffffff;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* System Fonts */
+    --link-color: #000000;
+}
+
+/* Specific NYC Theme Overrides */
+:root[data-theme='nyc'] .site-header {
+    background-color: #000000;
+    border-bottom: none;
+}
+
+:root[data-theme='nyc'] .navbar-logo {
+    color: #ffffff;
+}
+
+:root[data-theme='nyc'] .navbar-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+:root[data-theme='nyc'] .navbar-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+:root[data-theme='nyc'] .btn-primary {
+    background-color: #000000;
+    color: white;
+    border: 2px solid white;
+}
+
+:root[data-theme='nyc'] .btn-primary:hover {
+    background-color: white;
+    color: black;
+}
+
+:root[data-theme='nyc'] body {
+    font-family: var(--font-family);
+    background-color: #f7f7f7;
+    /* Light background for contrast */
+}
+
+:root[data-theme='nyc'] main {
+    background-color: var(--background);
+    margin-top: 0;
+    /* Remove top margin as navbar is sticky */
+    border-top: none;
+    /* Remove accent border */
+    max-width: 100%;
+    /* Full width wrapper */
+    padding: 0;
+}
+
+:root[data-theme='nyc'] .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+:root[data-theme='nyc'] h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+:root[data-theme='nyc'] button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 0;
+    /* Square buttons */
+    font-weight: bold;
+}
+
+/* News Feed Overrides for NYC */
+:root[data-theme='nyc'] .news-card {
+    background-color: white;
+}
+
+:root[data-theme='nyc'] .news-title {
+    color: #000000;
+    /* Force black for visibility */
+}
+
+:root[data-theme='nyc'] .news-excerpt {
+    color: #333333;
+}
+
+:root[data-theme='nyc'] .news-link {
+    color: var(--accent-color);
+    /* Orange */
+    text-decoration: underline;
+}
