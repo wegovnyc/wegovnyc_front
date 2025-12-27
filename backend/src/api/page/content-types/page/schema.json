@@ -30,7 +30,8 @@
                 "sections.cta",
                 "sections.project-network",
                 "sections.news-feed",
-                "sections.rich-text"
+                "sections.rich-text",
+                "sections.embed"
             ]
         },
         "seo": {

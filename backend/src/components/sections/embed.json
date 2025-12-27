@@ -1,0 +1,13 @@
+{
+    "collectionName": "components_sections_embeds",
+    "info": {
+        "displayName": "Embed",
+        "description": "Raw HTML embed code (e.g. iframe)"
+    },
+    "options": {},
+    "attributes": {
+        "html": {
+            "type": "text"
+        }
+    }
+}
