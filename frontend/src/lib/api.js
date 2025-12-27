@@ -9,6 +9,7 @@ export async function fetchAPI(path, options = {}) {
     const mergedOptions = {
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
             ...headers,
         },
         cache: isDraftMode ? 'no-store' : (cache || 'force-cache'),
