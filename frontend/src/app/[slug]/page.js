@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 async function getPageBySlug(slug) {
     const { isEnabled } = await draftMode();
-    const query = `/pages?filters[slug][$eq]=${slug}&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.rich-text][populate]=*`;
+    const query = `/pages?filters[slug][$eq]=${slug}&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.rich-text][populate]=*&populate[content][on][sections.embed]=true`;
 
     try {
         const response = await fetchAPI(query, { isDraftMode: isEnabled });

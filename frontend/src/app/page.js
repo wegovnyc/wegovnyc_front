@@ -10,7 +10,7 @@ async function getHomePage() {
   const { isEnabled } = await draftMode();
   try {
     // Explicitly populate nested components for dynamic zones
-    const query = '/pages?filters[slug][$eq]=home&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.feature-grid][populate][cards][populate]=*&populate[content][on][sections.cta][populate]=*&populate[content][on][sections.logo-cloud][populate][logos][populate]=*&populate[content][on][sections.project-network][populate][projects][populate]=image&populate[content][on][sections.news-feed][populate]=*';
+    const query = '/pages?filters[slug][$eq]=home&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.feature-grid][populate][cards][populate]=*&populate[content][on][sections.cta][populate]=*&populate[content][on][sections.logo-cloud][populate][logos][populate]=*&populate[content][on][sections.project-network][populate][projects][populate]=image&populate[content][on][sections.news-feed][populate]=*&populate[content][on][sections.embed]=true';
 
     const response = await fetchAPI(query, { isDraftMode: isEnabled });
     return response.data[0];
