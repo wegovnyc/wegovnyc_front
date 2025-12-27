@@ -17,7 +17,9 @@ const sectionComponents = {
 };
 
 export default function SectionRenderer({ sections }) {
-    if (!sections) return null;
+    if (!sections || sections.length === 0) {
+        return <div className="container" style={{ padding: '4rem 0', textAlign: 'center', color: '#666' }}>No content sections found on this page.</div>;
+    }
 
     return (
         <>
