@@ -5,6 +5,7 @@ import CallToAction from './CallToAction';
 import ProjectNetwork from './ProjectNetwork';
 import NewsFeed from './NewsFeed';
 import RichText from './RichText';
+import Embed from './Embed';
 
 const sectionComponents = {
     'sections.hero': Hero,
@@ -14,6 +15,7 @@ const sectionComponents = {
     'sections.project-network': ProjectNetwork,
     'sections.news-feed': NewsFeed,
     'sections.rich-text': RichText,
+    'sections.embed': Embed,
 };
 
 export default function SectionRenderer({ sections }) {
