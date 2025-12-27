@@ -26,7 +26,7 @@ export async function GET(request) {
     }
 
     // Enable Draft Mode by setting the cookie
-    draftMode().enable();
+    (await draftMode()).enable();
 
     // Redirect to the path from the fetched post
     // We don't verify the slug exists here to save an API call, but you could.
