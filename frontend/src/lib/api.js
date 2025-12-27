@@ -6,12 +6,17 @@ export async function fetchAPI(path, options = {}) {
     const { headers, cache, isDraftMode, ...queryParams } = options;
 
     // Merge default and user-provided headers
+    const headersConfig = {
+        'Content-Type': 'application/json',
+        ...headers,
+    };
+
+    if (process.env.STRAPI_API_TOKEN) {
+        headersConfig['Authorization'] = `Bearer ${process.env.STRAPI_API_TOKEN}`;
+    }
+
     const mergedOptions = {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-            ...headers,
-        },
+        headers: headersConfig,
         cache: isDraftMode ? 'no-store' : (cache || 'force-cache'),
     };
 
