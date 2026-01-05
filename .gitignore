@@ -4,3 +4,6 @@ api_response.json
 node_modules
 .env
 .idea
+
+# Backend is in separate repo: wegovnyc/wegovnyc_back
+backend/
