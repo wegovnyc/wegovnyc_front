@@ -161,127 +161,120 @@ module.exports = {
     }
 
     // 2. Seed Home Page (Full WeGov Structure)
-    // FORCE DELETE AND RECREATE to ensure full content structure
     const homePage = await strapi.db.query('api::page.page').findOne({ where: { slug: 'home' } });
-    if (homePage) {
-      await strapi.entityService.delete('api::page.page', homePage.id);
-      strapi.log.info('Deleted existing Home Page to re-seed');
+    if (!homePage) {
+      // Only seed if it doesn't exist
+      await strapi.entityService.create('api::page.page', {
+        data: {
+          title: 'Home',
+          slug: 'home',
+          publishedAt: new Date(),
+          content: [
+            {
+              __component: 'sections.hero',
+              title: "Let's Open Source New York City Government Together",
+              subtitle: "We're a nonprofit project creating and coordinating civic tech project to deliver New York City the world's best and most open municipal government.",
+              buttons: []
+            },
+            {
+              __component: 'sections.feature-grid',
+              title: 'Databook',
+              description: 'A collection of datasets and tools for exploring NYC government.',
+              cards: [
+                {
+                  title: 'Agencies',
+                  description: 'Data-powered profiles of every NYC government agency',
+                  link: { label: 'Explore', url: '/agencies', isExternal: false },
+                  image: images.agencies ? images.agencies.id : null
+                },
+                {
+                  title: 'People',
+                  description: 'Profiles of everyone in NYC government',
+                  link: { label: 'Find', url: '/people', isExternal: false },
+                  image: images.people ? images.people.id : null
+                },
+                {
+                  title: 'Notices',
+                  description: 'News and events from all of NYC\'s government agencies',
+                  link: { label: 'Search', url: '/notices', isExternal: false },
+                  image: images.notices ? images.notices.id : null
+                },
+                {
+                  title: 'Schools',
+                  description: 'K-12 school, building and district profiles',
+                  link: { label: 'Explore', url: '/schools', isExternal: false },
+                  image: images.schools ? images.schools.id : null
+                },
+                {
+                  title: 'Projects',
+                  description: 'A page for every capital project funded by NYC',
+                  link: { label: 'View', url: '/capital-projects', isExternal: false },
+                  image: images.projects ? images.projects.id : null
+                },
+                {
+                  title: 'Districts',
+                  description: 'Neighborhood, city council and community district data',
+                  link: { label: 'Explore', url: '/districts', isExternal: false },
+                  image: images.districts ? images.districts.id : null
+                },
+                {
+                  title: 'Titles',
+                  description: 'The roles, positions and pay of NYC\'s civil servants',
+                  link: { label: 'View', url: '/titles', isExternal: false },
+                  image: images.titles ? images.titles.id : null
+                },
+                {
+                  title: 'Auctions',
+                  description: 'A consolidated list of items being sold by city agencies',
+                  link: { label: 'Browse', url: '/auctions', isExternal: false },
+                  image: images.auctions ? images.auctions.id : null
+                }
+              ]
+            },
+
+            {
+              __component: 'sections.logo-cloud',
+              title: 'As Seen In',
+              logos: []
+            },
+
+
+
+            {
+              __component: 'sections.project-network',
+              title: 'Project Network',
+              description: 'Explore our network of civic tech projects.',
+              projects: createdProjectIds
+            },
+            {
+              __component: 'sections.news-feed',
+              title: 'News & Events',
+              description: 'Latest updates from the community.'
+            }
+          ]
+        }
+      });
+
+      strapi.log.info('Created Full Home Page data');
     }
-
-    await strapi.entityService.create('api::page.page', {
-      data: {
-        title: 'Home',
-        slug: 'home',
-        publishedAt: new Date(),
-        content: [
-          {
-            __component: 'sections.hero',
-            title: "Let's Open Source New York City Government Together",
-            subtitle: "We're a nonprofit project creating and coordinating civic tech project to deliver New York City the world's best and most open municipal government.",
-            buttons: []
-          },
-          {
-            __component: 'sections.feature-grid',
-            title: 'Databook',
-            description: 'A collection of datasets and tools for exploring NYC government.',
-            cards: [
-              {
-                title: 'Agencies',
-                description: 'Data-powered profiles of every NYC government agency',
-                link: { label: 'Explore', url: '/agencies', isExternal: false },
-                image: images.agencies ? images.agencies.id : null
-              },
-              {
-                title: 'People',
-                description: 'Profiles of everyone in NYC government',
-                link: { label: 'Find', url: '/people', isExternal: false },
-                image: images.people ? images.people.id : null
-              },
-              {
-                title: 'Notices',
-                description: 'News and events from all of NYC\'s government agencies',
-                link: { label: 'Search', url: '/notices', isExternal: false },
-                image: images.notices ? images.notices.id : null
-              },
-              {
-                title: 'Schools',
-                description: 'K-12 school, building and district profiles',
-                link: { label: 'Explore', url: '/schools', isExternal: false },
-                image: images.schools ? images.schools.id : null
-              },
-              {
-                title: 'Projects',
-                description: 'A page for every capital project funded by NYC',
-                link: { label: 'View', url: '/capital-projects', isExternal: false },
-                image: images.projects ? images.projects.id : null
-              },
-              {
-                title: 'Districts',
-                description: 'Neighborhood, city council and community district data',
-                link: { label: 'Explore', url: '/districts', isExternal: false },
-                image: images.districts ? images.districts.id : null
-              },
-              {
-                title: 'Titles',
-                description: 'The roles, positions and pay of NYC\'s civil servants',
-                link: { label: 'View', url: '/titles', isExternal: false },
-                image: images.titles ? images.titles.id : null
-              },
-              {
-                title: 'Auctions',
-                description: 'A consolidated list of items being sold by city agencies',
-                link: { label: 'Browse', url: '/auctions', isExternal: false },
-                image: images.auctions ? images.auctions.id : null
-              }
-            ]
-          },
-
-          {
-            __component: 'sections.logo-cloud',
-            title: 'As Seen In',
-            logos: []
-          },
-
-
-
-          {
-            __component: 'sections.project-network',
-            title: 'Project Network',
-            description: 'Explore our network of civic tech projects.',
-            projects: createdProjectIds
-          },
-          {
-            __component: 'sections.news-feed',
-            title: 'News & Events',
-            description: 'Latest updates from the community.'
-          }
-        ]
-      }
-    });
-
-    strapi.log.info('Created Full Home Page data');
 
     // Seed About Page
     const aboutPage = await strapi.db.query('api::page.page').findOne({ where: { slug: 'about' } });
-    if (aboutPage) {
-      await strapi.entityService.delete('api::page.page', aboutPage.id);
-      strapi.log.info('Deleted existing About Page to re-seed');
-    }
-
-    await strapi.entityService.create('api::page.page', {
-      data: {
-        title: 'About',
-        slug: 'about',
-        publishedAt: new Date(),
-        content: [
-          {
-            __component: 'sections.hero',
-            title: 'About WeGovNYC',
-            subtitle: 'Making NYC the best run municipality in the world.'
-          },
-          {
-            __component: 'sections.rich-text',
-            content: `WeGovNYC is an organizing initiative bringing public interest and civic technologists together to make New York City the best run municipality in the world.
+    if (!aboutPage) {
+      await strapi.entityService.create('api::page.page', {
+        data: {
+          title: 'About',
+          slug: 'about',
+          publishedAt: new Date(),
+          content: [
+            {
+              __component: 'sections.hero',
+              title: 'About WeGovNYC',
+              subtitle: 'Making NYC the best run municipality in the world.'
+            },
+            {
+              __component: 'sections.rich-text',
+              content: `WeGovNYC is an organizing initiative bringing public interest and civic technologists together to make New York City the best run municipality in the world.
 
 Through a combination of community building, product development and issue advocacy, WeGov advances a vision of an open source city that efficiently delivers projects and services to its residents, provides leadership to its region and actively contributes its knowledge to improve solutions for cities around the world.
 
@@ -291,13 +284,14 @@ Our initiative’s three main constituencies are:
 - Policy makers who want to use technology to improve the lives of the New Yorkers they serve.
 
 Check out our award-winning [Databook app](http://databook.wegov.nyc/) and please [get involved](https://www.notion.so/wegovnyc/Get-Involved-d31cee2e3ea04051b600e0a5b902daab)!`
-          }
-        ]
-      }
-    });
-    strapi.log.info('Created About Page data');
+            }
+          ]
+        }
+      });
+      strapi.log.info('Created About Page data');
+    }
 
-    // 3. Set Public Permissions
+    // 3. Set Public Permissions (always run)
     try {
       const publicRole = await strapi.db.query('plugin::users-permissions.role').findOne({ where: { type: 'public' } });
 

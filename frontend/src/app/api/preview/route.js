@@ -1,34 +1,26 @@
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { fetchAPI } from '@/lib/api';
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const secret = searchParams.get('secret');
     const slug = searchParams.get('slug');
-    const type = searchParams.get('type');
+    const previewSecret = process.env.PREVIEW_SECRET || 'test-secret';
 
-    // Check the secret and next parameters
-    // In production, you would store this secret in an environment variable like PREVIEW_SECRET
-    // For this demo, we'll hardcode a simple secret or check env
-    const previewSecret = process.env.PREVIEW_SECRET || 'wegov-preview-secret';
-
+    // 1. Validate Secret
     if (secret !== previewSecret) {
         return new Response('Invalid token', { status: 401 });
     }
 
-    // Determine path based on content type
-    let path = '/';
-    if (type === 'api::page.page') {
-        path = slug === 'home' ? '/' : `/${slug}`;
-    } else if (type === 'api::article.article') {
-        path = `/articles/${slug}`;
+    // 2. Validate Slug
+    if (!slug) {
+        return new Response('Missing slug', { status: 400 });
     }
 
-    // Enable Draft Mode by setting the cookie
-    (await draftMode()).enable();
+    // 3. Enable Draft Mode
+    const draft = await draftMode();
+    draft.enable();
 
-    // Redirect to the path from the fetched post
-    // We don't verify the slug exists here to save an API call, but you could.
-    redirect(path);
+    // 4. Redirect to the actual page
+    redirect(slug);
 }
