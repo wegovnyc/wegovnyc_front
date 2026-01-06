@@ -4,10 +4,11 @@ import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Always fetch fresh data
 
 async function getPageBySlug(slug) {
     const { isEnabled } = await draftMode();
-    const query = `/pages?filters[slug][$eq]=${slug}&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.rich-text][populate]=*&populate[content][on][sections.embed]=true`;
+    const query = `/pages?filters[slug][$eq]=${slug}&populate[content][on][sections.hero][populate]=*&populate[content][on][sections.rich-text][populate]=*&populate[content][on][sections.embed][populate]=*`;
 
     try {
         const response = await fetchAPI(query, { isDraftMode: isEnabled });
