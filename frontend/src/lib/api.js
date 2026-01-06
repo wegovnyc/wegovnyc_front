@@ -29,7 +29,7 @@ export async function fetchAPI(path, options = {}) {
 
     if (isDraftMode) {
         const separator = requestUrl.includes('?') ? '&' : '?';
-        requestUrl = `${requestUrl}${separator}publicationState=preview&status=draft`;
+        requestUrl = `${requestUrl}${separator}status=draft`;
     }
 
     const response = await fetch(requestUrl, mergedOptions);
