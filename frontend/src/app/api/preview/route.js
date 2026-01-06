@@ -1,5 +1,5 @@
 import { draftMode } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { NextResponse } from 'next/server';
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
@@ -21,6 +21,16 @@ export async function GET(request) {
     const draft = await draftMode();
     draft.enable();
 
-    // 4. Redirect to the actual page
-    redirect(slug);
+    // 4. Redirect to the actual page with draft mode cookie
+    const response = NextResponse.redirect(new URL(slug, request.url));
+
+    // Ensure cookie works in iframe (cross-site context)
+    response.cookies.set('__prerender_bypass', '', {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+        path: '/',
+    });
+
+    return response;
 }
