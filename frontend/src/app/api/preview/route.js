@@ -1,4 +1,4 @@
-import { draftMode } from 'next/headers';
+import { draftMode, cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {
@@ -21,16 +21,22 @@ export async function GET(request) {
     const draft = await draftMode();
     draft.enable();
 
-    // 4. Redirect to the actual page with draft mode cookie
+    // 4. Get the bypass cookie value that Next.js just set
+    const cookieStore = await cookies();
+    const bypassCookie = cookieStore.get('__prerender_bypass');
+
+    // 5. Redirect to the actual page
     const response = NextResponse.redirect(new URL(slug, request.url));
 
-    // Ensure cookie works in iframe (cross-site context)
-    response.cookies.set('__prerender_bypass', '', {
-        httpOnly: true,
-        sameSite: 'none',
-        secure: true,
-        path: '/',
-    });
+    // 6. Re-set the cookie with cross-site compatible attributes
+    if (bypassCookie?.value) {
+        response.cookies.set('__prerender_bypass', bypassCookie.value, {
+            httpOnly: true,
+            sameSite: 'none',
+            secure: true,
+            path: '/',
+        });
+    }
 
     return response;
 }
