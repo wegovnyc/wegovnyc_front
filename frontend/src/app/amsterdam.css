@@ -183,7 +183,7 @@
 }
 
 :root[data-theme='amsterdam'] .news-link {
-    color: var(--primary-color);
+    /* color override removed */
     text-decoration: underline;
     font-weight: 700;
 }

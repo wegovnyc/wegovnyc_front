@@ -99,7 +99,6 @@
 }
 
 :root[data-theme='nyc'] .news-link {
-    color: var(--accent-color);
-    /* Orange */
+    /* color override removed to match global black */
     text-decoration: underline;
 }

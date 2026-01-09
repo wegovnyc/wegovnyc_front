@@ -8,7 +8,7 @@ export default function LogoCloud({ data }) {
                 <div className="logo-grid">
                     {data.logos && data.logos.map((logo) => {
                         const imageUrl = logo.image?.url ? getStrapiMedia(logo.image.url) : null;
-                        return (
+                        const content = (
                             <div key={logo.id} className="logo-item" title={logo.name}>
                                 {imageUrl ? (
                                     <img src={imageUrl} alt={logo.name} />
@@ -17,6 +17,22 @@ export default function LogoCloud({ data }) {
                                 )}
                             </div>
                         );
+
+                        if (logo.url) {
+                            return (
+                                <a
+                                    key={logo.id}
+                                    href={logo.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ display: 'block' }}
+                                >
+                                    {content}
+                                </a>
+                            );
+                        }
+
+                        return content;
                     })}
 
                 </div>

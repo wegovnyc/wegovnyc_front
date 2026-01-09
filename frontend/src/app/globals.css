@@ -407,7 +407,7 @@ a:hover {
 
 .news-link {
   font-weight: bold;
-  color: var(--link-color, #0070f3);
+  color: #111;
   margin-top: auto;
   text-decoration: none;
 }
@@ -540,4 +540,28 @@ a:hover {
   .project-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Merged Section Styles */
+.merged-section-wrapper {
+  background-color: #fafafa;
+  /* Unified background color */
+  border-bottom: 1px solid #eee;
+}
+
+.merged-section-wrapper .feature-grid {
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
+.merged-section-wrapper .logo-cloud {
+  padding-top: 2rem;
+  background-color: transparent;
+}
+
+.merged-section-wrapper .logo-cloud h2 {
+  font-size: 1.5rem;
+  /* Make header smaller as it's a sub-section */
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
 }

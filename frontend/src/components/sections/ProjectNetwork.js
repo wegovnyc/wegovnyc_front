@@ -13,14 +13,14 @@ async function getProjects() {
 export default async function ProjectNetwork({ data }) {
     const { title, description, projects: relationProjects } = data || {};
 
-    let projects = relationProjects?.data;
-
-    // Fallback if no projects selected in backend
-    if (!projects || projects.length === 0) {
-        projects = await getProjects();
+    // Handle both Strapi v4 (nested .data) and potentially flattened structures
+    let projects = [];
+    if (Array.isArray(relationProjects)) {
+        projects = relationProjects;
+    } else if (relationProjects?.data) {
+        projects = relationProjects.data;
     }
 
-    if (!projects || projects.length === 0) return null;
 
     return (
         <section className="project-network-section">
