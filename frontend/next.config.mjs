@@ -1,5 +1,47 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: process.env.DIST_DIR || '.next',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '4337',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '4337',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.strapiapp.com',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dedicated-cherry-1494c7faee.strapiapp.com',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'updates.wegov.nyc',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wegov.nyc',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi.wegov.nyc',
+        pathname: '/uploads/**',
+      },
+    ],
+  },
   async headers() {
     return [
       {

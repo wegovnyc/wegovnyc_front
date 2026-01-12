@@ -4,11 +4,11 @@
     --foreground: #000000;
     /* Strict Black */
     /* Dark Gray */
-    --primary-color: #000000;
+    --primary-color: #1a1a2e;
     /* Light Gray wrapper */
     --accent-color: #F15A22;
     /* NYC Orange */
-    --header-bg: #000000;
+    --header-bg: #1a1a2e;
     --header-text: #ffffff;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* System Fonts */
@@ -17,7 +17,7 @@
 
 /* Specific NYC Theme Overrides */
 :root[data-theme='nyc'] .site-header {
-    background-color: #000000;
+    background-color: #1a1a2e;
     border-bottom: none;
 }
 
@@ -36,7 +36,7 @@
 }
 
 :root[data-theme='nyc'] .btn-primary {
-    background-color: #000000;
+    background-color: #1a1a2e;
     color: white;
     border: 2px solid white;
 }

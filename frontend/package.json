@@ -4,15 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:local": "DIST_DIR=.next-local NEXT_PUBLIC_STRAPI_URL=http://127.0.0.1:4337 next dev -p 3001",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "next": "16.1.1",
     "qs": "^6.14.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-markdown": "^10.1.0",
-    "rss-parser": "^3.13.0"
+    "rss-parser": "^3.13.0",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "form-data": "^4.0.5",
+    "vercel": "^50.3.0"
   }
 }
