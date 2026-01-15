@@ -1,7 +1,9 @@
 import { fetchAPI, getStrapiMedia } from '@/lib/api';
 import Link from 'next/link';
+import { draftMode } from 'next/headers';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }) {
     const { tag } = await params;
@@ -12,11 +14,12 @@ export async function generateMetadata({ params }) {
     };
 }
 
-async function getArticlesByTag(tag) {
+async function getArticlesByTag(tag, isDraftMode) {
     try {
         const decodedTag = decodeURIComponent(tag);
         const response = await fetchAPI(
-            `/articles?filters[tags][$contains]=${encodeURIComponent(decodedTag)}&populate=image&sort=originalPublishDate:desc`
+            `/articles?filters[tags][$contains]=${encodeURIComponent(decodedTag)}&populate=image&sort=originalPublishDate:desc`,
+            { isDraftMode }
         );
         return response.data || [];
     } catch (error) {
@@ -37,8 +40,9 @@ function formatDate(dateString) {
 
 export default async function TagPage({ params }) {
     const { tag } = await params;
+    const { isEnabled } = await draftMode();
     const decodedTag = decodeURIComponent(tag);
-    const articles = await getArticlesByTag(tag);
+    const articles = await getArticlesByTag(tag, isEnabled);
 
     return (
         <div className="blog-page">

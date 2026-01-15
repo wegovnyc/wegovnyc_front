@@ -50,7 +50,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://*.strapiapp.com https://dedicated-cherry-1494c7faee.strapiapp.com",
+            value: "frame-ancestors 'self' https://*.strapiapp.com https://dedicated-cherry-1494c7faee.strapiapp.com https://strapi.wegov.nyc http://localhost:1337",
           },
         ],
       },

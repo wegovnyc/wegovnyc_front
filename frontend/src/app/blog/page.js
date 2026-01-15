@@ -18,9 +18,9 @@ async function getBlogPage() {
     }
 }
 
-async function getArticles() {
+async function getArticles(isDraftMode) {
     try {
-        const response = await fetchAPI('/articles?populate=image&sort=originalPublishDate:desc');
+        const response = await fetchAPI('/articles?populate=image&sort=originalPublishDate:desc', { isDraftMode });
         return response.data || [];
     } catch (error) {
         console.error('Error fetching articles:', error);
@@ -53,8 +53,9 @@ function formatDate(dateString) {
 }
 
 export default async function BlogPage() {
+    const { isEnabled } = await draftMode();
     const page = await getBlogPage();
-    const articles = await getArticles();
+    const articles = await getArticles(isEnabled);
 
     // Get hero data from page content if available
     const heroSection = page?.content?.find(c => c.__component === 'sections.hero');

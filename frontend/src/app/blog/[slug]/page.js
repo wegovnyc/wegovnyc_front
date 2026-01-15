@@ -2,12 +2,14 @@ import { fetchAPI, getStrapiMedia } from '@/lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { draftMode } from 'next/headers';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
-async function getArticle(slug) {
+async function getArticle(slug, isDraftMode) {
     try {
-        const response = await fetchAPI(`/articles?filters[slug][$eq]=${slug}&populate=image`);
+        const response = await fetchAPI(`/articles?filters[slug][$eq]=${slug}&populate=image`, { isDraftMode });
         return response.data?.[0] || null;
     } catch (error) {
         console.error('Error fetching article:', error);
@@ -17,7 +19,8 @@ async function getArticle(slug) {
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
-    const article = await getArticle(slug);
+    const { isEnabled } = await draftMode();
+    const article = await getArticle(slug, isEnabled);
 
     if (!article) {
         return { title: 'Article Not Found' };
@@ -41,7 +44,8 @@ function formatDate(dateString) {
 
 export default async function ArticlePage({ params }) {
     const { slug } = await params;
-    const article = await getArticle(slug);
+    const { isEnabled } = await draftMode();
+    const article = await getArticle(slug, isEnabled);
 
     if (!article) {
         notFound();
