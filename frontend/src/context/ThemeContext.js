@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState('nyc'); // Default to NYC
+    const [theme, setTheme] = useState('wegov'); // Default to WeGov
 
     useEffect(() => {
         // Apply theme to document root

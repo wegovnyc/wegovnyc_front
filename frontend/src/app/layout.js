@@ -2,6 +2,7 @@ import { fetchAPI, getStrapiMedia } from '@/lib/api';
 import "./globals.css";
 import "./nyc.css";
 import "./amsterdam.css";
+import "./wegov.css";
 import { ThemeProvider } from '@/context/ThemeContext';
 import ThemeToggle from '@/components/ThemeToggle';
 import Footer from '@/components/Footer';

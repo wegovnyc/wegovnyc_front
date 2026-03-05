@@ -1,0 +1,591 @@
+/* WeGov Theme — Based on UNNY Design System */
+/* Source: https://unny.vercel.app */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root[data-theme='wegov'] {
+    /* Core Colors — UNNY palette */
+    --background: #F8F6F0;
+    --foreground: #1B2A4A;
+    --primary-color: #4B92DB;
+    /* UN Blue */
+    --accent-color: #D4A843;
+    /* Gold */
+    --header-bg: #1B2A4A;
+    /* Navy */
+    --header-text: #ffffff;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --link-color: #4B92DB;
+
+    /* Extended tokens */
+    --wegov-navy-deep: #0F1B33;
+    --wegov-navy-light: #2A3D63;
+    --wegov-blue-dark: #2E6EAE;
+    --wegov-blue-light: #7BB4E8;
+    --wegov-gold-light: #E8C978;
+    --wegov-gold-dark: #B08A2E;
+    --wegov-surface: #FFFFFF;
+    --wegov-surface-alt: #F4F1EB;
+    --wegov-text-secondary: #5A6A82;
+    --wegov-text-muted: #8A96A8;
+    --wegov-border: rgba(27, 42, 74, 0.1);
+    --wegov-shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.08);
+    --wegov-shadow-md: 0 4px 16px rgba(27, 42, 74, 0.1);
+    --wegov-shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
+    --wegov-radius-sm: 6px;
+    --wegov-radius-md: 10px;
+    --wegov-radius-lg: 16px;
+    --wegov-radius-xl: 24px;
+    --wegov-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Global --- */
+:root[data-theme='wegov'] body {
+    font-family: var(--font-family);
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme='wegov'] main {
+    background-color: var(--wegov-surface);
+    margin-top: 0;
+    border-top: none;
+    max-width: 100%;
+    padding: 0;
+}
+
+:root[data-theme='wegov'] .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- Typography --- */
+:root[data-theme='wegov'] h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] h3 {
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.25s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] a:hover {
+    color: var(--wegov-blue-dark);
+}
+
+/* --- Navbar --- */
+:root[data-theme='wegov'] .site-header {
+    background-color: var(--header-bg);
+    border-bottom: none;
+    box-shadow: none;
+}
+
+:root[data-theme='wegov'] .navbar-logo {
+    color: #ffffff;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--wegov-blue-light), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+:root[data-theme='wegov'] .navbar-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 0.875rem;
+    position: relative;
+    transition: color 0.25s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: width 0.3s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .navbar-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+:root[data-theme='wegov'] .navbar-link:hover::after {
+    width: 100%;
+}
+
+/* --- Hero --- */
+:root[data-theme='wegov'] .hero {
+    background: linear-gradient(175deg, var(--wegov-navy-deep) 0%, var(--header-bg) 40%, var(--wegov-navy-light) 100%);
+    color: #ffffff;
+    padding: 8rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+:root[data-theme='wegov'] .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(75, 146, 219, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(212, 168, 67, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+:root[data-theme='wegov'] .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 400;
+    background: linear-gradient(135deg, var(--wegov-blue-light), #ffffff 40%, var(--wegov-gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+:root[data-theme='wegov'] .hero .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Section Headings (solid, no gradient) --- */
+:root[data-theme='wegov'] .feature-grid h2,
+:root[data-theme='wegov'] .news-feed-section h2,
+:root[data-theme='wegov'] .project-network-section h2,
+:root[data-theme='wegov'] .articles-section h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: var(--foreground);
+}
+
+/* --- Buttons --- */
+:root[data-theme='wegov'] .btn,
+:root[data-theme='wegov'] .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--wegov-blue-dark));
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.3px;
+    padding: 12px 32px;
+    box-shadow: 0 4px 20px rgba(75, 146, 219, 0.3);
+    transition: all 0.3s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .btn:hover,
+:root[data-theme='wegov'] .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(75, 146, 219, 0.4);
+    background: linear-gradient(135deg, var(--wegov-blue-light), var(--primary-color));
+}
+
+:root[data-theme='wegov'] .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--header-bg);
+    color: var(--header-bg);
+    border-radius: 100px;
+    box-shadow: none;
+}
+
+:root[data-theme='wegov'] .btn-secondary:hover {
+    background: var(--header-bg);
+    color: #ffffff;
+    border-color: var(--header-bg);
+}
+
+/* btn-secondary on dark backgrounds (hero, CTA) */
+:root[data-theme='wegov'] .hero .btn-secondary,
+:root[data-theme='wegov'] .cta-section .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+:root[data-theme='wegov'] .hero .btn-secondary:hover,
+:root[data-theme='wegov'] .cta-section .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}
+
+:root[data-theme='wegov'] button {
+    font-family: var(--font-family);
+}
+
+/* --- Cards --- */
+:root[data-theme='wegov'] .card {
+    background: var(--wegov-surface);
+    border: 1px solid var(--wegov-border);
+    border-radius: var(--wegov-radius-lg);
+    box-shadow: var(--wegov-shadow-sm);
+    transition: all 0.35s var(--wegov-ease);
+    overflow: hidden;
+}
+
+:root[data-theme='wegov'] .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wegov-shadow-lg);
+}
+
+:root[data-theme='wegov'] .card-content h3 {
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+:root[data-theme='wegov'] .card-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.25s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .card-link:hover {
+    color: var(--wegov-blue-dark);
+}
+
+/* --- News Feed --- */
+:root[data-theme='wegov'] .news-feed-section {
+    background-color: var(--wegov-surface-alt);
+    border-top: none;
+}
+
+:root[data-theme='wegov'] .news-card {
+    background: var(--wegov-surface);
+    border: 1px solid var(--wegov-border);
+    border-radius: var(--wegov-radius-lg);
+    box-shadow: var(--wegov-shadow-sm);
+    transition: all 0.35s var(--wegov-ease);
+    position: relative;
+    overflow: hidden;
+}
+
+:root[data-theme='wegov'] .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wegov-shadow-lg);
+}
+
+:root[data-theme='wegov'] .news-card:hover::before {
+    opacity: 1;
+}
+
+:root[data-theme='wegov'] .news-title {
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+:root[data-theme='wegov'] .news-title:hover {
+    color: var(--primary-color);
+}
+
+:root[data-theme='wegov'] .news-excerpt {
+    color: var(--wegov-text-secondary);
+}
+
+:root[data-theme='wegov'] .news-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:root[data-theme='wegov'] .news-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+:root[data-theme='wegov'] .news-link:hover {
+    text-decoration: none;
+    color: var(--wegov-blue-dark);
+}
+
+:root[data-theme='wegov'] .news-image-wrapper {
+    border-radius: var(--wegov-radius-lg) var(--wegov-radius-lg) 0 0;
+}
+
+/* --- Project Network --- */
+:root[data-theme='wegov'] .project-card {
+    background: var(--wegov-surface);
+    border: 1px solid var(--wegov-border);
+    border-radius: var(--wegov-radius-lg);
+    box-shadow: var(--wegov-shadow-sm);
+    transition: all 0.35s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wegov-shadow-lg);
+}
+
+:root[data-theme='wegov'] .project-content h3 {
+    color: var(--foreground) !important;
+    font-weight: 600;
+}
+
+:root[data-theme='wegov'] .project-content .btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--wegov-blue-dark));
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(75, 146, 219, 0.3);
+}
+
+:root[data-theme='wegov'] .project-content .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(75, 146, 219, 0.4);
+}
+
+/* --- Feature Grid / Sections --- */
+:root[data-theme='wegov'] .feature-grid {
+    background-color: transparent;
+}
+
+/* Section heading styles are handled by the gradient rules above */
+:root[data-theme='wegov'] .feature-grid .description,
+:root[data-theme='wegov'] .project-network-section .section-description {
+    color: var(--wegov-text-secondary);
+}
+
+/* --- Logo Cloud --- */
+:root[data-theme='wegov'] .logo-cloud {
+    background-color: var(--wegov-surface-alt);
+}
+
+/* --- CTA Section --- */
+:root[data-theme='wegov'] .cta-section {
+    background: linear-gradient(135deg, var(--header-bg), var(--wegov-navy-light));
+    color: #ffffff;
+}
+
+:root[data-theme='wegov'] .cta-section h2 {
+    color: #ffffff;
+    font-family: 'DM Serif Display', Georgia, serif;
+}
+
+:root[data-theme='wegov'] .cta-section .cta-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Footer --- */
+:root[data-theme='wegov'] .site-footer {
+    background-color: var(--wegov-navy-deep);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+:root[data-theme='wegov'] .site-footer h3 {
+    color: #ffffff;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+}
+
+:root[data-theme='wegov'] .footer-link {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .footer-link:hover {
+    color: var(--wegov-gold-light);
+}
+
+:root[data-theme='wegov'] .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+:root[data-theme='wegov'] .footer-newsletter h3 {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Blog Overrides --- */
+:root[data-theme='wegov'] .blog-hero {
+    background: linear-gradient(175deg, var(--wegov-navy-deep) 0%, var(--header-bg) 60%, var(--primary-color) 100%);
+}
+
+:root[data-theme='wegov'] .blog-hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+:root[data-theme='wegov'] .blog-hero-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+:root[data-theme='wegov'] .blog-grid-section {
+    background: var(--wegov-surface-alt);
+}
+
+:root[data-theme='wegov'] .blog-card {
+    background: var(--wegov-surface);
+    border-radius: var(--wegov-radius-lg);
+    border: 1px solid var(--wegov-border);
+    box-shadow: var(--wegov-shadow-sm);
+    transition: all 0.35s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wegov-shadow-lg);
+}
+
+:root[data-theme='wegov'] .blog-card-title {
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+:root[data-theme='wegov'] .blog-card-title a {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .blog-card-title a:hover {
+    color: var(--primary-color);
+}
+
+:root[data-theme='wegov'] .blog-card-excerpt {
+    color: var(--wegov-text-secondary);
+}
+
+:root[data-theme='wegov'] .blog-card-author {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .blog-card-category {
+    background: linear-gradient(135deg, var(--primary-color), var(--wegov-blue-dark));
+    color: #ffffff;
+    border-radius: 100px;
+}
+
+:root[data-theme='wegov'] .blog-card-tag {
+    background: rgba(75, 146, 219, 0.1);
+    color: var(--primary-color);
+}
+
+:root[data-theme='wegov'] .blog-card-date {
+    color: var(--primary-color);
+}
+
+/* Blog article page */
+:root[data-theme='wegov'] .article-page {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .article-page .article-title {
+    color: var(--foreground);
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+}
+
+:root[data-theme='wegov'] .article-back-link {
+    color: var(--primary-color);
+}
+
+:root[data-theme='wegov'] .article-content {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .article-content h2,
+:root[data-theme='wegov'] .article-content h3 {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .article-content a {
+    color: var(--primary-color);
+}
+
+:root[data-theme='wegov'] .article-content blockquote {
+    border-left-color: var(--primary-color);
+    background: var(--wegov-surface-alt);
+}
+
+:root[data-theme='wegov'] .article-date {
+    color: var(--primary-color);
+}
+
+/* --- Merged Section Wrapper --- */
+:root[data-theme='wegov'] .merged-section-wrapper {
+    background-color: var(--wegov-surface-alt);
+    border-bottom: none;
+}
+
+/* --- Articles Section --- */
+:root[data-theme='wegov'] .articles-section {
+    background: linear-gradient(to bottom, var(--wegov-surface-alt), var(--wegov-surface));
+}
+
+:root[data-theme='wegov'] .articles-section .section-description {
+    color: var(--wegov-text-secondary);
+}
+
+:root[data-theme='wegov'] .article-excerpt {
+    color: var(--wegov-text-secondary);
+}
+
+:root[data-theme='wegov'] .article-date {
+    color: var(--wegov-text-muted);
+}
+
+:root[data-theme='wegov'] .article-card {
+    border-radius: var(--wegov-radius-lg);
+    box-shadow: var(--wegov-shadow-md);
+    transition: all 0.35s var(--wegov-ease);
+}
+
+:root[data-theme='wegov'] .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wegov-shadow-lg);
+}
+
+:root[data-theme='wegov'] .article-category {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 100px;
+}
+
+:root[data-theme='wegov'] .article-title {
+    color: var(--foreground);
+}
+
+:root[data-theme='wegov'] .article-title:hover {
+    color: var(--primary-color);
+}
