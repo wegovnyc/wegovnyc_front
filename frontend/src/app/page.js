@@ -4,7 +4,7 @@ import SectionRenderer from '@/components/sections/SectionRenderer';
 
 import { draftMode } from 'next/headers';
 
-export const revalidate = 1; // Force fresh content (temporary: set back to 3600 after cache clears)
+export const revalidate = 3600; // Revalidate every hour
 
 async function getHomePage() {
   const { isEnabled } = await draftMode();
