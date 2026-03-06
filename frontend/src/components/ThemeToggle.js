@@ -25,7 +25,7 @@ export default function ThemeToggle() {
     const themes = [
         { id: 'nyc', label: 'NYC Core Framework', flag: '/assets/nyc_flag.png' },
         { id: 'amsterdam', label: 'Amsterdam Design System', flag: '/assets/amsterdam_flag.png' },
-        { id: 'wegov', label: 'WeGov (UNNY)', flag: '/assets/wegov_flag.png' }
+        { id: 'wegov', label: 'WeGov', flag: '/assets/wegov_flag.png' }
     ];
 
     const currentTheme = themes.find(t => t.id === theme) || themes[0];
