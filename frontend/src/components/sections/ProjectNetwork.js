@@ -21,6 +21,7 @@ export default async function ProjectNetwork({ data }) {
         projects = relationProjects.data;
     }
 
+    if (projects.length === 0) return null;
 
     return (
         <section className="project-network-section">
