@@ -7,3 +7,4 @@ node_modules
 
 # Backend is in separate repo: wegovnyc/wegovnyc_back
 backend/
+frontend/.next-local/
