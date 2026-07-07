@@ -1,11 +1,16 @@
 /* ============================================
    UNNYC — Scoped Styles for wegov.nyc/unnyc
-   All selectors scoped under .unnyc-page
+
+   All selectors are scoped under `:root .unnyc-page` so they reliably
+   beat the global WeGov theme, whose element rules
+   (`:root[data-theme='wegov'] h1/h2/h3/a`, specificity 0,2,1) would
+   otherwise override UNNYC's colours and typography. Class names here
+   match exactly what the components in `components/unnyc/` render.
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* --- Design Tokens (scoped) --- */
+/* --- Design Tokens + page base (scoped) --- */
 .unnyc-page {
   /* Colors */
   --un-blue: #4B92DB;
@@ -71,18 +76,46 @@
 
   /* Base */
   font-family: var(--unnyc-font-body);
+  font-size: var(--unnyc-fs-base);
+  line-height: 1.6;
   color: var(--unnyc-text-primary);
+  background: var(--unnyc-surface);
+}
+
+/* --- Scoped resets (the standalone site set these globally) --- */
+.unnyc-page ul,
+.unnyc-page ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.unnyc-page img {
+  max-width: 100%;
+  display: block;
+}
+
+:root .unnyc-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.unnyc-page button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
 }
 
 /* --- Container --- */
-.unnyc-container {
+.unnyc-page .unnyc-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--unnyc-sp-6);
 }
 
 /* --- Hero --- */
-.unnyc-hero {
+.unnyc-page .unnyc-hero {
   position: relative;
   z-index: 0;
   min-height: 100vh;
@@ -93,7 +126,7 @@
   padding: var(--unnyc-sp-24) var(--unnyc-sp-6);
 }
 
-.unnyc-hero__bg {
+.unnyc-page .unnyc-hero__bg {
   position: absolute;
   inset: 0;
   background:
@@ -103,7 +136,7 @@
   z-index: -1;
 }
 
-.unnyc-hero__bg::before {
+.unnyc-page .unnyc-hero__bg::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -119,7 +152,8 @@
   to { transform: translate(-60px, -60px); }
 }
 
-.unnyc-hero__content {
+.unnyc-page .unnyc-hero__content {
+  position: relative;
   text-align: center;
   max-width: 800px;
   animation: unnyc-fadeUp 1s var(--unnyc-ease) forwards;
@@ -130,7 +164,8 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.unnyc-hero__eyebrow {
+.unnyc-page .unnyc-hero__eyebrow {
+  display: block;
   font-size: var(--unnyc-fs-sm);
   font-weight: 600;
   text-transform: uppercase;
@@ -139,23 +174,25 @@
   margin-bottom: var(--unnyc-sp-4);
 }
 
-h1.unnyc-hero__title {
+:root .unnyc-page .unnyc-hero__title {
   font-family: var(--unnyc-font-display);
+  font-weight: 400;
   font-size: clamp(var(--unnyc-fs-4xl), 6vw, var(--unnyc-fs-6xl));
   line-height: 1.1;
   color: #FFFFFF;
   margin-bottom: var(--unnyc-sp-6);
 }
 
-h1.unnyc-hero__title em {
+:root .unnyc-page .unnyc-hero__title em {
   font-style: normal;
   background: linear-gradient(135deg, var(--un-blue-light), var(--unnyc-gold-light));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
-p.unnyc-hero__subtitle {
+:root .unnyc-page .unnyc-hero__subtitle {
   font-size: var(--unnyc-fs-lg);
   color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
@@ -163,7 +200,7 @@ p.unnyc-hero__subtitle {
   line-height: 1.7;
 }
 
-.unnyc-hero__cta {
+.unnyc-page .unnyc-hero__cta {
   display: flex;
   gap: var(--unnyc-sp-4);
   justify-content: center;
@@ -171,17 +208,17 @@ p.unnyc-hero__subtitle {
   margin-bottom: var(--unnyc-sp-16);
 }
 
-.unnyc-hero__stats {
+.unnyc-page .unnyc-hero__stats {
   display: flex;
   justify-content: center;
   gap: var(--unnyc-sp-12);
 }
 
-.unnyc-hero__stat {
+.unnyc-page .unnyc-hero__stat {
   text-align: center;
 }
 
-.unnyc-hero__stat-number {
+.unnyc-page .unnyc-hero__stat-number {
   display: block;
   font-family: var(--unnyc-font-display);
   font-size: var(--unnyc-fs-4xl);
@@ -189,7 +226,7 @@ p.unnyc-hero__subtitle {
   line-height: 1;
 }
 
-.unnyc-hero__stat-label {
+.unnyc-page .unnyc-hero__stat-label {
   font-size: var(--unnyc-fs-xs);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
@@ -198,7 +235,7 @@ p.unnyc-hero__subtitle {
   display: block;
 }
 
-.unnyc-hero__scroll-indicator {
+.unnyc-page .unnyc-hero__scroll-indicator {
   position: absolute;
   bottom: var(--unnyc-sp-8);
   left: 50%;
@@ -213,7 +250,13 @@ p.unnyc-hero__subtitle {
   text-transform: uppercase;
 }
 
-.unnyc-hero__scroll-line {
+.unnyc-page .unnyc-hero__scroll-text {
+  font-size: var(--unnyc-fs-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.unnyc-page .unnyc-hero__scroll-line {
   width: 1px;
   height: 40px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
@@ -226,7 +269,7 @@ p.unnyc-hero__subtitle {
 }
 
 /* --- Buttons --- */
-.unnyc-btn {
+:root .unnyc-page .unnyc-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
@@ -239,42 +282,45 @@ p.unnyc-hero__subtitle {
   text-decoration: none;
 }
 
-a.unnyc-btn--primary {
+:root .unnyc-page .unnyc-btn--primary {
   background: linear-gradient(135deg, var(--un-blue), var(--un-blue-dark));
   color: #FFFFFF;
   box-shadow: 0 4px 20px rgba(75, 146, 219, 0.3);
 }
 
-a.unnyc-btn--primary:hover {
+:root .unnyc-page .unnyc-btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(75, 146, 219, 0.4);
 }
 
-a.unnyc-btn--outline {
+:root .unnyc-page .unnyc-btn--outline {
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
 }
 
-a.unnyc-btn--outline:hover {
+:root .unnyc-page .unnyc-btn--outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Sections --- */
-.unnyc-section {
+.unnyc-page .unnyc-section {
   padding: var(--unnyc-sp-24) 0;
+  background: var(--unnyc-surface);
 }
 
-.unnyc-section--alt {
+.unnyc-page .unnyc-section--alt {
   background: var(--unnyc-surface-alt);
 }
 
-.unnyc-section__header {
+.unnyc-page .unnyc-section__header {
   text-align: center;
-  margin-bottom: var(--unnyc-sp-16);
+  max-width: 720px;
+  margin: 0 auto var(--unnyc-sp-16);
 }
 
-.unnyc-section__eyebrow {
+.unnyc-page .unnyc-section__eyebrow {
+  display: block;
   font-size: var(--unnyc-fs-sm);
   font-weight: 600;
   text-transform: uppercase;
@@ -283,14 +329,15 @@ a.unnyc-btn--outline:hover {
   margin-bottom: var(--unnyc-sp-3);
 }
 
-.unnyc-section__title {
+:root .unnyc-page .unnyc-section__title {
   font-family: var(--unnyc-font-display);
+  font-weight: 400;
   font-size: clamp(var(--unnyc-fs-3xl), 4vw, var(--unnyc-fs-4xl));
   color: var(--unnyc-text-primary);
   margin-bottom: var(--unnyc-sp-4);
 }
 
-.unnyc-section__desc {
+.unnyc-page .unnyc-section__desc {
   font-size: var(--unnyc-fs-lg);
   color: var(--unnyc-text-secondary);
   max-width: 600px;
@@ -298,37 +345,42 @@ a.unnyc-btn--outline:hover {
 }
 
 /* --- About --- */
-.unnyc-about__grid {
+.unnyc-page .unnyc-about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--unnyc-sp-12);
   align-items: start;
 }
 
-.unnyc-about__text {
+.unnyc-page .unnyc-about__text {
   font-size: var(--unnyc-fs-lg);
   color: var(--unnyc-text-secondary);
   line-height: 1.8;
 }
 
-.unnyc-about__text p {
+.unnyc-page .unnyc-about__text p {
   margin-bottom: var(--unnyc-sp-6);
 }
 
-.unnyc-about__lead {
+:root .unnyc-page .unnyc-about__text a {
+  color: var(--un-blue);
+  font-weight: 500;
+}
+
+.unnyc-page .unnyc-about__lead {
   font-size: var(--unnyc-fs-xl);
   color: var(--unnyc-text-primary);
   font-weight: 400;
   line-height: 1.7;
 }
 
-.unnyc-about__cards {
+.unnyc-page .unnyc-about__cards {
   display: flex;
   flex-direction: column;
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-about__card {
+.unnyc-page .unnyc-about__card {
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
@@ -336,31 +388,33 @@ a.unnyc-btn--outline:hover {
   transition: all 0.3s var(--unnyc-ease);
 }
 
-.unnyc-about__card:hover {
+.unnyc-page .unnyc-about__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--unnyc-shadow-lg);
 }
 
-.unnyc-about__card-icon {
+.unnyc-page .unnyc-about__card-icon {
+  display: block;
   font-size: var(--unnyc-fs-3xl);
   margin-bottom: var(--unnyc-sp-3);
 }
 
-.unnyc-about__card h3 {
+:root .unnyc-page .unnyc-about__card h3 {
+  font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
   margin-bottom: var(--unnyc-sp-2);
   color: var(--unnyc-text-primary);
 }
 
-.unnyc-about__card p {
+.unnyc-page .unnyc-about__card p {
   font-size: var(--unnyc-fs-sm);
   color: var(--unnyc-text-secondary);
   line-height: 1.6;
 }
 
 /* --- Events --- */
-.unnyc-events__filter {
+.unnyc-page .unnyc-events__filter {
   display: flex;
   justify-content: center;
   gap: var(--unnyc-sp-3);
@@ -368,7 +422,7 @@ a.unnyc-btn--outline:hover {
   flex-wrap: wrap;
 }
 
-.unnyc-filter-btn {
+.unnyc-page .unnyc-events__filter-btn {
   padding: var(--unnyc-sp-2) var(--unnyc-sp-5);
   font-size: var(--unnyc-fs-sm);
   font-weight: 500;
@@ -381,24 +435,24 @@ a.unnyc-btn--outline:hover {
   font-family: inherit;
 }
 
-.unnyc-filter-btn:hover {
+.unnyc-page .unnyc-events__filter-btn:hover {
   border-color: var(--un-blue);
   color: var(--un-blue);
 }
 
-.unnyc-filter-btn.active {
+.unnyc-page .unnyc-events__filter-btn--active {
   background: var(--un-blue);
   color: #FFFFFF;
   border-color: var(--un-blue);
 }
 
-.unnyc-events__grid {
+.unnyc-page .unnyc-events__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-event-card {
+.unnyc-page .unnyc-event-card {
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
@@ -408,7 +462,7 @@ a.unnyc-btn--outline:hover {
   overflow: hidden;
 }
 
-.unnyc-event-card::before {
+.unnyc-page .unnyc-event-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -420,16 +474,16 @@ a.unnyc-btn--outline:hover {
   transition: opacity 0.3s var(--unnyc-ease);
 }
 
-.unnyc-event-card:hover {
+.unnyc-page .unnyc-event-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--unnyc-shadow-lg);
 }
 
-.unnyc-event-card:hover::before {
+.unnyc-page .unnyc-event-card:hover::before {
   opacity: 1;
 }
 
-.unnyc-event-card__badge {
+.unnyc-page .unnyc-event-card__badge {
   display: inline-block;
   padding: var(--unnyc-sp-1) var(--unnyc-sp-3);
   font-size: var(--unnyc-fs-xs);
@@ -440,30 +494,31 @@ a.unnyc-btn--outline:hover {
   margin-bottom: var(--unnyc-sp-4);
 }
 
-.unnyc-event-card__badge--un {
+.unnyc-page .unnyc-event-card__badge--un {
   background: rgba(75, 146, 219, 0.12);
   color: var(--un-blue-dark);
 }
 
-.unnyc-event-card__badge--nyc {
+.unnyc-page .unnyc-event-card__badge--nyc {
   background: rgba(212, 168, 67, 0.15);
   color: var(--unnyc-gold-dark);
 }
 
-.unnyc-event-card__badge--joint {
+.unnyc-page .unnyc-event-card__badge--joint {
   background: rgba(75, 146, 219, 0.08);
   color: var(--unnyc-navy);
   border: 1px solid var(--unnyc-border);
 }
 
-.unnyc-event-card__date {
+.unnyc-page .unnyc-event-card__date {
   font-size: var(--unnyc-fs-sm);
   color: var(--un-blue);
   font-weight: 600;
   margin-bottom: var(--unnyc-sp-2);
 }
 
-.unnyc-event-card__title {
+:root .unnyc-page .unnyc-event-card__title {
+  font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-xl);
   font-weight: 600;
   margin-bottom: var(--unnyc-sp-3);
@@ -471,7 +526,7 @@ a.unnyc-btn--outline:hover {
   line-height: 1.3;
 }
 
-.unnyc-event-card__location {
+.unnyc-page .unnyc-event-card__location {
   font-size: var(--unnyc-fs-sm);
   color: var(--unnyc-text-muted);
   margin-bottom: var(--unnyc-sp-3);
@@ -480,18 +535,18 @@ a.unnyc-btn--outline:hover {
   gap: var(--unnyc-sp-2);
 }
 
-.unnyc-event-card__location::before {
+.unnyc-page .unnyc-event-card__location::before {
   content: '📍';
   font-size: var(--unnyc-fs-xs);
 }
 
-.unnyc-event-card__desc {
+.unnyc-page .unnyc-event-card__desc {
   font-size: var(--unnyc-fs-sm);
   color: var(--unnyc-text-secondary);
   line-height: 1.6;
 }
 
-.unnyc-event-card__link {
+:root .unnyc-page .unnyc-event-card__link {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
@@ -503,22 +558,18 @@ a.unnyc-btn--outline:hover {
   text-decoration: none;
 }
 
-.unnyc-event-card__link:hover {
+.unnyc-page .unnyc-event-card__link:hover {
   gap: var(--unnyc-sp-3);
 }
 
-.unnyc-event-card__link::after {
-  content: '→';
-}
-
 /* --- Policy --- */
-.unnyc-policy__grid {
+.unnyc-page .unnyc-policy__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-policy-card {
+.unnyc-page .unnyc-policy__card {
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
@@ -526,12 +577,20 @@ a.unnyc-btn--outline:hover {
   transition: all 0.35s var(--unnyc-ease);
 }
 
-.unnyc-policy-card:hover {
+.unnyc-page .unnyc-policy__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--unnyc-shadow-lg);
 }
 
-.unnyc-policy-card__icon {
+.unnyc-page .unnyc-policy__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--unnyc-sp-4);
+  margin-bottom: var(--unnyc-sp-4);
+}
+
+.unnyc-page .unnyc-policy__card-icon {
+  flex-shrink: 0;
   width: 48px;
   height: 48px;
   border-radius: var(--unnyc-radius-md);
@@ -539,44 +598,51 @@ a.unnyc-btn--outline:hover {
   align-items: center;
   justify-content: center;
   font-size: var(--unnyc-fs-2xl);
-  margin-bottom: var(--unnyc-sp-4);
   background: var(--unnyc-surface-alt);
 }
 
-.unnyc-policy-card__title {
+:root .unnyc-page .unnyc-policy__card-title {
+  font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
   color: var(--unnyc-text-primary);
-  margin-bottom: var(--unnyc-sp-2);
+  margin: 0;
 }
 
-.unnyc-policy-card__un,
-.unnyc-policy-card__nyc {
-  font-size: var(--unnyc-fs-sm);
-  color: var(--unnyc-text-secondary);
-  padding: var(--unnyc-sp-2) 0;
+.unnyc-page .unnyc-policy__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unnyc-sp-4);
+}
+
+.unnyc-page .unnyc-policy__framework {
   line-height: 1.5;
 }
 
-.unnyc-policy-card__un strong,
-.unnyc-policy-card__nyc strong {
+:root .unnyc-page .unnyc-policy__framework-label {
+  font-family: var(--unnyc-font-body);
   color: var(--unnyc-text-primary);
   font-weight: 600;
   font-size: var(--unnyc-fs-xs);
   text-transform: uppercase;
   letter-spacing: 1px;
-  display: block;
-  margin-bottom: var(--unnyc-sp-1);
+  margin: 0 0 var(--unnyc-sp-1);
+}
+
+.unnyc-page .unnyc-policy__framework p {
+  font-size: var(--unnyc-fs-sm);
+  color: var(--unnyc-text-secondary);
+  line-height: 1.5;
 }
 
 /* --- Resources --- */
-.unnyc-resources__grid {
+.unnyc-page .unnyc-resources__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-resource-card {
+.unnyc-page .unnyc-resources__card {
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
@@ -584,148 +650,163 @@ a.unnyc-btn--outline:hover {
   transition: all 0.35s var(--unnyc-ease);
 }
 
-.unnyc-resource-card:hover {
+.unnyc-page .unnyc-resources__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--unnyc-shadow-lg);
 }
 
-.unnyc-resource-card__icon {
+.unnyc-page .unnyc-resources__card-icon {
+  display: block;
   font-size: var(--unnyc-fs-3xl);
   margin-bottom: var(--unnyc-sp-3);
 }
 
-.unnyc-resource-card__title {
+:root .unnyc-page .unnyc-resources__card-title {
+  font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
   color: var(--unnyc-text-primary);
   margin-bottom: var(--unnyc-sp-2);
 }
 
-.unnyc-resource-card__desc {
+.unnyc-page .unnyc-resources__card-desc {
   font-size: var(--unnyc-fs-sm);
   color: var(--unnyc-text-secondary);
   line-height: 1.6;
   margin-bottom: var(--unnyc-sp-4);
 }
 
-.unnyc-resource-card__links {
+.unnyc-page .unnyc-resources__links {
   display: flex;
   flex-direction: column;
   gap: var(--unnyc-sp-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.unnyc-resource-card__links a {
+:root .unnyc-page .unnyc-resources__link {
   font-size: var(--unnyc-fs-sm);
   font-weight: 500;
   color: var(--un-blue);
   transition: color 0.2s;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
   text-decoration: none;
 }
 
-.unnyc-resource-card__links a::before {
+.unnyc-page .unnyc-resources__link::before {
   content: '→';
   font-size: var(--unnyc-fs-xs);
 }
 
-.unnyc-resource-card__links a:hover {
+:root .unnyc-page .unnyc-resources__link:hover {
   color: var(--un-blue-dark);
 }
 
 /* --- Directory --- */
-.unnyc-directory__columns {
+.unnyc-page .unnyc-directory__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--unnyc-sp-8);
 }
 
-.unnyc-directory__column {
+.unnyc-page .unnyc-directory__column {
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
   overflow: hidden;
 }
 
-.unnyc-directory__header {
+:root .unnyc-page .unnyc-directory__header {
+  font-family: var(--unnyc-font-body);
   padding: var(--unnyc-sp-5) var(--unnyc-sp-6);
   font-size: var(--unnyc-fs-sm);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-bottom: 1px solid var(--unnyc-border);
+  margin: 0;
 }
 
-.unnyc-directory__header--un {
+:root .unnyc-page .unnyc-directory__header--un {
   background: rgba(75, 146, 219, 0.08);
   color: var(--un-blue-dark);
 }
 
-.unnyc-directory__header--nyc {
+:root .unnyc-page .unnyc-directory__header--nyc {
   background: rgba(212, 168, 67, 0.08);
   color: var(--unnyc-gold-dark);
 }
 
-.unnyc-directory__header--nys {
+:root .unnyc-page .unnyc-directory__header--nys {
   background: rgba(27, 42, 74, 0.06);
   color: var(--unnyc-navy);
 }
 
-.unnyc-directory__list {
+.unnyc-page .unnyc-directory__list {
   padding: var(--unnyc-sp-4);
+  list-style: none;
+  margin: 0;
 }
 
-.unnyc-directory__item {
+.unnyc-page .unnyc-directory__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   padding: var(--unnyc-sp-3) var(--unnyc-sp-4);
   border-radius: var(--unnyc-radius-sm);
   transition: background 0.2s var(--unnyc-ease);
   margin-bottom: var(--unnyc-sp-1);
 }
 
-.unnyc-directory__item:hover {
+.unnyc-page .unnyc-directory__item:hover {
   background: var(--unnyc-surface-alt);
 }
 
-.unnyc-directory__item-name {
+.unnyc-page .unnyc-directory__name {
   font-size: var(--unnyc-fs-sm);
   font-weight: 600;
   color: var(--unnyc-text-primary);
-  margin-bottom: 2px;
 }
 
-.unnyc-directory__item-address {
+.unnyc-page .unnyc-directory__address {
   font-size: var(--unnyc-fs-xs);
   color: var(--unnyc-text-muted);
 }
 
-.unnyc-directory__item-link {
+:root .unnyc-page .unnyc-directory__link {
   font-size: var(--unnyc-fs-xs);
   color: var(--un-blue);
   font-weight: 500;
   text-decoration: none;
 }
 
+:root .unnyc-page .unnyc-directory__link:hover {
+  color: var(--un-blue-dark);
+}
+
 /* --- Map --- */
-.unnyc-section--map {
+.unnyc-page .unnyc-section--map {
   padding-bottom: var(--unnyc-sp-12);
 }
 
-.unnyc-map__wrapper {
+.unnyc-page .unnyc-map-wrapper {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr 220px;
   gap: var(--unnyc-sp-6);
-  min-height: 500px;
+  min-height: 480px;
 }
 
-.unnyc-map__container {
+.unnyc-page .unnyc-map-container {
   border-radius: var(--unnyc-radius-lg);
   overflow: hidden;
   border: 1px solid var(--unnyc-border);
-  min-height: 500px;
+  min-height: 480px;
 }
 
-.unnyc-map__legend {
+.unnyc-page .unnyc-map-legend {
   display: flex;
   flex-direction: column;
   gap: var(--unnyc-sp-3);
@@ -736,7 +817,7 @@ a.unnyc-btn--outline:hover {
   align-self: start;
 }
 
-.unnyc-legend__item {
+.unnyc-page .unnyc-map-legend-item {
   display: flex;
   align-items: center;
   gap: var(--unnyc-sp-3);
@@ -747,25 +828,32 @@ a.unnyc-btn--outline:hover {
   transition: background 0.2s;
 }
 
-.unnyc-legend__item:hover {
+.unnyc-page .unnyc-map-legend-item:hover {
   background: var(--unnyc-surface-alt);
 }
 
-.unnyc-legend__dot {
+.unnyc-page .unnyc-map-legend-swatch {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
+.unnyc-page .unnyc-map-legend-label {
+  font-size: var(--unnyc-fs-sm);
+  color: var(--unnyc-text-secondary);
+}
+
 /* --- News --- */
-.unnyc-news__grid {
+.unnyc-page .unnyc-news__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-news-card {
+.unnyc-page .unnyc-news__card {
+  display: flex;
+  flex-direction: column;
   background: var(--unnyc-surface);
   border: 1px solid var(--unnyc-border);
   border-radius: var(--unnyc-radius-lg);
@@ -773,12 +861,12 @@ a.unnyc-btn--outline:hover {
   transition: all 0.35s var(--unnyc-ease);
 }
 
-.unnyc-news-card:hover {
+.unnyc-page .unnyc-news__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--unnyc-shadow-lg);
 }
 
-.unnyc-news-card__source {
+.unnyc-page .unnyc-news__source {
   font-size: var(--unnyc-fs-xs);
   font-weight: 600;
   text-transform: uppercase;
@@ -787,7 +875,8 @@ a.unnyc-btn--outline:hover {
   margin-bottom: var(--unnyc-sp-3);
 }
 
-.unnyc-news-card__title {
+:root .unnyc-page .unnyc-news__title {
+  font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
   color: var(--unnyc-text-primary);
@@ -795,86 +884,114 @@ a.unnyc-btn--outline:hover {
   line-height: 1.4;
 }
 
-.unnyc-news-card__excerpt {
+.unnyc-page .unnyc-news__excerpt {
   font-size: var(--unnyc-fs-sm);
   color: var(--unnyc-text-secondary);
   line-height: 1.6;
   margin-bottom: var(--unnyc-sp-4);
+  flex: 1;
 }
 
-.unnyc-news-card__date {
+.unnyc-page .unnyc-news__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--unnyc-sp-3);
+  margin-top: auto;
+}
+
+.unnyc-page .unnyc-news__date {
   font-size: var(--unnyc-fs-xs);
   color: var(--unnyc-text-muted);
 }
 
-.unnyc-news-card__link {
+:root .unnyc-page .unnyc-news__link {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
   font-size: var(--unnyc-fs-sm);
   font-weight: 600;
   color: var(--un-blue);
-  margin-top: var(--unnyc-sp-3);
   transition: gap 0.25s var(--unnyc-ease);
   text-decoration: none;
 }
 
-.unnyc-news-card__link:hover {
-  gap: var(--unnyc-sp-3);
-}
-
-.unnyc-news-card__link::after {
+.unnyc-page .unnyc-news__link::after {
   content: '→';
 }
 
+.unnyc-page .unnyc-news__link:hover {
+  gap: var(--unnyc-sp-3);
+}
+
 /* --- Footer --- */
-.unnyc-footer {
+.unnyc-page .unnyc-footer {
   background: var(--unnyc-navy-deep);
   color: rgba(255, 255, 255, 0.7);
   padding: var(--unnyc-sp-16) 0 var(--unnyc-sp-8);
 }
 
-.unnyc-footer__inner {
+.unnyc-page .unnyc-footer__grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: var(--unnyc-sp-12);
   margin-bottom: var(--unnyc-sp-12);
 }
 
-.unnyc-logo-mark {
+.unnyc-page .unnyc-footer__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: var(--unnyc-font-display);
+  font-size: var(--unnyc-fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.unnyc-page .unnyc-footer__logo-un {
   color: var(--un-blue);
   font-family: var(--unnyc-font-display);
-  font-size: var(--unnyc-fs-2xl);
 }
 
-.unnyc-logo-ny {
+.unnyc-page .unnyc-footer__logo-nyc {
   color: var(--unnyc-gold);
   font-family: var(--unnyc-font-display);
-  font-size: var(--unnyc-fs-2xl);
 }
 
-.unnyc-footer__tagline {
+.unnyc-page .unnyc-footer__tagline {
   font-size: var(--unnyc-fs-sm);
   margin-top: var(--unnyc-sp-3);
   color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
+  max-width: 320px;
 }
 
-.unnyc-footer__links {
+.unnyc-page .unnyc-footer__nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--unnyc-sp-6);
 }
 
-.unnyc-footer__col h4 {
+:root .unnyc-page .unnyc-footer__column-title {
+  font-family: var(--unnyc-font-body);
   color: #FFFFFF;
   font-size: var(--unnyc-fs-sm);
   font-weight: 600;
-  margin-bottom: var(--unnyc-sp-4);
+  margin: 0 0 var(--unnyc-sp-4);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.unnyc-footer__col a {
+.unnyc-page .unnyc-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unnyc-sp-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:root .unnyc-page .unnyc-footer__links a {
   display: block;
   font-size: var(--unnyc-fs-sm);
   color: rgba(255, 255, 255, 0.5);
@@ -883,92 +1000,96 @@ a.unnyc-btn--outline:hover {
   text-decoration: none;
 }
 
-.unnyc-footer__col a:hover {
+:root .unnyc-page .unnyc-footer__links a:hover {
   color: var(--unnyc-gold-light);
 }
 
-.unnyc-footer__bottom {
+.unnyc-page .unnyc-footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: var(--unnyc-sp-6);
   text-align: center;
   font-size: var(--unnyc-fs-xs);
   color: rgba(255, 255, 255, 0.3);
+  line-height: 1.6;
 }
 
-.unnyc-footer__bottom a {
+:root .unnyc-page .unnyc-footer__bottom a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.unnyc-footer__bottom a:hover {
+:root .unnyc-page .unnyc-footer__bottom a:hover {
   color: var(--unnyc-gold-light);
 }
 
 /* --- Reveal Animation --- */
-.unnyc-reveal {
+.unnyc-page .unnyc-reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s var(--unnyc-ease), transform 0.7s var(--unnyc-ease);
 }
 
-.unnyc-reveal.unnyc-visible {
+.unnyc-page .unnyc-reveal.unnyc-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
-  .unnyc-about__grid {
+  .unnyc-page .unnyc-about__grid {
     grid-template-columns: 1fr;
   }
 
-  .unnyc-directory__columns {
+  .unnyc-page .unnyc-directory__grid {
     grid-template-columns: 1fr;
   }
 
-  .unnyc-map__wrapper {
+  .unnyc-page .unnyc-map-wrapper {
     grid-template-columns: 1fr;
   }
 
-  .unnyc-map__legend {
+  .unnyc-page .unnyc-map-legend {
     flex-direction: row;
     flex-wrap: wrap;
   }
 }
 
 @media (max-width: 768px) {
-  .unnyc-hero__stats {
+  .unnyc-page .unnyc-hero__stats {
     flex-direction: column;
     gap: var(--unnyc-sp-6);
   }
 
-  .unnyc-hero__stat-number {
+  .unnyc-page .unnyc-hero__stat-number {
     font-size: var(--unnyc-fs-3xl);
   }
 
-  .unnyc-events__grid,
-  .unnyc-news__grid {
+  .unnyc-page .unnyc-events__grid,
+  .unnyc-page .unnyc-news__grid {
     grid-template-columns: 1fr;
   }
 
-  .unnyc-footer__inner {
+  .unnyc-page .unnyc-footer__grid {
     grid-template-columns: 1fr;
   }
 
-  .unnyc-footer__links {
-    grid-template-columns: 1fr;
+  .unnyc-page .unnyc-footer__nav {
     gap: var(--unnyc-sp-8);
   }
 
-  .unnyc-section {
+  .unnyc-page .unnyc-section {
     padding: var(--unnyc-sp-16) 0;
   }
 }
 
 @media (max-width: 480px) {
-  .unnyc-policy__grid,
-  .unnyc-resources__grid {
+  .unnyc-page .unnyc-policy__grid,
+  .unnyc-page .unnyc-resources__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unnyc-page .unnyc-footer__nav {
     grid-template-columns: 1fr;
   }
 }
@@ -986,14 +1107,15 @@ a.unnyc-btn--outline:hover {
   line-height: 1.5 !important;
 }
 
-.unnyc-page .leaflet-popup-content strong {
+.unnyc-page .unnyc-map-popup strong {
   display: block;
   font-size: var(--unnyc-fs-base);
+  color: var(--unnyc-text-primary);
   margin-bottom: var(--unnyc-sp-1);
 }
 
-.unnyc-page .leaflet-popup-content em {
-  font-style: normal;
-  color: var(--unnyc-text-muted);
+.unnyc-page .unnyc-map-popup p {
   font-size: var(--unnyc-fs-xs);
+  color: var(--unnyc-text-muted);
+  margin: 0;
 }
