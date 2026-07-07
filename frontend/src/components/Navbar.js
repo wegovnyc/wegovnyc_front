@@ -35,9 +35,8 @@ export default function Navbar({ data, siteName, children }) {
                                     href={link.url}
                                     target={link.isExternal ? '_blank' : '_self'}
                                     className="navbar-link"
-                                    onClick={(e) => {
+                                    onClick={() => {
                                         if (link.children) {
-                                            e.preventDefault();
                                             setOpenDropdown(openDropdown === link.id ? null : link.id);
                                         }
                                     }}
