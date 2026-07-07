@@ -1,0 +1,4 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh-keygen -p -f /Users/devin/Antigravity/WeGovMarketing/ssh_key.pem -N "" -P "Sq;LfI)?~5O?"
+expect eof

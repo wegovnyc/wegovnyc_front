@@ -1,0 +1,11 @@
+#!/usr/bin/expect -f
+set timeout 45
+set cmd "if \[ -f /root/.env \]; then echo '\nCLIENT_URL=https://wegov.nyc' >> /root/.env; echo UPDATED_ROOT; fi; if \[ -f /root/WeGovMarketing/backend/.env \]; then echo '\nCLIENT_URL=https://wegov.nyc' >> /root/WeGovMarketing/backend/.env; echo UPDATED_ROOT_REPO; fi; if \[ -f /home/ubuntu/WeGovMarketing/backend/.env \]; then echo '\nCLIENT_URL=https://wegov.nyc' >> /home/ubuntu/WeGovMarketing/backend/.env; echo UPDATED_UBUNTU_REPO; fi; docker restart wegov_strapi 2>/dev/null && echo RESTARTED_DOCKER; pm2 restart all 2>/dev/null && echo RESTARTED_PM2; echo FINISHED"
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc $cmd
+expect {
+    "Enter passphrase*" { send "Sq;LfI)?~5O?\r"; exp_continue }
+    "UPDATED_*" { puts "\nMATCH: $expect_out(buffer)"; exp_continue }
+    "RESTARTED_*" { puts "\nMATCH: $expect_out(buffer)"; exp_continue }
+    "FINISHED" { puts "\nOperation Complete" }
+    eof
+}

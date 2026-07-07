@@ -3,8 +3,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 /**
- * Main site navigation with optional dropdown submenus.
- * Nav links with a `children` array render as dropdown menus.
+ * Main site navigation with optional horizontal submenu bar.
+ * Nav links with a `children` array render as an in-flow submenu
+ * that pushes page content down (not an overlay).
  */
 export default function Navbar({ data, siteName, children }) {
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -28,33 +29,18 @@ export default function Navbar({ data, siteName, children }) {
                         {data.links && data.links.map((link) => (
                             <li
                                 key={link.id}
-                                className={link.children ? 'navbar-dropdown' : ''}
+                                className={link.children ? 'navbar-has-submenu' : ''}
                                 onMouseEnter={() => link.children && setOpenDropdown(link.id)}
                                 onMouseLeave={() => link.children && setOpenDropdown(null)}
                             >
                                 <Link
                                     href={link.url}
                                     target={link.isExternal ? '_blank' : '_self'}
-                                    className={`navbar-link ${link.children ? 'navbar-link--has-dropdown' : ''}`}
+                                    className={`navbar-link ${link.children ? 'navbar-link--has-submenu' : ''}`}
                                 >
                                     {link.label}
-                                    {link.children && <span className="navbar-dropdown-arrow">▾</span>}
+                                    {link.children && <span className="navbar-submenu-arrow">▾</span>}
                                 </Link>
-                                {link.children && openDropdown === link.id && (
-                                    <ul className="navbar-dropdown-menu">
-                                        {link.children.map((child) => (
-                                            <li key={child.id}>
-                                                <Link
-                                                    href={child.url}
-                                                    target={child.isExternal ? '_blank' : '_self'}
-                                                    className="navbar-dropdown-link"
-                                                >
-                                                    {child.label}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
                             </li>
                         ))}
                     </ul>
@@ -72,6 +58,34 @@ export default function Navbar({ data, siteName, children }) {
                     )}
                 </div>
             </div>
+
+            {/* Submenu bar — renders in document flow, pushes content down */}
+            {data.links && data.links.map((link) => (
+                link.children && openDropdown === link.id && (
+                    <div
+                        key={`sub-${link.id}`}
+                        className="navbar-submenu-bar"
+                        onMouseEnter={() => setOpenDropdown(link.id)}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                    >
+                        <div className="container">
+                            <ul className="navbar-submenu-links">
+                                {link.children.map((child) => (
+                                    <li key={child.id}>
+                                        <Link
+                                            href={child.url}
+                                            target={child.isExternal ? '_blank' : '_self'}
+                                            className="navbar-submenu-link"
+                                        >
+                                            {child.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )
+            ))}
         </nav>
     );
 }

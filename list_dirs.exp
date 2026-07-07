@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "echo '---ROOT---'; ls -la /root; echo '---UBUNTU---'; ls -la /home/ubuntu 2>/dev/null; echo '---VAR---'; ls -la /var/www 2>/dev/null"
+expect {
+    "Enter passphrase*" { send "Sq;LfI)?~5O?\r"; exp_continue }
+    eof
+}
+puts "\n---BUFFER_START---"
+puts [string range $expect_out(buffer) 0 5000]
+puts "---BUFFER_END---"

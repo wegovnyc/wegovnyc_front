@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh-add /Users/devin/Antigravity/WeGovMarketing/ssh_key.pem
+expect {
+    "Enter passphrase*" {
+        send "Sq;LfI)?~5O?\r"
+        exp_continue
+    }
+    "Identity added*" {
+        puts "Key added successfully"
+    }
+    eof
+}

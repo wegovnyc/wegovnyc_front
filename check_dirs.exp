@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+set timeout 20
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "echo START; ls -la /root; echo END"
+expect {
+    "Enter passphrase*" { send "Sq;LfI)?~5O?\r"; exp_continue }
+    eof
+}

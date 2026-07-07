@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+set timeout 45
+# Force TTY allocation with -tt to avoid buffering issues
+spawn ssh -tt -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "/bin/bash -c 'find /root /home /var /opt -name .env -maxdepth 4 2>/dev/null'"
+expect {
+    -re "Enter passphrase.*" {
+        send "Sq;LfI)?~5O?\r"
+        exp_continue
+    }
+    -re "Permission denied.*" {
+        puts "\nAUTH_FAILED"
+        exit 1
+    }
+    eof
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "if \[ -f /root/.env \]; then echo FOUND_ROOT_ENV; fi; if \[ -f /root/WeGovMarketing/backend/.env \]; then echo FOUND_ROOT_REPO_ENV; fi; if \[ -f /home/ubuntu/WeGovMarketing/backend/.env \]; then echo FOUND_UBUNTU_REPO_ENV; fi; if \[ -f /var/www/strapi/.env \]; then echo FOUND_VAR_ENV; fi; echo DONE"
+expect {
+    "Enter passphrase*" { send "Sq;LfI)?~5O?\r"; exp_continue }
+    "FOUND_*" { puts "\nMATCH: $expect_out(buffer)"; exp_continue }
+    "DONE" { puts "\nPROBE_COMPLETE" }
+    eof
+}

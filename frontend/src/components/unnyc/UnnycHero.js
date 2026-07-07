@@ -63,49 +63,51 @@ export default function UnnycHero() {
 
   return (
     <section className="unnyc-hero" ref={sectionRef}>
-      <div className="unnyc-hero-content">
-        <span className="unnyc-hero-eyebrow">Information Hub</span>
+      <div className="unnyc-hero__bg" aria-hidden="true" />
+      <div className="unnyc-hero__content">
+        <span className="unnyc-hero__eyebrow">Information Hub</span>
 
-        <h1 className="unnyc-hero-title">
+        <h1 className="unnyc-hero__title">
           Where the <em>United Nations</em> Meets <em>New York</em>
         </h1>
 
-        <p className="unnyc-hero-subtitle">
-          Connecting UN staff, NYC agencies, and NYS offices through a shared
-          resource for collaboration, events, and city&ndash;diplomacy
-          coordination.
+        <p className="unnyc-hero__subtitle">
+          Connecting UN staff, NYC agencies, and NYS offices through shared
+          resources, events, and policy collaboration in the world&apos;s most
+          international city.
         </p>
 
-        <div className="unnyc-hero-cta">
-          <Link href="/unnyc/guide" className="unnyc-btn unnyc-btn-primary">
+        <div className="unnyc-hero__cta">
+          <Link href="/unnyc/guide" className="unnyc-btn unnyc-btn--primary">
             Recommendations for NYC
           </Link>
-          <a href="#events" className="unnyc-btn unnyc-btn-secondary">
+          <a href="#events" className="unnyc-btn unnyc-btn--outline">
             Upcoming Events
           </a>
-          <a href="#directory" className="unnyc-btn unnyc-btn-outline">
+          <a href="#directory" className="unnyc-btn unnyc-btn--outline">
             Explore Directory
           </a>
         </div>
 
-        <div className="unnyc-hero-stats">
-          <div className="unnyc-stat">
-            <span className="unnyc-stat-number" data-count="193">0</span>
-            <span className="unnyc-stat-label">UN Member States</span>
+        <div className="unnyc-hero__stats">
+          <div className="unnyc-hero__stat">
+            <span className="unnyc-hero__stat-number" data-count="193">0</span>
+            <span className="unnyc-hero__stat-label">UN Member States</span>
           </div>
-          <div className="unnyc-stat">
-            <span className="unnyc-stat-number" data-count="130">0</span>
-            <span className="unnyc-stat-label">NYC Agencies</span>
+          <div className="unnyc-hero__stat">
+            <span className="unnyc-hero__stat-number" data-count="130">0</span>
+            <span className="unnyc-hero__stat-label">NYC Agencies</span>
           </div>
-          <div className="unnyc-stat">
-            <span className="unnyc-stat-number" data-count="50">0</span>
-            <span className="unnyc-stat-label">NYS Offices in NYC</span>
+          <div className="unnyc-hero__stat">
+            <span className="unnyc-hero__stat-number" data-count="50">0</span>
+            <span className="unnyc-hero__stat-label">NYS Offices in NYC</span>
           </div>
         </div>
       </div>
 
-      <div className="unnyc-hero-scroll-indicator">
-        <span className="unnyc-scroll-arrow" aria-hidden="true">&#8595;</span>
+      <div className="unnyc-hero__scroll-indicator">
+        <span className="unnyc-hero__scroll-text">SCROLL</span>
+        <span className="unnyc-hero__scroll-line" aria-hidden="true" />
       </div>
     </section>
   );

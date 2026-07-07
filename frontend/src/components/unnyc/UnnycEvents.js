@@ -35,39 +35,41 @@ export default function UnnycEvents() {
     : events;
 
   return (
-    <section id="events" className="unnyc-events">
-      <div className="unnyc-events-header">
-        <span className="unnyc-eyebrow">What&apos;s Happening</span>
-        <h2 className="unnyc-section-title">Upcoming Events</h2>
-      </div>
+    <section id="events" className="unnyc-section unnyc-section--alt">
+      <div className="unnyc-container">
+        <header className="unnyc-section__header">
+          <span className="unnyc-section__eyebrow">What&apos;s Happening</span>
+          <h2 className="unnyc-section__title">Upcoming Events</h2>
+        </header>
 
-      <div className="unnyc-events-filters">
-        {FILTERS.map((f) => (
-          <button
-            key={f}
-            className={`unnyc-filter-btn ${activeFilter === f ? 'unnyc-filter-btn--active' : ''}`}
-            onClick={() => setActiveFilter(f)}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
+        <div className="unnyc-events__filter">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              className={`unnyc-events__filter-btn ${activeFilter === f ? 'unnyc-events__filter-btn--active' : ''}`}
+              onClick={() => setActiveFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
 
-      <div className="unnyc-events-grid">
-        {filtered.map((event) => (
-          <article key={event.id} className="unnyc-event-card">
-            <span className={`unnyc-event-badge unnyc-event-badge--${event.category}`}>
-              {CATEGORY_LABELS[event.category]}
-            </span>
-            <time className="unnyc-event-date">{event.date}</time>
-            <h3 className="unnyc-event-title">{event.title}</h3>
-            <p className="unnyc-event-location">{event.location}</p>
-            <p className="unnyc-event-desc">{event.description}</p>
-            <a href={event.link || '#'} className="unnyc-event-link">
-              Learn more &rarr;
-            </a>
-          </article>
-        ))}
+        <div className="unnyc-events__grid">
+          {filtered.map((event) => (
+            <article key={event.id} className="unnyc-event-card">
+              <span className={`unnyc-event-card__badge unnyc-event-card__badge--${event.category}`}>
+                {CATEGORY_LABELS[event.category]}
+              </span>
+              <time className="unnyc-event-card__date">{event.date}</time>
+              <h3 className="unnyc-event-card__title">{event.title}</h3>
+              <p className="unnyc-event-card__location">{event.location}</p>
+              <p className="unnyc-event-card__desc">{event.description}</p>
+              <a href={event.link || '#'} className="unnyc-event-card__link">
+                Learn more &rarr;
+              </a>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@updates.wegov.nyc "cat /etc/nginx/sites-enabled/default"
+expect {
+    "Enter passphrase*" {
+        send "Sq;LfI)?~5O?\r"
+        exp_continue
+    }
+    eof
+}

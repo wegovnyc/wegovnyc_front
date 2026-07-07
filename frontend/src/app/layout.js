@@ -61,10 +61,14 @@ export default async function RootLayout({ children }) {
     ],
   };
 
-  const navbarWithUnnyc = navbar ? {
-    ...navbar,
-    links: [...(navbar.links || []), unnycNavItem],
-  } : navbar;
+  const navbarWithUnnyc = navbar ? (() => {
+    const links = [...(navbar.links || [])];
+    // Insert UNNYC right after Databook
+    const databookIdx = links.findIndex((l) => l.label === 'Databook');
+    const insertIdx = databookIdx >= 0 ? databookIdx + 1 : 1;
+    links.splice(insertIdx, 0, unnycNavItem);
+    return { ...navbar, links };
+  })() : navbar;
 
   return (
     <html lang="en">

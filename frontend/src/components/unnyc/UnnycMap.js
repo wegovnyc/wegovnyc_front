@@ -13,18 +13,20 @@ const UnnycMapInner = dynamic(() => import('./UnnycMapInner'), { ssr: false });
 
 export default function UnnycMap() {
   return (
-    <section id="map" className="unnyc-map-section unnyc-section--alt">
-      <div className="unnyc-map-header">
-        <span className="unnyc-eyebrow">Geography</span>
-        <h2 className="unnyc-section-title">Key Locations</h2>
-        <p className="unnyc-section-desc">
-          The United Nations and New York share more than a mailing
-          address&mdash;they share a geography of institutions, agencies, and
-          offices that shape global and local policy alike.
-        </p>
-      </div>
+    <section id="map" className="unnyc-section unnyc-section--alt unnyc-section--map">
+      <div className="unnyc-container">
+        <header className="unnyc-section__header">
+          <span className="unnyc-section__eyebrow">Geography</span>
+          <h2 className="unnyc-section__title">Key Locations</h2>
+          <p className="unnyc-section__desc">
+            The United Nations and New York share more than a mailing
+            address&mdash;they share a geography of institutions, agencies, and
+            offices that shape global and local policy alike.
+          </p>
+        </header>
 
-      <UnnycMapInner />
+        <UnnycMapInner />
+      </div>
     </section>
   );
 }

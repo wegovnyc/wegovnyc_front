@@ -1,0 +1,74 @@
+[00:00:00.495] Server  LOG     ✓ Ready in 384ms
+[00:00:03.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:42.838] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_notices_2022_02_01_22_46_33_d2f97a760a.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.841] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.846] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_api_wegov_nyc_5539_docs_2022_07_18_12_26_47_edit_1_f64ed4b176.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.854] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_titles_91415_schedule_2022_01_03_16_41_38_1_e1c07c31bb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.870] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_agencies_chart_2021_12_02_16_03_54_e1638479102363_01c2ff15c3.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.871] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Untitled_drawing_2_e0debc7cbb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.872] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_4d05e226ac.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.875] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_capitalprojects_2021_09_27_14_39_12_e1633547035165_db854587ca.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.878] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_aefd1a30fb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.880] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_73a376b642.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.881] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_adc0eb1e6e.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.882] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/airtable_logo_fcc3129c_4caaeecae5.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:42.893] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:44.908] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Screenshot_2021_03_09_210817_2d21a8ec26.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:44.909] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Screenshot_2021_03_09_210817_ff68404453.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:48.797] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.395] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.396] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_api_wegov_nyc_5539_docs_2022_07_18_12_26_47_edit_1_f64ed4b176.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.403] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_notices_2022_02_01_22_46_33_d2f97a760a.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.404] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_4d05e226ac.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.406] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_capitalprojects_2021_09_27_14_39_12_e1633547035165_db854587ca.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.410] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_titles_91415_schedule_2022_01_03_16_41_38_1_e1c07c31bb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.410] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_73a376b642.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.413] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_adc0eb1e6e.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.413] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_aefd1a30fb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.417] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_agencies_chart_2021_12_02_16_03_54_e1638479102363_01c2ff15c3.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.418] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/airtable_logo_fcc3129c_4caaeecae5.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:00:53.419] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Untitled_drawing_2_e0debc7cbb.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:01:02.871] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Screenshot_2021_03_09_210817_2d21a8ec26.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:01:02.873] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/Screenshot_2021_03_09_210817_ff68404453.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:02:07.660] Server  LOG     ✓ Compiled in 128ms
+[00:02:08.431] Browser ERROR   ./Antigravity/WeGovMarketing/frontend/src/app/blog/page.js:60:60
+Parsing ecmascript source code failed
+  58 |                             return (
+  59 |                                 <article key={article.id} className="blog-card">
+> 60 |                                     <Link href={`/ blog / ${ article.slug } `} className="blog-card-link">
+     |                                                            ^
+  61 |                                         {imageUrl ? (
+  62 |                                             <div className="blog-card-image">
+  63 |                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
+
+Expected ';', '}' or <eof>
+[00:02:08.432] Browser ERROR   ./Antigravity/WeGovMarketing/frontend/src/app/blog/page.js:60:60
+Parsing ecmascript source code failed
+  58 |                             return (
+  59 |                                 <article key={article.id} className="blog-card">
+> 60 |                                     <Link href={`/ blog / ${ article.slug } `} className="blog-card-link">
+     |                                                            ^
+  61 |                                         {imageUrl ? (
+  62 |                                             <div className="blog-card-image">
+  63 |                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
+
+Expected ';', '}' or <eof>
+[00:02:31.582] Server  LOG     ✓ Compiled in 67ms
+[00:02:31.970] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:59.655] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:59.779] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:06.548] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_api_wegov_nyc_5539_docs_2022_07_18_12_26_47_edit_1_f64ed4b176.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:09:02.102] Server  LOG     ✓ Compiled in 36ms
+[00:09:59.900] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:02.607] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[00:11:18.287] Server  LOG     ✓ Compiled in 19ms
+[00:11:41.295] Server  LOG     ✓ Compiled in 39ms
+[43:06:45.713] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[43:06:53.418] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_agencies_chart_2021_12_02_16_03_54_e1638479102363_d5fce7c9cd.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[43:07:00.830] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/System_Update_2_4e7f87658c.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[43:07:05.775] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[43:07:11.087] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_wegov_nyc_s_K038_ps_038_the_pacific_enrollment_2023_11_30_19_13_34_e1701390074949_6b3075eb12.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[43:09:03.491] Server  LOG     ✓ Compiled in 71ms
+[43:38:32.668] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[43:38:33.682] Server  ERROR   ⨯ "upstream image" "http://127.0.0.1:4337/uploads/screencapture_databook_api_wegov_nyc_5539_docs_2022_07_18_12_26_47_edit_1_f64ed4b176.png" "resolved to private ip" "[\"127.0.0.1\"]"
+[43:53:03.909] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

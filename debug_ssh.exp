@@ -1,0 +1,16 @@
+#!/usr/bin/expect -f
+set timeout 20
+spawn ssh -vvv -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "echo SUCCESS"
+expect {
+    "Enter passphrase*" {
+        send "Sq;LfI)?~5O?\r"
+        exp_continue
+    }
+    "SUCCESS" {
+        puts "Debug: Connection Successful"
+    }
+    timeout {
+        puts "Debug: Timeout waiting for prompt"
+    }
+    eof
+}

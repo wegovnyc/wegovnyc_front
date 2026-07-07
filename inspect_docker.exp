@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+set timeout 30
+spawn ssh -i ssh_key.pem -o StrictHostKeyChecking=no root@strapi.wegov.nyc "echo '---DOCKER---'; docker ps -a; echo '---PM2---'; pm2 list"
+expect {
+    "Enter passphrase*" { send "Sq;LfI)?~5O?\r"; exp_continue }
+    eof
+}
