@@ -139,7 +139,7 @@
   margin-bottom: var(--unnyc-sp-4);
 }
 
-.unnyc-hero__title {
+h1.unnyc-hero__title {
   font-family: var(--unnyc-font-display);
   font-size: clamp(var(--unnyc-fs-4xl), 6vw, var(--unnyc-fs-6xl));
   line-height: 1.1;
@@ -147,7 +147,7 @@
   margin-bottom: var(--unnyc-sp-6);
 }
 
-.unnyc-hero__title em {
+h1.unnyc-hero__title em {
   font-style: normal;
   background: linear-gradient(135deg, var(--un-blue-light), var(--unnyc-gold-light));
   -webkit-background-clip: text;
@@ -155,7 +155,7 @@
   background-clip: text;
 }
 
-.unnyc-hero__subtitle {
+p.unnyc-hero__subtitle {
   font-size: var(--unnyc-fs-lg);
   color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
@@ -239,23 +239,23 @@
   text-decoration: none;
 }
 
-.unnyc-btn--primary {
+a.unnyc-btn--primary {
   background: linear-gradient(135deg, var(--un-blue), var(--un-blue-dark));
   color: #FFFFFF;
   box-shadow: 0 4px 20px rgba(75, 146, 219, 0.3);
 }
 
-.unnyc-btn--primary:hover {
+a.unnyc-btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(75, 146, 219, 0.4);
 }
 
-.unnyc-btn--outline {
+a.unnyc-btn--outline {
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
 }
 
-.unnyc-btn--outline:hover {
+a.unnyc-btn--outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
 }
