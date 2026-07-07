@@ -30,16 +30,19 @@ export default function Navbar({ data, siteName, children }) {
                             <li
                                 key={link.id}
                                 className={link.children ? 'navbar-has-submenu' : ''}
-                                onMouseEnter={() => link.children && setOpenDropdown(link.id)}
-                                onMouseLeave={() => link.children && setOpenDropdown(null)}
                             >
                                 <Link
                                     href={link.url}
                                     target={link.isExternal ? '_blank' : '_self'}
-                                    className={`navbar-link ${link.children ? 'navbar-link--has-submenu' : ''}`}
+                                    className="navbar-link"
+                                    onClick={(e) => {
+                                        if (link.children) {
+                                            e.preventDefault();
+                                            setOpenDropdown(openDropdown === link.id ? null : link.id);
+                                        }
+                                    }}
                                 >
                                     {link.label}
-                                    {link.children && <span className="navbar-submenu-arrow">▾</span>}
                                 </Link>
                             </li>
                         ))}
@@ -65,8 +68,6 @@ export default function Navbar({ data, siteName, children }) {
                     <div
                         key={`sub-${link.id}`}
                         className="navbar-submenu-bar"
-                        onMouseEnter={() => setOpenDropdown(link.id)}
-                        onMouseLeave={() => setOpenDropdown(null)}
                     >
                         <div className="container">
                             <ul className="navbar-submenu-links">

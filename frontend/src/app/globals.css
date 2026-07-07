@@ -335,21 +335,6 @@ a:hover {
   position: relative;
 }
 
-.navbar-link--has-submenu {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.navbar-submenu-arrow {
-  font-size: 0.7em;
-  opacity: 0.6;
-  transition: transform 0.2s;
-}
-
-.navbar-has-submenu:hover .navbar-submenu-arrow {
-  transform: rotate(180deg);
-}
 
 /* Submenu bar — sits in normal document flow inside <nav>,
    pushes page content down when visible */
