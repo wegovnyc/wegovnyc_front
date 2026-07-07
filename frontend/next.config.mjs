@@ -40,6 +40,16 @@ const nextConfig = {
         hostname: 'strapi.wegov.nyc',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.basemaps.cartocdn.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'unpkg.com',
+        pathname: '/**',
+      },
     ],
   },
   async headers() {
@@ -53,6 +63,21 @@ const nextConfig = {
             value: "frame-ancestors 'self' https://*.strapiapp.com https://dedicated-cherry-1494c7faee.strapiapp.com https://strapi.wegov.nyc http://localhost:1337",
           },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'unnyc.wegov.nyc',
+          },
+        ],
+        destination: 'https://wegov.nyc/unnyc/:path*',
+        permanent: true,
       },
     ];
   },

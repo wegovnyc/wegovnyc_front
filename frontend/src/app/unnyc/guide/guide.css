@@ -1,0 +1,546 @@
+/* ============================================
+   UNNYC Guide Page — Scoped Styles
+   All class names prefixed with `unnyc-guide-`
+   to avoid conflicts with other pages.
+   ============================================ */
+
+/* --- Scoped Tokens --- */
+.unnyc-guide {
+    --un-blue: #4B92DB;
+    --un-blue-dark: #2E6EAE;
+    --un-blue-light: #7BB4E8;
+    --navy: #1B2A4A;
+    --navy-deep: #0F1B33;
+    --navy-light: #2A3D63;
+    --gold: #D4A843;
+    --gold-light: #E8C978;
+    --gold-dark: #B08A2E;
+    --warm-white: #F8F6F0;
+    --text-primary: #1B2A4A;
+    --text-secondary: #5A6A82;
+    --text-muted: #8A96A8;
+    --surface: #FFFFFF;
+    --surface-alt: #F4F1EB;
+    --surface-glass: rgba(255, 255, 255, 0.72);
+    --border: rgba(27, 42, 74, 0.1);
+    --shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.08);
+    --shadow-md: 0 4px 16px rgba(27, 42, 74, 0.1);
+    --shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration: 0.4s;
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 20px;
+    --sp-6: 24px;
+    --sp-8: 32px;
+    --sp-10: 40px;
+    --sp-12: 48px;
+    --sp-16: 64px;
+}
+
+/* --- Base typography scoped to guide --- */
+.unnyc-guide {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.unnyc-guide a {
+    color: var(--un-blue);
+    text-decoration: none;
+}
+
+.unnyc-guide a:hover {
+    text-decoration: underline;
+}
+
+.unnyc-guide ul,
+.unnyc-guide ol {
+    padding-left: 1.5em;
+}
+
+/* --- Container --- */
+.unnyc-guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--sp-6);
+}
+
+/* --- Nav --- */
+.unnyc-guide-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: var(--sp-3) 0;
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+}
+
+.unnyc-guide-nav__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--sp-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.unnyc-guide-nav__logo {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    gap: 1px;
+}
+
+.unnyc-guide-nav__logo:hover {
+    text-decoration: none;
+}
+
+.unnyc-guide-nav__logo-mark {
+    color: var(--un-blue);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.unnyc-guide-nav__logo-ny {
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.unnyc-guide-nav__right {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+}
+
+.unnyc-guide-nav__back {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.unnyc-guide-nav__back:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* --- Article Header --- */
+.unnyc-guide-article__header {
+    padding: calc(80px + var(--sp-16)) 0 var(--sp-16);
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(75, 146, 219, 0.06) 0%, transparent 50%),
+        var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.unnyc-guide-article__eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--un-blue);
+    margin-bottom: var(--sp-3);
+}
+
+.unnyc-guide-article__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-primary);
+    margin-bottom: var(--sp-4);
+    line-height: 1.15;
+}
+
+.unnyc-guide-article__subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: var(--sp-6);
+}
+
+.unnyc-guide-article__meta {
+    display: flex;
+    gap: var(--sp-6);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.unnyc-guide-article__meta a {
+    color: var(--un-blue);
+}
+
+/* --- Layout --- */
+.unnyc-guide-article__layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--sp-12);
+    padding: var(--sp-12) 0;
+}
+
+/* --- Table of Contents --- */
+.unnyc-guide-toc {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+}
+
+.unnyc-guide-toc__inner {
+    padding: var(--sp-5);
+    background: var(--surface-alt);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.unnyc-guide-toc__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: var(--sp-4);
+}
+
+.unnyc-guide-toc__list {
+    list-style: none;
+    padding: 0;
+    counter-reset: toc;
+}
+
+.unnyc-guide-toc__list li {
+    counter-increment: toc;
+    padding: var(--sp-2) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.unnyc-guide-toc__list li:last-child {
+    border-bottom: none;
+}
+
+.unnyc-guide-toc__list a {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+}
+
+.unnyc-guide-toc__list a:hover {
+    color: var(--un-blue);
+}
+
+.unnyc-guide-toc__list a.active {
+    color: var(--un-blue);
+    font-weight: 600;
+}
+
+/* --- Article Body --- */
+.unnyc-guide-article__body {
+    max-width: 760px;
+}
+
+.unnyc-guide-section {
+    padding-bottom: var(--sp-12);
+    margin-bottom: var(--sp-12);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.unnyc-guide-section:last-child {
+    border-bottom: none;
+}
+
+.unnyc-guide-section-number {
+    position: absolute;
+    top: -8px;
+    left: -48px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--un-blue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.unnyc-guide-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-6);
+    line-height: 1.2;
+}
+
+.unnyc-guide-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-3);
+}
+
+.unnyc-guide-section h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--un-blue);
+    margin-bottom: var(--sp-3);
+}
+
+.unnyc-guide-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--sp-4);
+}
+
+.unnyc-guide-section ul,
+.unnyc-guide-section ol {
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-6);
+}
+
+.unnyc-guide-section li {
+    margin-bottom: var(--sp-3);
+    line-height: 1.6;
+}
+
+.unnyc-guide-section li strong {
+    color: var(--text-primary);
+}
+
+.unnyc-guide-what-is,
+.unnyc-guide-why-matters,
+.unnyc-guide-how-to {
+    margin-bottom: var(--sp-6);
+}
+
+/* --- Badge --- */
+.unnyc-guide-badge {
+    display: inline-block;
+    padding: var(--sp-1) var(--sp-3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 100px;
+    margin-bottom: var(--sp-4);
+}
+
+.unnyc-guide-badge--local {
+    background: rgba(212, 168, 67, 0.12);
+    color: var(--gold-dark);
+}
+
+/* --- Callout --- */
+.unnyc-guide-callout {
+    padding: var(--sp-6);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--sp-6);
+    border-left: 4px solid;
+}
+
+.unnyc-guide-callout h4 {
+    margin-bottom: var(--sp-3);
+}
+
+.unnyc-guide-callout ol,
+.unnyc-guide-callout p {
+    margin-bottom: var(--sp-2);
+}
+
+.unnyc-guide-callout--blue {
+    background: rgba(75, 146, 219, 0.06);
+    border-color: var(--un-blue);
+}
+
+.unnyc-guide-callout--gold {
+    background: rgba(212, 168, 67, 0.06);
+    border-color: var(--gold);
+}
+
+/* --- Table --- */
+.unnyc-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--sp-6);
+    font-size: 0.875rem;
+}
+
+.unnyc-guide-table th {
+    text-align: left;
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--surface-alt);
+    color: var(--text-primary);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+}
+
+.unnyc-guide-table td {
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.unnyc-guide-table .unnyc-guide-highlight-row td {
+    background: rgba(75, 146, 219, 0.04);
+}
+
+/* --- Opportunity Cards --- */
+.unnyc-guide-opportunity-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+    margin-bottom: var(--sp-6);
+    transition: all 0.3s var(--ease);
+}
+
+.unnyc-guide-opportunity-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.unnyc-guide-opportunity-card h3 {
+    margin-bottom: var(--sp-3);
+}
+
+.unnyc-guide-opportunity-action {
+    background: rgba(75, 146, 219, 0.04);
+    border-radius: var(--radius-sm);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: 0.875rem;
+}
+
+.unnyc-guide-opportunity-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--un-blue);
+    margin-top: var(--sp-3);
+}
+
+/* --- Steps Grid --- */
+.unnyc-guide-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--sp-4);
+}
+
+.unnyc-guide-step-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+    transition: all 0.3s var(--ease);
+    position: relative;
+}
+
+.unnyc-guide-step-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.unnyc-guide-step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--un-blue), var(--un-blue-dark));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: var(--sp-3);
+    position: static;
+}
+
+.unnyc-guide-step-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--sp-2);
+}
+
+.unnyc-guide-step-card p {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+/* --- Guide About --- */
+.unnyc-guide-about {
+    text-align: center;
+    padding: var(--sp-12);
+    background: var(--surface-alt);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.unnyc-guide-back-link {
+    display: inline-block;
+    margin-top: var(--sp-4);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* --- Footer --- */
+.unnyc-guide-footer {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--sp-8) 0;
+}
+
+.unnyc-guide-footer__bottom {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.unnyc-guide-footer__bottom a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .unnyc-guide-article__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .unnyc-guide-toc {
+        position: static;
+    }
+
+    .unnyc-guide-toc__inner {
+        margin-bottom: var(--sp-8);
+    }
+
+    .unnyc-guide-section-number {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .unnyc-guide-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .unnyc-guide-article__header {
+        padding-top: calc(70px + var(--sp-10));
+    }
+}

@@ -43,13 +43,36 @@ export default async function RootLayout({ children }) {
 
   const { footer, navbar } = global || {};
 
+  // Inject UNNYC nav item with dropdown submenu
+  const unnycNavItem = {
+    id: 'unnyc',
+    label: 'UNNYC',
+    url: '/unnyc',
+    isExternal: false,
+    children: [
+      { id: 'unnyc-about', label: 'About', url: '/unnyc#about', isExternal: false },
+      { id: 'unnyc-events', label: 'Events', url: '/unnyc#events', isExternal: false },
+      { id: 'unnyc-policy', label: 'Policy', url: '/unnyc#policy', isExternal: false },
+      { id: 'unnyc-resources', label: 'Resources', url: '/unnyc#resources', isExternal: false },
+      { id: 'unnyc-directory', label: 'Directory', url: '/unnyc#directory', isExternal: false },
+      { id: 'unnyc-map', label: 'Map', url: '/unnyc#map', isExternal: false },
+      { id: 'unnyc-news', label: 'News', url: '/unnyc#news', isExternal: false },
+      { id: 'unnyc-guide', label: 'Guide', url: '/unnyc/guide', isExternal: false },
+    ],
+  };
+
+  const navbarWithUnnyc = navbar ? {
+    ...navbar,
+    links: [...(navbar.links || []), unnycNavItem],
+  } : navbar;
+
   return (
     <html lang="en">
       <body>
         <ThemeProvider>
           <div className="site-wrapper">
             <header className="site-header">
-              <Navbar data={navbar} siteName={global?.siteName}>
+              <Navbar data={navbarWithUnnyc} siteName={global?.siteName}>
                 <ThemeToggle />
               </Navbar>
             </header>

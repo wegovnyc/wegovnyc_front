@@ -1,7 +1,14 @@
 "use client";
+import { useState } from 'react';
 import Link from 'next/link';
 
+/**
+ * Main site navigation with optional dropdown submenus.
+ * Nav links with a `children` array render as dropdown menus.
+ */
 export default function Navbar({ data, siteName, children }) {
+    const [openDropdown, setOpenDropdown] = useState(null);
+
     if (!data) return null;
 
     return (
@@ -19,14 +26,35 @@ export default function Navbar({ data, siteName, children }) {
                 <div className="navbar-menu">
                     <ul className="navbar-links">
                         {data.links && data.links.map((link) => (
-                            <li key={link.id}>
+                            <li
+                                key={link.id}
+                                className={link.children ? 'navbar-dropdown' : ''}
+                                onMouseEnter={() => link.children && setOpenDropdown(link.id)}
+                                onMouseLeave={() => link.children && setOpenDropdown(null)}
+                            >
                                 <Link
                                     href={link.url}
                                     target={link.isExternal ? '_blank' : '_self'}
-                                    className="navbar-link"
+                                    className={`navbar-link ${link.children ? 'navbar-link--has-dropdown' : ''}`}
                                 >
                                     {link.label}
+                                    {link.children && <span className="navbar-dropdown-arrow">▾</span>}
                                 </Link>
+                                {link.children && openDropdown === link.id && (
+                                    <ul className="navbar-dropdown-menu">
+                                        {link.children.map((child) => (
+                                            <li key={child.id}>
+                                                <Link
+                                                    href={child.url}
+                                                    target={child.isExternal ? '_blank' : '_self'}
+                                                    className="navbar-dropdown-link"
+                                                >
+                                                    {child.label}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
                         ))}
                     </ul>
