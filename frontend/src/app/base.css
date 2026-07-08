@@ -35,10 +35,14 @@
      header as a band, closed by a gold accent line; refined uppercase links
      in soft white that warm to gold on hover. Tokens from wegov-tokens.css. */
   .navbar-submenu-bar {
-    /* Match the site header's own navy exactly so the two bars are seamless. */
-    background: var(--header-bg, #1b2a4a);
+    /* Raised secondary-nav band: a lighter navy than the header, lifted with a
+       soft shadow so it reads as a distinct bar without a coloured divider
+       line. z-index keeps the shadow above the hero (which sits at z-index 0). */
+    background: var(--db-navy-600, #1f3a63);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 2px solid var(--wg-gold, #d4a843);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    position: relative;
+    z-index: 1;
     margin-top: 12px;   /* breathing room below the header row (Donate/links) */
     padding: 15px 0;
   }
@@ -65,6 +69,7 @@
   }
 
   .navbar-submenu-link {
+    position: relative;
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -94,6 +99,16 @@
   }
 
   .navbar-submenu-link--active {
-    color: var(--wg-gold-light, #e8c978);
+    color: #fff;
+  }
+
+  .navbar-submenu-link--active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--wg-gold, #d4a843);
   }
 }
