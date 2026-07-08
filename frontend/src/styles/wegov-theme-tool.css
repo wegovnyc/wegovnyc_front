@@ -1,0 +1,27 @@
+/* ============================================================================
+   WeGovNYC Design System — TOOL theme
+   ----------------------------------------------------------------------------
+   Expression for Databook: a true tool for nerds. Public Sans throughout,
+   calm blue functional accent, orange reserved for the wordmark + Analysis,
+   dense/legible rhythm. This is the semantic baseline in tokens.css; the
+   class below makes the intent explicit and overridable per-subtree.
+
+   Apply by adding class "wg-tool" (or [data-brand="tool"]) to a subtree.
+   ========================================================================== */
+
+.wg-tool,
+[data-brand="tool"] {
+  --wg-accent:         var(--db-accent);        /* calm blue #2491ff */
+  --wg-accent-strong:  var(--db-link);          /* link blue #005ea2 */
+  --wg-accent-warm:    var(--db-brand);         /* orange — wordmark only */
+
+  --wg-font-display:   var(--db-font-sans);     /* Public Sans headings */
+  --wg-display-weight: var(--db-weight-bold);
+  --wg-display-tracking: var(--db-tracking-tight);
+
+  --wg-section-y:      var(--db-space-5);        /* denser */
+  --wg-card-pad:       var(--db-space-3);
+  --wg-radius:         var(--db-radius);         /* 8px */
+
+  --wg-surface-alt:    var(--db-gray-050);
+}

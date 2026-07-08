@@ -1,0 +1,27 @@
+/* ============================================================================
+   WeGovNYC Design System — CIVIC theme
+   ----------------------------------------------------------------------------
+   Expression for WeGovNYC + UNNYC: people / organizing / prestige.
+   Editorial DM Serif display headings, gold + UN-blue accents, generous
+   whitespace. Shares the navy backbone and every reference scale with Tool —
+   only the semantic mappings below change.
+
+   Apply by adding class "wg-civic" (or [data-brand="civic"]) to a subtree.
+   ========================================================================== */
+
+.wg-civic,
+[data-brand="civic"] {
+  --wg-accent:         var(--wg-un-blue);       /* UN blue */
+  --wg-accent-strong:  var(--wg-un-blue-dark);
+  --wg-accent-warm:    var(--wg-gold);          /* gold — a real accent here */
+
+  --wg-font-display:   var(--wg-font-serif);    /* DM Serif Display headings */
+  --wg-display-weight: var(--db-weight-normal); /* serif reads at 400 */
+  --wg-display-tracking: 0;
+
+  --wg-section-y:      var(--db-space-7);        /* airier rhythm */
+  --wg-card-pad:       var(--db-space-4);
+  --wg-radius:         var(--db-radius-lg);      /* softer corners */
+
+  --wg-surface-alt:    #f4f1eb;                  /* warm editorial wash */
+}

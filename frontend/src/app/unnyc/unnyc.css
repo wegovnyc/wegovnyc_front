@@ -1,36 +1,44 @@
 /* ============================================
-   UNNYC — Scoped Styles for wegov.nyc/unnyc
+   UNNYC — Styles for wegov.nyc/unnyc
 
-   All selectors are scoped under `:root .unnyc-page` so they reliably
-   beat the global WeGov theme, whose element rules
-   (`:root[data-theme='wegov'] h1/h2/h3/a`, specificity 0,2,1) would
-   otherwise override UNNYC's colours and typography. Class names here
-   match exactly what the components in `components/unnyc/` render.
+   All rules live in `@layer unnyc`, declared LAST in the app cascade order
+   (see src/app/base.css: reset < theme < components < unnyc). Later layers
+   win regardless of specificity, so these plain `.unnyc-page …` selectors
+   beat the global WeGov theme's element rules
+   (`:root[data-theme='wegov'] h1/h2/h3/a`) with no `:root`/`!important`
+   hacks. `.unnyc-page` is kept only to scope styles to the UNNYC subtree.
+   The palette is aliased onto the shared token core
+   (src/styles/wegov-tokens.css). Class names match components/unnyc/.
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 
+@layer unnyc {
+
 /* --- Design Tokens + page base (scoped) --- */
 .unnyc-page {
-  /* Colors */
-  --un-blue: #4B92DB;
-  --un-blue-dark: #2E6EAE;
-  --un-blue-light: #7BB4E8;
-  --unnyc-navy: #1B2A4A;
-  --unnyc-navy-deep: #0F1B33;
-  --unnyc-navy-light: #2A3D63;
-  --unnyc-gold: #D4A843;
-  --unnyc-gold-light: #E8C978;
-  --unnyc-gold-dark: #B08A2E;
+  /* Palette — consumed from the shared WeGovNYC token core (src/styles/wegov-tokens.css).
+     Navy converges on the canonical Databook navy (#162e51); UN-blue and gold
+     come from the shared Civic reference tokens. Warm editorial values unique to
+     UNNYC (warm-white, surface-alt) are kept local. */
+  --un-blue: var(--wg-un-blue);
+  --un-blue-dark: var(--wg-un-blue-dark);
+  --un-blue-light: var(--wg-un-blue-light);
+  --unnyc-navy: var(--db-primary);
+  --unnyc-navy-deep: var(--db-navy-900);
+  --unnyc-navy-light: var(--db-navy-500);
+  --unnyc-gold: var(--wg-gold);
+  --unnyc-gold-light: var(--wg-gold-light);
+  --unnyc-gold-dark: var(--wg-gold-dark);
   --unnyc-warm-white: #F8F6F0;
   --unnyc-warm-gray: #E8E4DC;
-  --unnyc-text-primary: #1B2A4A;
+  --unnyc-text-primary: var(--db-primary);
   --unnyc-text-secondary: #5A6A82;
   --unnyc-text-muted: #8A96A8;
-  --unnyc-surface: #FFFFFF;
+  --unnyc-surface: var(--db-white);
   --unnyc-surface-alt: #F4F1EB;
   --unnyc-surface-glass: rgba(255, 255, 255, 0.72);
-  --unnyc-border: rgba(27, 42, 74, 0.1);
+  --unnyc-border: rgba(22, 46, 81, 0.1);
   --unnyc-shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.08);
   --unnyc-shadow-md: 0 4px 16px rgba(27, 42, 74, 0.1);
   --unnyc-shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
@@ -95,7 +103,7 @@
   display: block;
 }
 
-:root .unnyc-page a {
+.unnyc-page a {
   color: inherit;
   text-decoration: none;
 }
@@ -174,7 +182,7 @@
   margin-bottom: var(--unnyc-sp-4);
 }
 
-:root .unnyc-page .unnyc-hero__title {
+.unnyc-page .unnyc-hero__title {
   font-family: var(--unnyc-font-display);
   font-weight: 400;
   font-size: clamp(var(--unnyc-fs-4xl), 6vw, var(--unnyc-fs-6xl));
@@ -183,7 +191,7 @@
   margin-bottom: var(--unnyc-sp-6);
 }
 
-:root .unnyc-page .unnyc-hero__title em {
+.unnyc-page .unnyc-hero__title em {
   font-style: normal;
   background: linear-gradient(135deg, var(--un-blue-light), var(--unnyc-gold-light));
   -webkit-background-clip: text;
@@ -192,7 +200,7 @@
   color: transparent;
 }
 
-:root .unnyc-page .unnyc-hero__subtitle {
+.unnyc-page .unnyc-hero__subtitle {
   font-size: var(--unnyc-fs-lg);
   color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
@@ -269,7 +277,7 @@
 }
 
 /* --- Buttons --- */
-:root .unnyc-page .unnyc-btn {
+.unnyc-page .unnyc-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
@@ -282,23 +290,23 @@
   text-decoration: none;
 }
 
-:root .unnyc-page .unnyc-btn--primary {
+.unnyc-page .unnyc-btn--primary {
   background: linear-gradient(135deg, var(--un-blue), var(--un-blue-dark));
   color: #FFFFFF;
   box-shadow: 0 4px 20px rgba(75, 146, 219, 0.3);
 }
 
-:root .unnyc-page .unnyc-btn--primary:hover {
+.unnyc-page .unnyc-btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(75, 146, 219, 0.4);
 }
 
-:root .unnyc-page .unnyc-btn--outline {
+.unnyc-page .unnyc-btn--outline {
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
 }
 
-:root .unnyc-page .unnyc-btn--outline:hover {
+.unnyc-page .unnyc-btn--outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
 }
@@ -329,7 +337,7 @@
   margin-bottom: var(--unnyc-sp-3);
 }
 
-:root .unnyc-page .unnyc-section__title {
+.unnyc-page .unnyc-section__title {
   font-family: var(--unnyc-font-display);
   font-weight: 400;
   font-size: clamp(var(--unnyc-fs-3xl), 4vw, var(--unnyc-fs-4xl));
@@ -362,7 +370,7 @@
   margin-bottom: var(--unnyc-sp-6);
 }
 
-:root .unnyc-page .unnyc-about__text a {
+.unnyc-page .unnyc-about__text a {
   color: var(--un-blue);
   font-weight: 500;
 }
@@ -399,7 +407,7 @@
   margin-bottom: var(--unnyc-sp-3);
 }
 
-:root .unnyc-page .unnyc-about__card h3 {
+.unnyc-page .unnyc-about__card h3 {
   font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
@@ -517,7 +525,7 @@
   margin-bottom: var(--unnyc-sp-2);
 }
 
-:root .unnyc-page .unnyc-event-card__title {
+.unnyc-page .unnyc-event-card__title {
   font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-xl);
   font-weight: 600;
@@ -546,7 +554,7 @@
   line-height: 1.6;
 }
 
-:root .unnyc-page .unnyc-event-card__link {
+.unnyc-page .unnyc-event-card__link {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
@@ -601,7 +609,7 @@
   background: var(--unnyc-surface-alt);
 }
 
-:root .unnyc-page .unnyc-policy__card-title {
+.unnyc-page .unnyc-policy__card-title {
   font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
@@ -619,7 +627,7 @@
   line-height: 1.5;
 }
 
-:root .unnyc-page .unnyc-policy__framework-label {
+.unnyc-page .unnyc-policy__framework-label {
   font-family: var(--unnyc-font-body);
   color: var(--unnyc-text-primary);
   font-weight: 600;
@@ -661,7 +669,7 @@
   margin-bottom: var(--unnyc-sp-3);
 }
 
-:root .unnyc-page .unnyc-resources__card-title {
+.unnyc-page .unnyc-resources__card-title {
   font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
@@ -685,7 +693,7 @@
   padding: 0;
 }
 
-:root .unnyc-page .unnyc-resources__link {
+.unnyc-page .unnyc-resources__link {
   font-size: var(--unnyc-fs-sm);
   font-weight: 500;
   color: var(--un-blue);
@@ -701,7 +709,7 @@
   font-size: var(--unnyc-fs-xs);
 }
 
-:root .unnyc-page .unnyc-resources__link:hover {
+.unnyc-page .unnyc-resources__link:hover {
   color: var(--un-blue-dark);
 }
 
@@ -719,7 +727,7 @@
   overflow: hidden;
 }
 
-:root .unnyc-page .unnyc-directory__header {
+.unnyc-page .unnyc-directory__header {
   font-family: var(--unnyc-font-body);
   padding: var(--unnyc-sp-5) var(--unnyc-sp-6);
   font-size: var(--unnyc-fs-sm);
@@ -730,17 +738,17 @@
   margin: 0;
 }
 
-:root .unnyc-page .unnyc-directory__header--un {
+.unnyc-page .unnyc-directory__header--un {
   background: rgba(75, 146, 219, 0.08);
   color: var(--un-blue-dark);
 }
 
-:root .unnyc-page .unnyc-directory__header--nyc {
+.unnyc-page .unnyc-directory__header--nyc {
   background: rgba(212, 168, 67, 0.08);
   color: var(--unnyc-gold-dark);
 }
 
-:root .unnyc-page .unnyc-directory__header--nys {
+.unnyc-page .unnyc-directory__header--nys {
   background: rgba(27, 42, 74, 0.06);
   color: var(--unnyc-navy);
 }
@@ -776,14 +784,14 @@
   color: var(--unnyc-text-muted);
 }
 
-:root .unnyc-page .unnyc-directory__link {
+.unnyc-page .unnyc-directory__link {
   font-size: var(--unnyc-fs-xs);
   color: var(--un-blue);
   font-weight: 500;
   text-decoration: none;
 }
 
-:root .unnyc-page .unnyc-directory__link:hover {
+.unnyc-page .unnyc-directory__link:hover {
   color: var(--un-blue-dark);
 }
 
@@ -875,7 +883,7 @@
   margin-bottom: var(--unnyc-sp-3);
 }
 
-:root .unnyc-page .unnyc-news__title {
+.unnyc-page .unnyc-news__title {
   font-family: var(--unnyc-font-body);
   font-size: var(--unnyc-fs-lg);
   font-weight: 600;
@@ -905,7 +913,7 @@
   color: var(--unnyc-text-muted);
 }
 
-:root .unnyc-page .unnyc-news__link {
+.unnyc-page .unnyc-news__link {
   display: inline-flex;
   align-items: center;
   gap: var(--unnyc-sp-2);
@@ -972,7 +980,7 @@
   gap: var(--unnyc-sp-6);
 }
 
-:root .unnyc-page .unnyc-footer__column-title {
+.unnyc-page .unnyc-footer__column-title {
   font-family: var(--unnyc-font-body);
   color: #FFFFFF;
   font-size: var(--unnyc-fs-sm);
@@ -991,7 +999,7 @@
   padding: 0;
 }
 
-:root .unnyc-page .unnyc-footer__links a {
+.unnyc-page .unnyc-footer__links a {
   display: block;
   font-size: var(--unnyc-fs-sm);
   color: rgba(255, 255, 255, 0.5);
@@ -1000,7 +1008,7 @@
   text-decoration: none;
 }
 
-:root .unnyc-page .unnyc-footer__links a:hover {
+.unnyc-page .unnyc-footer__links a:hover {
   color: var(--unnyc-gold-light);
 }
 
@@ -1013,13 +1021,13 @@
   line-height: 1.6;
 }
 
-:root .unnyc-page .unnyc-footer__bottom a {
+.unnyc-page .unnyc-footer__bottom a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-:root .unnyc-page .unnyc-footer__bottom a:hover {
+.unnyc-page .unnyc-footer__bottom a:hover {
   color: var(--unnyc-gold-light);
 }
 
@@ -1118,4 +1126,5 @@
   font-size: var(--unnyc-fs-xs);
   color: var(--unnyc-text-muted);
   margin: 0;
+}
 }

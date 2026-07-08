@@ -1,0 +1,27 @@
+/* ============================================================================
+   WeGovNYC — cascade layer scaffolding
+   ----------------------------------------------------------------------------
+   Establishes the app-wide cascade order. Later layers win regardless of
+   selector specificity, so a microsite/page layer (e.g. `unnyc`) overrides the
+   global WeGov theme WITHOUT specificity hacks like `:root .unnyc-page …`.
+
+   Order (lowest → highest priority):
+     reset < theme < components < unnyc
+
+   The four global theme stylesheets are imported into `@layer theme` here
+   (preserving their mutual source order). The whole app's CSS surface lives in
+   these files + the page layers, so nothing unlayered competes with the theme
+   on the main site — layering is transparent there and only changes the
+   theme-vs-page relationship on /unnyc.
+   ========================================================================== */
+
+@layer reset, theme, components, unnyc;
+
+@import url('./globals.css') layer(theme);
+@import url('./nyc.css') layer(theme);
+@import url('./amsterdam.css') layer(theme);
+@import url('./wegov.css') layer(theme);
+
+/* Shared WeGovNYC design-system token core — unlayered custom properties
+   (definitions only; they don't participate in layer priority conflicts). */
+@import url('../styles/wegov-tokens.css');
