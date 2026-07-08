@@ -90,10 +90,10 @@ export default function UnnycMapInner() {
       {mapLegend && mapLegend.length > 0 && (
         <div className="unnyc-map-legend">
           {mapLegend.map((item) => (
-            <div key={item.key} className="unnyc-map-legend-item">
+            <div key={item.type} className="unnyc-map-legend-item">
               <span
                 className="unnyc-map-legend-swatch"
-                style={{ backgroundColor: COLORS[item.key] || '#888' }}
+                style={{ backgroundColor: COLORS[item.type] || '#888' }}
               />
               <span className="unnyc-map-legend-label">{item.label}</span>
             </div>
