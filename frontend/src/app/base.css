@@ -35,10 +35,19 @@
      header as a band, closed by a gold accent line; refined uppercase links
      in soft white that warm to gold on hover. Tokens from wegov-tokens.css. */
   .navbar-submenu-bar {
-    background: var(--db-primary, #162e51);
+    /* Match the site header's own navy exactly so the two bars are seamless. */
+    background: var(--header-bg, #1b2a4a);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 2px solid var(--wg-gold, #d4a843);
+    margin-top: 12px;   /* breathing room below the header row (Donate/links) */
     padding: 15px 0;
+  }
+
+  /* When the in-flow submenu is present, drop the navbar's bottom padding so
+     the gold accent line sits flush at the header's bottom edge — no navy
+     strip floating below it. */
+  .navbar:has(.navbar-submenu-bar) {
+    padding-bottom: 0;
   }
 
   .navbar-submenu-links {
