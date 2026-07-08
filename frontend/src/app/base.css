@@ -80,4 +80,20 @@
     color: var(--wg-gold-light, #e8c978);
     text-decoration: none;
   }
+
+  /* Active state — highlights the section you're on. Uses the gold accent
+     (distinct from the theme's blue hover underline) to read as "you are
+     here" and tie into the subnav's gold line. */
+  .navbar-link--active {
+    color: #fff;
+  }
+
+  .navbar-link--active::after {
+    width: 100%;
+    background: var(--wg-gold, #d4a843);
+  }
+
+  .navbar-submenu-link--active {
+    color: var(--wg-gold-light, #e8c978);
+  }
 }

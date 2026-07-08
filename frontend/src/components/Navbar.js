@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 /**
  * Main site navigation with optional horizontal submenu bar.
@@ -9,6 +10,15 @@ import Link from 'next/link';
  */
 export default function Navbar({ data, siteName, children }) {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const pathname = usePathname();
+
+    // A link is active when the current path equals its URL or is nested
+    // beneath it (so /unnyc/guide keeps the UNNYC item active). Home ('/')
+    // and hash links only match exactly, avoiding false positives.
+    const isActive = (url) => {
+        if (!url || url === '/' || url.includes('#')) return pathname === url;
+        return pathname === url || pathname.startsWith(url + '/');
+    };
 
     if (!data) return null;
 
@@ -34,7 +44,8 @@ export default function Navbar({ data, siteName, children }) {
                                 <Link
                                     href={link.url}
                                     target={link.isExternal ? '_blank' : '_self'}
-                                    className="navbar-link"
+                                    className={`navbar-link${isActive(link.url) ? ' navbar-link--active' : ''}`}
+                                    aria-current={isActive(link.url) ? 'page' : undefined}
                                     onClick={() => {
                                         if (link.children) {
                                             setOpenDropdown(openDropdown === link.id ? null : link.id);
@@ -75,7 +86,8 @@ export default function Navbar({ data, siteName, children }) {
                                         <Link
                                             href={child.url}
                                             target={child.isExternal ? '_blank' : '_self'}
-                                            className="navbar-submenu-link"
+                                            className={`navbar-submenu-link${isActive(child.url) ? ' navbar-submenu-link--active' : ''}`}
+                                            aria-current={isActive(child.url) ? 'page' : undefined}
                                         >
                                             {child.label}
                                         </Link>
