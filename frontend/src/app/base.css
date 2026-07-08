@@ -25,3 +25,50 @@
 /* Shared WeGovNYC design-system token core — unlayered custom properties
    (definitions only; they don't participate in layer priority conflicts). */
 @import url('../styles/wegov-tokens.css');
+
+/* ---- Shared components ---------------------------------------------------
+   Lives in @layer components (above `theme`) so component rules beat the
+   theme's element-level selectors (e.g. `:root[data-theme='wegov'] a`)
+   without specificity hacks. */
+@layer components {
+  /* Navbar in-flow submenu — civic/prestige treatment. Continues the navy
+     header as a band, closed by a gold accent line; refined uppercase links
+     in soft white that warm to gold on hover. Tokens from wegov-tokens.css. */
+  .navbar-submenu-bar {
+    background: var(--db-primary, #162e51);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid var(--wg-gold, #d4a843);
+    padding: 15px 0;
+  }
+
+  .navbar-submenu-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-submenu-links li {
+    margin: 0;
+  }
+
+  .navbar-submenu-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    transition: color 0.18s ease;
+    white-space: nowrap;
+    padding: 6px 0;
+  }
+
+  .navbar-submenu-link:hover {
+    color: var(--wg-gold-light, #e8c978);
+    text-decoration: none;
+  }
+}

@@ -336,42 +336,8 @@ a:hover {
 }
 
 
-/* Submenu bar — sits in normal document flow inside <nav>,
-   pushes page content down when visible */
-.navbar-submenu-bar {
-  background: #f8f8f8;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
-  padding: 10px 0;
-}
-
-.navbar-submenu-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-submenu-links li {
-  margin: 0;
-}
-
-.navbar-submenu-link {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #555;
-  text-decoration: none;
-  transition: color 0.15s;
-  white-space: nowrap;
-  padding: 4px 0;
-}
-
-.navbar-submenu-link:hover {
-  color: #000;
-  text-decoration: underline;
-}
+/* Submenu bar visual rules live in @layer components (see src/app/base.css)
+   so they override the theme's element-level `a` colour on the links. */
 
 .btn-sm {
   padding: 0.5rem 1rem;
