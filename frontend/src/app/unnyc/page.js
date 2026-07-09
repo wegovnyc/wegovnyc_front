@@ -2,6 +2,7 @@ import UnnycHero from '@/components/unnyc/UnnycHero';
 import UnnycAbout from '@/components/unnyc/UnnycAbout';
 import UnnycEvents from '@/components/unnyc/UnnycEvents';
 import UnnycPolicy from '@/components/unnyc/UnnycPolicy';
+import UnnycCampaign from '@/components/unnyc/UnnycCampaign';
 import UnnycResources from '@/components/unnyc/UnnycResources';
 import UnnycDirectory from '@/components/unnyc/UnnycDirectory';
 import UnnycMap from '@/components/unnyc/UnnycMap';
@@ -81,6 +82,9 @@ export default async function UnnycPage() {
             </ScrollReveal>
             <ScrollReveal>
                 <UnnycPolicy />
+            </ScrollReveal>
+            <ScrollReveal>
+                <UnnycCampaign />
             </ScrollReveal>
             <ScrollReveal>
                 <UnnycResources />

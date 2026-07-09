@@ -1132,4 +1132,223 @@
   color: var(--unnyc-text-muted);
   margin: 0;
 }
+
+/* --- Hero campaign banner --- */
+.unnyc-page .unnyc-hero__banner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--unnyc-sp-3);
+  margin-bottom: var(--unnyc-sp-8);
+  padding: var(--unnyc-sp-2) var(--unnyc-sp-5) var(--unnyc-sp-2) var(--unnyc-sp-2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--unnyc-fs-sm);
+  text-decoration: none;
+  transition: all 0.3s var(--unnyc-ease);
+}
+
+.unnyc-page .unnyc-hero__banner:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.unnyc-page .unnyc-hero__banner-tag {
+  flex-shrink: 0;
+  padding: 2px var(--unnyc-sp-3);
+  border-radius: 100px;
+  background: var(--unnyc-gold);
+  color: var(--unnyc-navy-deep);
+  font-size: var(--unnyc-fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Campaign section (dark band) --- */
+.unnyc-page .unnyc-campaign {
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(75, 146, 219, 0.25), transparent 55%),
+    linear-gradient(175deg, var(--unnyc-navy-deep) 0%, var(--unnyc-navy) 100%);
+}
+
+.unnyc-page .unnyc-campaign__eyebrow {
+  color: var(--unnyc-gold);
+}
+
+.unnyc-page .unnyc-campaign__title {
+  color: #FFFFFF;
+}
+
+.unnyc-page .unnyc-campaign__lede {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 720px;
+}
+
+.unnyc-page .unnyc-campaign__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--unnyc-sp-6);
+  margin-bottom: var(--unnyc-sp-16);
+}
+
+.unnyc-page .unnyc-campaign__panel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--unnyc-radius-lg);
+  padding: var(--unnyc-sp-8);
+}
+
+.unnyc-page .unnyc-campaign__panel-title {
+  font-family: var(--unnyc-font-display);
+  font-weight: 400;
+  font-size: var(--unnyc-fs-2xl);
+  color: var(--unnyc-gold);
+  margin: 0 0 var(--unnyc-sp-3);
+}
+
+.unnyc-page .unnyc-campaign__panel-intro {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--unnyc-sp-4);
+}
+
+.unnyc-page .unnyc-campaign__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--unnyc-sp-3);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.unnyc-page .unnyc-campaign__list li {
+  padding-left: var(--unnyc-sp-6);
+  position: relative;
+}
+
+.unnyc-page .unnyc-campaign__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--unnyc-gold);
+}
+
+.unnyc-page .unnyc-campaign__panel-link {
+  display: inline-block;
+  margin-top: var(--unnyc-sp-5);
+  color: var(--unnyc-gold);
+  font-size: var(--unnyc-fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.unnyc-page .unnyc-campaign__panel-link:hover {
+  text-decoration: underline;
+}
+
+.unnyc-page .unnyc-campaign__principles {
+  margin-bottom: var(--unnyc-sp-16);
+}
+
+.unnyc-page .unnyc-campaign__principles-title {
+  font-family: var(--unnyc-font-body);
+  font-size: var(--unnyc-fs-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: var(--unnyc-sp-8);
+}
+
+.unnyc-page .unnyc-campaign__principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--unnyc-sp-4);
+}
+
+.unnyc-page .unnyc-campaign__principle {
+  display: flex;
+  gap: var(--unnyc-sp-3);
+  padding: var(--unnyc-sp-4);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--unnyc-radius-md);
+}
+
+.unnyc-page .unnyc-campaign__principle-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--unnyc-gold);
+  color: var(--unnyc-navy-deep);
+  font-size: var(--unnyc-fs-xs);
+  font-weight: 700;
+}
+
+.unnyc-page .unnyc-campaign__principle-title {
+  font-family: var(--unnyc-font-body);
+  font-size: var(--unnyc-fs-sm);
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 var(--unnyc-sp-1);
+}
+
+.unnyc-page .unnyc-campaign__principle-desc {
+  font-size: var(--unnyc-fs-xs);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.unnyc-page .unnyc-campaign__ask {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.unnyc-page .unnyc-campaign__ask-heading {
+  font-family: var(--unnyc-font-display);
+  font-weight: 400;
+  font-size: var(--unnyc-fs-3xl);
+  color: #FFFFFF;
+  margin-bottom: var(--unnyc-sp-4);
+}
+
+.unnyc-page .unnyc-campaign__ask-text {
+  font-size: var(--unnyc-fs-lg);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: var(--unnyc-sp-8);
+}
+
+.unnyc-page .unnyc-campaign__ask-ctas {
+  display: flex;
+  justify-content: center;
+  gap: var(--unnyc-sp-4);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .unnyc-page .unnyc-campaign__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .unnyc-page .unnyc-campaign__principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .unnyc-page .unnyc-campaign__principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unnyc-page .unnyc-hero__banner {
+    font-size: var(--unnyc-fs-xs);
+  }
 }
