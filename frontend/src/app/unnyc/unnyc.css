@@ -44,33 +44,38 @@
   --unnyc-shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
   --unnyc-shadow-xl: 0 20px 60px rgba(27, 42, 74, 0.15);
 
-  /* Spacing */
-  --unnyc-sp-1: 4px;
-  --unnyc-sp-2: 8px;
-  --unnyc-sp-3: 12px;
-  --unnyc-sp-4: 16px;
-  --unnyc-sp-5: 20px;
-  --unnyc-sp-6: 24px;
-  --unnyc-sp-8: 32px;
-  --unnyc-sp-10: 40px;
-  --unnyc-sp-12: 48px;
-  --unnyc-sp-16: 64px;
-  --unnyc-sp-20: 80px;
-  --unnyc-sp-24: 96px;
+  /* Spacing — aliased onto the shared 8px USWDS ramp (--db-space-*).
+     The UNNYC 4px ramp maps 1:1 except sp-5 (20px) and sp-24 (96px),
+     which have no db step and stay literal (rendered values unchanged). */
+  --unnyc-sp-1: var(--db-space-05);   /* 4px */
+  --unnyc-sp-2: var(--db-space-1);    /* 8px */
+  --unnyc-sp-3: var(--db-space-15);   /* 12px */
+  --unnyc-sp-4: var(--db-space-2);    /* 16px */
+  --unnyc-sp-5: 20px;                 /* no db equivalent */
+  --unnyc-sp-6: var(--db-space-3);    /* 24px */
+  --unnyc-sp-8: var(--db-space-4);    /* 32px */
+  --unnyc-sp-10: var(--db-space-5);   /* 40px */
+  --unnyc-sp-12: var(--db-space-6);   /* 48px */
+  --unnyc-sp-16: var(--db-space-7);   /* 64px */
+  --unnyc-sp-20: var(--db-space-8);   /* 80px */
+  --unnyc-sp-24: 96px;                /* no db equivalent */
 
-  /* Typography */
+  /* Typography — type scale aliased onto the shared core (--db-text-*).
+     Steps whose rem values match db map directly; fs-lg (1.125), fs-3xl (2),
+     fs-4xl (2.75), fs-5xl (3.5), fs-6xl (4.5) have no db step and stay
+     literal (rendered values unchanged). Font families kept local. */
   --unnyc-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --unnyc-font-display: 'DM Serif Display', Georgia, serif;
-  --unnyc-fs-xs: 0.75rem;
-  --unnyc-fs-sm: 0.875rem;
-  --unnyc-fs-base: 1rem;
-  --unnyc-fs-lg: 1.125rem;
-  --unnyc-fs-xl: 1.25rem;
-  --unnyc-fs-2xl: 1.5rem;
-  --unnyc-fs-3xl: 2rem;
-  --unnyc-fs-4xl: 2.75rem;
-  --unnyc-fs-5xl: 3.5rem;
-  --unnyc-fs-6xl: 4.5rem;
+  --unnyc-fs-xs: var(--db-text-3xs);   /* 0.75rem */
+  --unnyc-fs-sm: var(--db-text-xs);    /* 0.875rem */
+  --unnyc-fs-base: var(--db-text-base);/* 1rem */
+  --unnyc-fs-lg: 1.125rem;             /* no db equivalent */
+  --unnyc-fs-xl: var(--db-text-lg);    /* 1.25rem */
+  --unnyc-fs-2xl: var(--db-text-xl);   /* 1.5rem */
+  --unnyc-fs-3xl: 2rem;                /* no db equivalent */
+  --unnyc-fs-4xl: 2.75rem;             /* no db equivalent */
+  --unnyc-fs-5xl: 3.5rem;              /* no db equivalent */
+  --unnyc-fs-6xl: 4.5rem;              /* no db equivalent */
 
   /* Radius */
   --unnyc-radius-sm: 6px;
