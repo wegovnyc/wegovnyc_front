@@ -1,13 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { events } from '@/data/unnyc';
 
 /**
  * Events section with category filter tabs.
  *
- * Renders filterable event cards sourced from `@/data/unnyc`.
- * Categories map to coloured badges: UN (blue), NYC (gold), Joint (navy).
+ * Renders filterable event cards sourced from `@/data/unnyc`. Events are
+ * date-aware: each carries machine-readable `start`/`end` (ISO) alongside the
+ * human `date` string, so once past their end date they drop out of the
+ * "Upcoming" grid automatically. Categories map to coloured badges:
+ * UN (blue), NYC (gold), Joint (navy).
  */
 
 const CATEGORY_LABELS = {
@@ -26,13 +29,34 @@ const filterToCategory = (filter) => {
   return null;
 };
 
+/** Visitor's local date as 'YYYY-MM-DD'. ISO date strings compare
+ *  lexicographically = chronologically, so no timezone math is needed. */
+const todayISO = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+
+/** Soonest-first; deterministic so SSR and client hydration agree. */
+const sortedEvents = [...events].sort((a, b) => a.start.localeCompare(b.start));
+
 export default function UnnycEvents() {
   const [activeFilter, setActiveFilter] = useState('All');
 
+  // `today` is null until mount so the server-rendered HTML and the first
+  // client render are identical (this page is statically built — comparing
+  // against a build-time date would cause a hydration mismatch). After mount
+  // we know the visitor's real date and drop events whose end has passed.
+  const [today, setToday] = useState(null);
+  useEffect(() => setToday(todayISO()), []);
+
+  const upcoming = today
+    ? sortedEvents.filter((e) => e.end >= today)
+    : sortedEvents;
+
   const category = filterToCategory(activeFilter);
   const filtered = category
-    ? events.filter((e) => e.category === category)
-    : events;
+    ? upcoming.filter((e) => e.category === category)
+    : upcoming;
 
   return (
     <section id="events" className="unnyc-section unnyc-section--alt">
@@ -70,6 +94,18 @@ export default function UnnycEvents() {
             </article>
           ))}
         </div>
+
+        {filtered.length === 0 && (
+          <p
+            style={{
+              textAlign: 'center',
+              color: 'var(--unnyc-text-muted)',
+              padding: 'var(--unnyc-sp-8) 0',
+            }}
+          >
+            No upcoming events in this category right now — check back soon.
+          </p>
+        )}
       </div>
     </section>
   );

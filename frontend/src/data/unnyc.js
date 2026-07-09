@@ -9,6 +9,8 @@ export const events = [
         id: 1,
         category: 'un',
         date: 'March 9–19, 2026',
+        start: '2026-03-09',
+        end: '2026-03-19',
         title: 'Commission on the Status of Women (CSW70)',
         location: 'UN Headquarters, New York',
         description: 'The 70th session focuses on gender equality and women\'s empowerment, bringing together government representatives, UN entities, and civil society.',
@@ -18,6 +20,8 @@ export const events = [
         id: 2,
         category: 'un',
         date: 'March 9–13, 2026',
+        start: '2026-03-09',
+        end: '2026-03-13',
         title: '69th Session — Commission on Narcotic Drugs',
         location: 'UN Headquarters, New York',
         description: 'Annual policy-making session on global drug control, demand reduction, and illicit crop monitoring.',
@@ -27,6 +31,8 @@ export const events = [
         id: 3,
         category: 'joint',
         date: 'March 30, 2026',
+        start: '2026-03-30',
+        end: '2026-03-30',
         title: 'ECOSOC Special Meeting on Credit Ratings',
         location: 'UN Headquarters, New York',
         description: 'ECOSOC convenes to examine how credit rating methodologies affect sustainable development financing.',
@@ -36,6 +42,8 @@ export const events = [
         id: 4,
         category: 'un',
         date: 'May 5–8, 2026',
+        start: '2026-05-05',
+        end: '2026-05-08',
         title: 'International Migration Review Forum',
         location: 'New York City',
         description: 'The primary intergovernmental platform for states to discuss progress on the Global Compact for Safe, Orderly and Regular Migration.',
@@ -45,6 +53,8 @@ export const events = [
         id: 5,
         category: 'un',
         date: 'June 17–19, 2026',
+        start: '2026-06-17',
+        end: '2026-06-19',
         title: 'Humanitarian Affairs Segment',
         location: 'UN Headquarters, New York',
         description: 'ECOSOC Humanitarian Affairs Segment brings together stakeholders to strengthen coordination of humanitarian responses worldwide.',
@@ -54,6 +64,8 @@ export const events = [
         id: 6,
         category: 'un',
         date: 'September 9, 2026',
+        start: '2026-09-09',
+        end: '2026-09-09',
         title: 'UN General Assembly — 81st Session Opens',
         location: 'UN Headquarters, New York',
         description: 'The annual opening of the General Assembly, followed by the High-Level General Debate starting September 22, drawing world leaders to NYC.',
@@ -63,6 +75,8 @@ export const events = [
         id: 7,
         category: 'joint',
         date: 'Ongoing — 2026',
+        start: '2026-01-01',
+        end: '2026-12-31',
         title: 'NYC Junior Ambassadors Program',
         location: 'Across NYC & UN Headquarters',
         description: 'The Mayor\'s Office for International Affairs empowers 7th–9th graders to engage with the UN\'s mission. Over 3,500 youth and educators have participated since 2015.',
@@ -72,6 +86,8 @@ export const events = [
         id: 8,
         category: 'nyc',
         date: '2025–2026',
+        start: '2025-01-01',
+        end: '2026-12-31',
         title: 'NYC Voluntary Local Review (VLR)',
         location: 'NYC Mayor\'s Office for International Affairs',
         description: 'New York City submits its latest VLR to the UN, reporting local progress on the Sustainable Development Goals. NYC pioneered this process in 2018.',
@@ -81,6 +97,8 @@ export const events = [
         id: 9,
         category: 'nyc',
         date: 'Q2 2025 — 2029',
+        start: '2025-04-01',
+        end: '2029-12-31',
         title: 'UN Plaza $500M Renovation',
         location: 'One & Two UN Plaza, East 44th Street',
         description: 'A major redevelopment backed by the NYC Mayor, Governor Hochul, and UNDC. Includes BuildSmart 2025 energy efficiency upgrades and will create 1,800 construction jobs.',
@@ -270,13 +288,15 @@ export const news = [
         title: '$500 Million UN Plaza Redevelopment Announced',
         excerpt: 'Mayor, Governor Hochul, and UNDC announce a transformative renovation of One and Two UN Plaza, including BuildSmart 2025 energy upgrades and 1,800 construction jobs.',
         date: 'Q1 2025',
+        sortDate: '2025-01-15',
         link: 'https://www.nyc.gov'
     },
     {
         source: 'United Nations',
         title: 'International Migration Review Forum Comes to NYC',
         excerpt: 'The 2026 IMRF convenes in New York City (May 5–8) to assess progress on the Global Compact for Migration — a topic with direct local relevance.',
-        date: 'Upcoming — May 2026',
+        date: 'May 2026',
+        sortDate: '2026-05-05',
         link: 'https://migrationnetwork.un.org/'
     },
     {
@@ -284,6 +304,7 @@ export const news = [
         title: '2025 NYC Junior Ambassadors Cohort Selected',
         excerpt: 'Seventh through ninth graders from all five boroughs will engage with the UN mission, continuing a program that has reached over 3,500 youth since 2015.',
         date: 'March 2025',
+        sortDate: '2025-03-15',
         link: 'https://www.nyc.gov/site/international/programs/junior-ambassadors.page'
     },
     {
@@ -291,6 +312,7 @@ export const news = [
         title: 'Green Economy Action Plan Targets 400,000 Jobs by 2040',
         excerpt: 'NYC launches an ambitious plan to build a green workforce, aligning with both Local Law 97 building targets and UN SDG 8 (Decent Work and Economic Growth).',
         date: 'February 2024',
+        sortDate: '2024-02-15',
         link: 'https://www.nyc.gov/climate'
     },
     {
@@ -298,13 +320,15 @@ export const news = [
         title: 'BuildSmart 2025: Energy Efficiency Standards for State Buildings',
         excerpt: 'Governor Hochul\'s BuildSmart program sets new energy efficiency requirements, directly supporting the UN Plaza renovation and broader climate goals.',
         date: '2025',
+        sortDate: '2025-06-15',
         link: 'https://www.governor.ny.gov'
     },
     {
         source: 'United Nations',
         title: 'CSW70: Gender Equality on the Agenda at UN Headquarters',
         excerpt: 'The 70th session of the Commission on the Status of Women (March 9–19, 2026) will gather advocates, policymakers, and NGOs in New York City.',
-        date: 'Upcoming — March 2026',
+        date: 'March 2026',
+        sortDate: '2026-03-09',
         link: 'https://www.unwomen.org/en/csw'
     }
 ];

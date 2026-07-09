@@ -3,7 +3,13 @@ import { news } from '@/data/unnyc';
 /**
  * UnnycNews — Server component rendering the news and announcements grid.
  * Each card shows source, title, excerpt, date, and an external link.
+ * Sorted newest-first by machine-readable `sortDate` (ISO) so the most
+ * recent announcements lead regardless of authoring order in the data file.
  */
+const sortedNews = [...news].sort((a, b) =>
+    (b.sortDate || '').localeCompare(a.sortDate || '')
+);
+
 export default function UnnycNews() {
     return (
         <section id="news" className="unnyc-section">
@@ -14,7 +20,7 @@ export default function UnnycNews() {
                 </header>
 
                 <div className="unnyc-news__grid">
-                    {news.map((item, index) => (
+                    {sortedNews.map((item, index) => (
                         <div key={index} className="unnyc-news__card">
                             <span className="unnyc-news__source">{item.source}</span>
                             <h3 className="unnyc-news__title">{item.title}</h3>
