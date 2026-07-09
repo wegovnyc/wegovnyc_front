@@ -154,8 +154,58 @@ export const policies = [
         title: 'Green Economy & Jobs',
         un: 'SDG 8 (Decent Work) & ILO Just Transition framework',
         nyc: 'NYC Green Economy Action Plan (Feb 2024) — 400,000 green jobs projected by 2040'
+    },
+    {
+        icon: '🔓',
+        title: 'Open Source & Digital Governance',
+        un: 'UN Open Source Principles (2025) — UN Open Source Week hosted annually at UN Headquarters in NYC',
+        nyc: 'NYC Open Data Law (Local Law 11 of 2012), Office of Technology & Innovation, city code on GitHub — formal endorsement of the Principles still pending'
     }
 ];
+
+export const openSource = {
+    eyebrow: 'The Campaign',
+    title: 'NYC Hosts the UN\'s Open Source Movement. It Hasn\'t Joined It.',
+    lede: 'Every June, UN Open Source Week brings more than 2,600 participants from 120+ countries to UN Headquarters — in New York City. In November 2025, Barcelona became the first city in the world to formally endorse the UN Open Source Principles, sparked by attending that same event. The city that hosts the movement should be part of it.',
+    barcelona: {
+        title: 'The Barcelona Precedent',
+        intro: 'Endorsement isn\'t a procurement overhaul — it\'s a signature plus a roadmap. Barcelona paired its endorsement with three commitments:',
+        commitments: [
+            'A Citizen Agreement for Democratic Technologies and Digital Rights — a participatory forum with civil society, universities, and the private sector',
+            'An Open Source Programme Office (OSPO), modeled on Paris and Munich, to promote open source across municipal services',
+            'A municipal fund providing grants for open source digital innovation projects'
+        ],
+        link: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles'
+    },
+    nycCase: {
+        title: 'The New York Case',
+        intro: 'NYC has a habit of being first with the UN — and the groundwork is already laid:',
+        points: [
+            'First U.S. city to submit a Voluntary Local Review of SDG progress to the UN (2018)',
+            'First U.S. city to join the UN Safe Cities Global Initiative',
+            'Open Data Law since 2012; city code already published on GitHub',
+            'An Office of Technology & Innovation positioned to house an NYC OSPO'
+        ]
+    },
+    principles: [
+        { title: 'Open by default', desc: 'Open source as the standard approach for projects' },
+        { title: 'Contribute back', desc: 'Active participation in the open source ecosystem' },
+        { title: 'Secure by design', desc: 'Security as a priority in all software projects' },
+        { title: 'Foster inclusion', desc: 'Inclusive participation and community building' },
+        { title: 'Design for reusability', desc: 'Interoperable across platforms and contexts' },
+        { title: 'Provide documentation', desc: 'Thorough documentation for end users' },
+        { title: 'RISE', desc: 'Recognize, incentivize, support, and empower communities' },
+        { title: 'Sustain and scale', desc: 'Solutions that meet evolving needs over time' }
+    ],
+    ask: {
+        heading: 'The Ask',
+        text: 'We call on the Mayor\'s Office of Technology & Innovation, together with the Mayor\'s Office for International Affairs, to formally endorse the UN Open Source Principles — making New York the first city in the Americas to do so.',
+        ctas: [
+            { text: 'Read the UN Open Source Principles', url: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles', style: 'primary' },
+            { text: 'How Barcelona Did It', url: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles', style: 'outline' }
+        ]
+    }
+};
 
 export const resources = [
     {
@@ -283,6 +333,27 @@ export const mapMarkers = [
 ];
 
 export const news = [
+    {
+        source: 'Barcelona City Council',
+        title: 'Barcelona Becomes First City Globally to Endorse UN Open Source Principles',
+        excerpt: 'Formalized during Barcelona Open Tech Week, the endorsement comes with three commitments: a citizen agreement on democratic technologies, an Open Source Programme Office, and a municipal open source fund.',
+        date: 'November 2025',
+        link: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles'
+    },
+    {
+        source: 'United Nations',
+        title: 'UN Open Source Week 2026 Draws 2,600+ Participants to New York',
+        excerpt: 'The premier global forum for open source collaboration convened June 22–26 at UN Headquarters, with dedicated days on AI, digital public infrastructure, and Open Source Programme Offices.',
+        date: 'June 2026',
+        link: 'https://www.unopensource.org/'
+    },
+    {
+        source: 'UN Office of ICT',
+        title: 'Sixteen Organizations Endorse the UN Open Source Principles',
+        excerpt: 'The Open Source Initiative, Linux Foundation, Eclipse Foundation, and others back the UN\'s eight principles, from "open by default" to "sustain and scale."',
+        date: 'March 2025',
+        link: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles'
+    },
     {
         source: 'NYC Mayor\'s Office',
         title: '$500 Million UN Plaza Redevelopment Announced',

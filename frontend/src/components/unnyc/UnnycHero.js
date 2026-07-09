@@ -77,15 +77,21 @@ export default function UnnycHero() {
           international city.
         </p>
 
+        <a href="#open-source" className="unnyc-hero__banner">
+          <span className="unnyc-hero__banner-tag">New</span>
+          Barcelona became the first city to endorse the UN Open Source
+          Principles — NYC should be next&nbsp;→
+        </a>
+
         <div className="unnyc-hero__cta">
-          <Link href="/unnyc/guide" className="unnyc-btn unnyc-btn--primary">
+          <a href="#open-source" className="unnyc-btn unnyc-btn--primary">
+            Endorse the Principles
+          </a>
+          <Link href="/unnyc/guide" className="unnyc-btn unnyc-btn--outline">
             Recommendations for NYC
           </Link>
           <a href="#events" className="unnyc-btn unnyc-btn--outline">
             Upcoming Events
-          </a>
-          <a href="#directory" className="unnyc-btn unnyc-btn--outline">
-            Explore Directory
           </a>
         </div>
 
