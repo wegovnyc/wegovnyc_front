@@ -11,18 +11,17 @@
        surface-alt, text-secondary/muted) have no shared-core equivalent and
        stay local, matching UNNYC. Navy converges separately (see below). */
     --background: #F8F6F0;
-    --foreground: #1B2A4A;
+    --foreground: var(--db-primary);   /* canonical navy #162e51 (was #1B2A4A) */
     --primary-color: var(--wg-un-blue);
     --accent-color: var(--wg-gold);
-    --header-bg: #1B2A4A;
-    /* Navy */
+    --header-bg: var(--db-primary);     /* canonical navy — matches the UNNYC hero */
     --header-text: var(--db-white);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --link-color: var(--wg-un-blue);
 
     /* Extended tokens */
-    --wegov-navy-deep: #0F1B33;
-    --wegov-navy-light: #2A3D63;
+    --wegov-navy-deep: var(--db-navy-900);   /* canonical navy ramp (was #0F1B33) */
+    --wegov-navy-light: var(--db-navy-500);  /* canonical navy ramp (was #2A3D63) */
     --wegov-blue-dark: var(--wg-un-blue-dark);
     --wegov-blue-light: var(--wg-un-blue-light);
     --wegov-gold-light: var(--wg-gold-light);
@@ -31,7 +30,7 @@
     --wegov-surface-alt: #F4F1EB;
     --wegov-text-secondary: #5A6A82;
     --wegov-text-muted: #8A96A8;
-    --wegov-border: rgba(27, 42, 74, 0.1);
+    --wegov-border: rgba(22, 46, 81, 0.1);   /* canonical navy #162e51 @ 10% — matches UNNYC */
     --wegov-shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.08);
     --wegov-shadow-md: 0 4px 16px rgba(27, 42, 74, 0.1);
     --wegov-shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
