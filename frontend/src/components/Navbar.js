@@ -1,15 +1,14 @@
 "use client";
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 /**
- * Main site navigation with optional horizontal submenu bar.
- * Nav links with a `children` array render as an in-flow submenu
- * that pushes page content down (not an overlay).
+ * Main site navigation with an optional in-flow submenu bar.
+ * A nav link with a `children` array renders a secondary nav that is shown
+ * exactly when that link's section is active (route-driven, not click-toggled):
+ * it appears on the section's pages and is hidden everywhere else.
  */
 export default function Navbar({ data, siteName, children }) {
-    const [openDropdown, setOpenDropdown] = useState(null);
     const pathname = usePathname();
 
     // A link is active when the current path equals its URL or is nested
@@ -46,11 +45,6 @@ export default function Navbar({ data, siteName, children }) {
                                     target={link.isExternal ? '_blank' : '_self'}
                                     className={`navbar-link${isActive(link.url) ? ' navbar-link--active' : ''}`}
                                     aria-current={isActive(link.url) ? 'page' : undefined}
-                                    onClick={() => {
-                                        if (link.children) {
-                                            setOpenDropdown(openDropdown === link.id ? null : link.id);
-                                        }
-                                    }}
                                 >
                                     {link.label}
                                 </Link>
@@ -72,9 +66,10 @@ export default function Navbar({ data, siteName, children }) {
                 </div>
             </div>
 
-            {/* Submenu bar — renders in document flow, pushes content down */}
+            {/* Submenu bar — shown only while its section is active (route-driven),
+                rendered in document flow so it pushes page content down. */}
             {data.links && data.links.map((link) => (
-                link.children && openDropdown === link.id && (
+                link.children && isActive(link.url) && (
                     <div
                         key={`sub-${link.id}`}
                         className="navbar-submenu-bar"
