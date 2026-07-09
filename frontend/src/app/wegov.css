@@ -4,27 +4,30 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root[data-theme='wegov'] {
-    /* Core Colors — UNNY palette */
+    /* Core palette — aliased onto the shared WeGovNYC token core
+       (src/styles/wegov-tokens.css): UN-blue + gold come from the Civic
+       reference tokens, white from --db-white. Same values UNNYC consumes,
+       so the two products can't drift. Warm editorial neutrals (background,
+       surface-alt, text-secondary/muted) have no shared-core equivalent and
+       stay local, matching UNNYC. Navy converges separately (see below). */
     --background: #F8F6F0;
     --foreground: #1B2A4A;
-    --primary-color: #4B92DB;
-    /* UN Blue */
-    --accent-color: #D4A843;
-    /* Gold */
+    --primary-color: var(--wg-un-blue);
+    --accent-color: var(--wg-gold);
     --header-bg: #1B2A4A;
     /* Navy */
-    --header-text: #ffffff;
+    --header-text: var(--db-white);
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --link-color: #4B92DB;
+    --link-color: var(--wg-un-blue);
 
     /* Extended tokens */
     --wegov-navy-deep: #0F1B33;
     --wegov-navy-light: #2A3D63;
-    --wegov-blue-dark: #2E6EAE;
-    --wegov-blue-light: #7BB4E8;
-    --wegov-gold-light: #E8C978;
-    --wegov-gold-dark: #B08A2E;
-    --wegov-surface: #FFFFFF;
+    --wegov-blue-dark: var(--wg-un-blue-dark);
+    --wegov-blue-light: var(--wg-un-blue-light);
+    --wegov-gold-light: var(--wg-gold-light);
+    --wegov-gold-dark: var(--wg-gold-dark);
+    --wegov-surface: var(--db-white);
     --wegov-surface-alt: #F4F1EB;
     --wegov-text-secondary: #5A6A82;
     --wegov-text-muted: #8A96A8;
