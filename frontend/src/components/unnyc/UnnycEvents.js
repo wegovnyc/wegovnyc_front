@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { events } from '@/data/unnyc';
+import { events as staticEvents } from '@/data/unnyc';
 
 /**
  * Events section with category filter tabs.
@@ -36,11 +36,11 @@ const todayISO = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 
-/** Soonest-first; deterministic so SSR and client hydration agree. */
-const sortedEvents = [...events].sort((a, b) => a.start.localeCompare(b.start));
-
-export default function UnnycEvents() {
+export default function UnnycEvents({ events = staticEvents }) {
   const [activeFilter, setActiveFilter] = useState('All');
+
+  // Soonest-first; deterministic so SSR and client hydration agree.
+  const sortedEvents = [...events].sort((a, b) => a.start.localeCompare(b.start));
 
   // `today` is null until mount so the server-rendered HTML and the first
   // client render are identical (this page is statically built — comparing
