@@ -80,7 +80,7 @@ export const events = [
         title: 'NYC Junior Ambassadors Program',
         location: 'Across NYC & UN Headquarters',
         description: 'The Mayor\'s Office for International Affairs empowers 7th–9th graders to engage with the UN\'s mission. Over 3,500 youth and educators have participated since 2015.',
-        link: 'https://www.nyc.gov/site/international/programs/junior-ambassadors.page'
+        link: 'https://www.nyc.gov/site/international/programs/nyc-junior-ambassadors.page'
     },
     {
         id: 8,
@@ -332,28 +332,11 @@ export const mapMarkers = [
     { lat: 40.7087, lng: -74.0090, label: 'NYS Attorney General', type: 'nys', desc: '28 Liberty Street' }
 ];
 
+// NOTE: The three UN Open Source campaign news items now live in Strapi
+// (content type `news-item`), not here — see scripts/seed-unnyc-campaign-news.js
+// in the backend. This static array is only a build-time fallback for when the
+// CMS is unreachable; campaign news is curated in the CMS.
 export const news = [
-    {
-        source: 'Barcelona City Council',
-        title: 'Barcelona Becomes First City Globally to Endorse UN Open Source Principles',
-        excerpt: 'Formalized during Barcelona Open Tech Week, the endorsement comes with three commitments: a citizen agreement on democratic technologies, an Open Source Programme Office, and a municipal open source fund.',
-        date: 'November 2025',
-        link: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles'
-    },
-    {
-        source: 'United Nations',
-        title: 'UN Open Source Week 2026 Draws 2,600+ Participants to New York',
-        excerpt: 'The premier global forum for open source collaboration convened June 22–26 at UN Headquarters, with dedicated days on AI, digital public infrastructure, and Open Source Programme Offices.',
-        date: 'June 2026',
-        link: 'https://www.unopensource.org/'
-    },
-    {
-        source: 'UN Office of ICT',
-        title: 'Sixteen Organizations Endorse the UN Open Source Principles',
-        excerpt: 'The Open Source Initiative, Linux Foundation, Eclipse Foundation, and others back the UN\'s eight principles, from "open by default" to "sustain and scale."',
-        date: 'March 2025',
-        link: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles'
-    },
     {
         source: 'NYC Mayor\'s Office',
         title: '$500 Million UN Plaza Redevelopment Announced',
@@ -376,7 +359,7 @@ export const news = [
         excerpt: 'Seventh through ninth graders from all five boroughs will engage with the UN mission, continuing a program that has reached over 3,500 youth since 2015.',
         date: 'March 2025',
         sortDate: '2025-03-15',
-        link: 'https://www.nyc.gov/site/international/programs/junior-ambassadors.page'
+        link: 'https://www.nyc.gov/site/international/news/ia-announces-2025-cohort-of-nyc-junior-ambassadors-20250312.page'
     },
     {
         source: 'NYC Climate',
