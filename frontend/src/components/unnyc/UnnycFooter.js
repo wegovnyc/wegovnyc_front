@@ -66,7 +66,7 @@ export default function UnnycFooter() {
                             <h4 className="unnyc-footer__column-title">Programs</h4>
                             <ul className="unnyc-footer__links">
                                 <li>
-                                    <a href="https://www.nyc.gov/site/international/programs/junior-ambassadors.page" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.nyc.gov/site/international/programs/nyc-junior-ambassadors.page" target="_blank" rel="noopener noreferrer">
                                         Junior Ambassadors
                                     </a>
                                 </li>
