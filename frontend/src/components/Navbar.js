@@ -39,6 +39,20 @@ export default function Navbar({ data, siteName, children }) {
         return () => window.removeEventListener('keydown', onKey);
     }, [menuOpen]);
 
+    // On mobile the subnav is a single scrollable line; keep the active chip
+    // centered as the scroll-spy advances. Only runs when the subnav actually
+    // overflows (i.e. mobile) and scrolls the container's own scrollLeft, so it
+    // can never move the page vertically.
+    useEffect(() => {
+        const container = document.querySelector('.navbar-submenu-links');
+        const activeEl = container?.querySelector('.navbar-submenu-link--active');
+        if (!container || !activeEl) return;
+        if (container.scrollWidth <= container.clientWidth) return; // no overflow (desktop)
+        const centered = activeEl.offsetLeft - (container.clientWidth - activeEl.offsetWidth) / 2;
+        const left = Math.max(0, Math.min(centered, container.scrollWidth - container.clientWidth));
+        container.scrollLeft = left; // instant: smooth programmatic scroll is unreliable here
+    }, [activeHash, pathname]);
+
     useEffect(() => {
         if (pathname !== '/unnyc') {
             setActiveHash('');
