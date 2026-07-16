@@ -50,6 +50,7 @@ export default async function RootLayout({ children }) {
       { id: 'unnyc-about', label: 'About', url: '/unnyc#about', isExternal: false },
       { id: 'unnyc-events', label: 'Events', url: '/unnyc#events', isExternal: false },
       { id: 'unnyc-policy', label: 'Policy', url: '/unnyc#policy', isExternal: false },
+      { id: 'unnyc-campaign', label: 'Campaign', url: '/unnyc#open-source', isExternal: false },
       { id: 'unnyc-resources', label: 'Resources', url: '/unnyc#resources', isExternal: false },
       { id: 'unnyc-directory', label: 'Directory', url: '/unnyc#directory', isExternal: false },
       { id: 'unnyc-map', label: 'Map', url: '/unnyc#map', isExternal: false },

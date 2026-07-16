@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 /* UNNYC hub sections, in page (document) order. The scroll-spy marks the
    submenu child whose hash matches whichever of these sits at the top of
    the viewport. Kept in sync with the section ids in components/unnyc/*. */
-const UNNYC_SPY_IDS = ['about', 'events', 'policy', 'resources', 'directory', 'map', 'news'];
+const UNNYC_SPY_IDS = ['about', 'events', 'policy', 'open-source', 'resources', 'directory', 'map', 'news'];
 
 /**
  * Main site navigation with an optional in-flow submenu bar.

@@ -1,4 +1,5 @@
 import { openSource } from '@/data/unnyc';
+import UnnycCampaignSignup from '@/components/unnyc/UnnycCampaignSignup';
 
 /**
  * UnnycCampaign — Server component for the UN Open Source Principles campaign.
@@ -83,6 +84,8 @@ export default function UnnycCampaign() {
                         ))}
                     </div>
                 </div>
+
+                <UnnycCampaignSignup campaign="un-open-source" />
             </div>
         </section>
     );

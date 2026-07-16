@@ -1333,6 +1333,102 @@
   flex-wrap: wrap;
 }
 
+/* --- Campaign "Get Updates" signup --- */
+.unnyc-page .unnyc-campaign__signup {
+  max-width: 560px;
+  margin: var(--unnyc-sp-16) auto 0;
+  padding: var(--unnyc-sp-8);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--unnyc-radius-lg);
+}
+
+.unnyc-page .unnyc-campaign__signup-heading {
+  font-family: var(--unnyc-font-display);
+  font-weight: 400;
+  font-size: var(--unnyc-fs-2xl);
+  color: var(--unnyc-gold);
+  margin: 0 0 var(--unnyc-sp-3);
+}
+
+.unnyc-page .unnyc-campaign__signup-text {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin: 0 auto var(--unnyc-sp-6);
+  max-width: 440px;
+}
+
+.unnyc-page .unnyc-campaign__signup-form {
+  display: flex;
+  gap: var(--unnyc-sp-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.unnyc-page .unnyc-campaign__signup-input {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: var(--unnyc-sp-3) var(--unnyc-sp-5);
+  font-size: var(--unnyc-fs-sm);
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  transition: border-color 0.2s var(--unnyc-ease), background 0.2s var(--unnyc-ease);
+}
+
+.unnyc-page .unnyc-campaign__signup-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.unnyc-page .unnyc-campaign__signup-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--unnyc-gold);
+}
+
+.unnyc-page .unnyc-campaign__signup-input[aria-invalid="true"] {
+  border-color: #ff8f8f;
+}
+
+.unnyc-page .unnyc-campaign__signup-btn {
+  flex: 0 0 auto;
+  border: none;
+  cursor: pointer;
+}
+
+.unnyc-page .unnyc-campaign__signup-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+.unnyc-page .unnyc-campaign__signup-success {
+  color: var(--unnyc-gold);
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.unnyc-page .unnyc-campaign__signup-error {
+  color: #ff8f8f;
+  font-size: var(--unnyc-fs-sm);
+  margin: var(--unnyc-sp-4) 0 0;
+}
+
+.unnyc-page .unnyc-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 900px) {
   .unnyc-page .unnyc-campaign__columns {
     grid-template-columns: 1fr;
