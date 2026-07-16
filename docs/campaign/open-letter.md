@@ -95,7 +95,9 @@ _[Undersigned organizations and individuals]_
 - Barcelona endorsement (OSOR): https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles
 - UN Open Source Week: https://www.unopensource.org/
 
-> **Status:** Draft for review. Once a final home/signature vehicle is chosen
-> (hosted page, PDF, or petition), wire the `/unnyc` campaign CTAs to it
-> (currently placeholder links to the UN Principles + Barcelona pages). See
-> task d8ac24e7.
+> **Status:** Live. This letter is hosted as a signable page at
+> `https://wegov.nyc/unnyc/campaign` — individuals sign, organizations endorse
+> (Strapi `campaign-endorsement` collection; publishing an entry in the admin
+> puts it on the public endorser wall). The `/unnyc` hero + campaign-section
+> CTAs point there. This file remains the canonical text; keep the page in
+> sync if the letter is revised. See task d8ac24e7.

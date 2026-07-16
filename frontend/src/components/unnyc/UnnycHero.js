@@ -84,9 +84,9 @@ export default function UnnycHero() {
         </a>
 
         <div className="unnyc-hero__cta">
-          <a href="#open-source" className="unnyc-btn unnyc-btn--primary">
-            Endorse the Principles
-          </a>
+          <Link href="/unnyc/campaign" className="unnyc-btn unnyc-btn--primary">
+            Sign the Open Letter
+          </Link>
           <Link href="/unnyc/guide" className="unnyc-btn unnyc-btn--outline">
             Recommendations for NYC
           </Link>

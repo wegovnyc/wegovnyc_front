@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { openSource } from '@/data/unnyc';
 import UnnycCampaignSignup from '@/components/unnyc/UnnycCampaignSignup';
 
@@ -72,15 +73,25 @@ export default function UnnycCampaign() {
                     <p className="unnyc-campaign__ask-text">{openSource.ask.text}</p>
                     <div className="unnyc-campaign__ask-ctas">
                         {openSource.ask.ctas.map((cta, index) => (
-                            <a
-                                key={index}
-                                href={cta.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`unnyc-btn unnyc-btn--${cta.style}`}
-                            >
-                                {cta.text}
-                            </a>
+                            cta.internal ? (
+                                <Link
+                                    key={index}
+                                    href={cta.url}
+                                    className={`unnyc-btn unnyc-btn--${cta.style}`}
+                                >
+                                    {cta.text}
+                                </Link>
+                            ) : (
+                                <a
+                                    key={index}
+                                    href={cta.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`unnyc-btn unnyc-btn--${cta.style}`}
+                                >
+                                    {cta.text}
+                                </a>
+                            )
                         ))}
                     </div>
                 </div>

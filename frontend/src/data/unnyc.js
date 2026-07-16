@@ -201,7 +201,8 @@ export const openSource = {
         heading: 'The Ask',
         text: 'We call on the Mayor\'s Office of Technology & Innovation, together with the Mayor\'s Office for International Affairs, to formally endorse the UN Open Source Principles — making New York the first city in the Americas to do so.',
         ctas: [
-            { text: 'Read the UN Open Source Principles', url: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles', style: 'primary' },
+            { text: 'Read & Sign the Open Letter', url: '/unnyc/campaign', style: 'primary', internal: true },
+            { text: 'Read the UN Open Source Principles', url: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles', style: 'outline' },
             { text: 'How Barcelona Did It', url: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles', style: 'outline' }
         ]
     }
