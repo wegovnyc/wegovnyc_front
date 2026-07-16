@@ -21,6 +21,24 @@ export default function Navbar({ data, siteName, children }) {
     // ('' = above the first section, i.e. the hero). Only tracked on /unnyc.
     const [activeHash, setActiveHash] = useState('');
 
+    // Mobile menu drawer open/closed. Hidden by CSS above the breakpoint, so
+    // this only has a visible effect on narrow viewports.
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    // Close the drawer on route change (covers path-based links; hash links on
+    // the same page are closed by the per-link onClick below).
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [pathname]);
+
+    // Let Escape close the drawer while it's open.
+    useEffect(() => {
+        if (!menuOpen) return undefined;
+        const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [menuOpen]);
+
     useEffect(() => {
         if (pathname !== '/unnyc') {
             setActiveHash('');
@@ -103,7 +121,24 @@ export default function Navbar({ data, siteName, children }) {
                     {children}
                 </div>
 
-                <div className="navbar-menu">
+                {/* Hamburger — visible only below the mobile breakpoint (CSS). */}
+                <button
+                    type="button"
+                    className={`navbar-toggle${menuOpen ? ' navbar-toggle--open' : ''}`}
+                    aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={menuOpen}
+                    aria-controls="navbar-primary-menu"
+                    onClick={() => setMenuOpen((o) => !o)}
+                >
+                    <span className="navbar-toggle__bar" />
+                    <span className="navbar-toggle__bar" />
+                    <span className="navbar-toggle__bar" />
+                </button>
+
+                <div
+                    id="navbar-primary-menu"
+                    className={`navbar-menu${menuOpen ? ' navbar-menu--open' : ''}`}
+                >
                     <ul className="navbar-links">
                         {data.links && data.links.map((link) => (
                             <li
@@ -115,6 +150,7 @@ export default function Navbar({ data, siteName, children }) {
                                     target={link.isExternal ? '_blank' : '_self'}
                                     className={`navbar-link${isActive(link.url) ? ' navbar-link--active' : ''}`}
                                     aria-current={isActive(link.url) ? 'page' : undefined}
+                                    onClick={() => setMenuOpen(false)}
                                 >
                                     {link.label}
                                 </Link>
@@ -128,6 +164,7 @@ export default function Navbar({ data, siteName, children }) {
                                 href={data.button.url}
                                 target={data.button.isExternal ? '_blank' : '_self'}
                                 className={`btn btn-${data.button.style || 'primary'} btn-sm`}
+                                onClick={() => setMenuOpen(false)}
                             >
                                 {data.button.label}
                             </a>
