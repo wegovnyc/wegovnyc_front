@@ -113,7 +113,7 @@ export const concepts = {
         {
             term: 'Digital Public Infrastructure (DPI)',
             def: 'The shared digital rails a society runs on — identity, payments, data exchange. Like roads or the power grid, DPI works best as interoperable public infrastructure rather than a set of walled gardens.',
-            nyc: 'MyCity, NYC’s benefits-access portal, is DPI thinking in practice. The question is whether NYC builds its rails open and reusable.',
+            nyc: 'Cities everywhere face the same needs — benefits access, permits, identity, participation. Increasingly they solve them once and share: platforms like Decidim and X-Road are built by one government and reused by dozens. NYC can join that exchange instead of buying its own silo.',
         },
         {
             term: 'Digital Sovereignty',
@@ -133,7 +133,7 @@ export const concepts = {
         {
             term: 'Universal DPI Safeguards Framework',
             def: 'A UN-backed framework for building digital public infrastructure that protects rights by design — privacy, security, inclusion, and accountability baked in from the start.',
-            nyc: 'A ready-made rights checklist NYC can apply to MyCity and every future resident-facing system — no need to invent one.',
+            nyc: 'A ready-made rights checklist NYC can apply to every resident-facing system it builds or buys — no need to invent one.',
         },
         {
             term: '"Public Money, Public Code"',
@@ -147,7 +147,7 @@ export const cases = {
     eyebrow: 'Case Studies',
     title: 'Governments Doing This Now',
     lede:
-        'None of this is theoretical. Cities and nations have been running open source government programs for years — with budgets, staff, and measurable results NYC can learn from.',
+        'None of this is theoretical. Cities and nations have run open source government programs for years — and increasingly build them together, sharing one codebase across dozens of governments instead of each buying its own. Results NYC can learn from, and networks it can join.',
     items: [
         {
             place: 'Barcelona',
@@ -203,6 +203,33 @@ export const cases = {
             lesson: 'When the rails are open and interoperable, the private sector competes on top of them instead of owning them.',
             link: 'https://www.mosip.io/',
         },
+        {
+            place: 'Decidim',
+            flag: '🗳️',
+            headline: 'One participation platform, ~90 governments',
+            body:
+                'Barcelona built Decidim, an open source citizen-participation platform — itself forked from Madrid’s Consul. It now runs in close to 90 cities, regions, and institutions reaching over a million people, while Consul’s lineage spans 35 countries. Governments pool code, features, and translations instead of each commissioning its own tool.',
+            lesson: 'When one city opens its platform, the next gets it for free — and improves it for everyone. NYC could adopt and contribute rather than procure from scratch.',
+            link: 'https://decidim.org/',
+        },
+        {
+            place: 'DHIS2',
+            flag: '🩺',
+            headline: 'Health data for 80+ countries, one codebase',
+            body:
+                'DHIS2, stewarded by the University of Oslo with a global network of regional support groups, is the government health-information system of record in more than 80 countries — reaching roughly 3.2 billion people. National ministries co-fund and shape a single shared open source platform instead of buying 80 separate ones.',
+            lesson: 'A public institution can steward critical government software as a shared good for decades. Pooled maintenance beats duplicated procurement.',
+            link: 'https://dhis2.org/',
+        },
+        {
+            place: 'OpenCRVS',
+            flag: '🧾',
+            headline: 'Civil registration, configured per country',
+            body:
+                'OpenCRVS is an open source birth-, death-, and marriage-registration platform built for multi-country adoption: configurable workflows adapt to each nation’s laws, and it interoperates with identity (MOSIP), payments, and health (DHIS2) systems. A digital public good governments deploy and extend together.',
+            lesson: 'Foundational government systems can be built once as open standards and localized per jurisdiction — exactly the reusability NYC procurement could ask for.',
+            link: 'https://www.opencrvs.org/',
+        },
     ],
 };
 
@@ -229,7 +256,7 @@ export const primerPolicies = {
             icon: '🗽',
             title: 'Digital Public Infrastructure',
             un: 'DPI Day at UN OSW: identity, payments, and data exchange as open, interoperable public rails, with a Universal Safeguards Framework.',
-            nyc: 'MyCity is NYC’s DPI bet — benefits access as shared infrastructure. Building it on open, reusable components is the open question.',
+            nyc: 'Cities worldwide face the same needs — identity, payments, benefits access — and increasingly share open components rather than each buying its own. The question is whether NYC builds on reusable open rails or locks into another silo.',
         },
         {
             icon: '🤝',
@@ -393,7 +420,7 @@ export const contacts = {
                 {
                     org: 'Centre for Digital Public Infrastructure (CDPI)',
                     role: 'Advisory center (co-founded by India Stack architects) that runs a help desk for governments building DPI.',
-                    helps: 'Free architectural guidance for DPI efforts like MyCity.',
+                    helps: 'Free architectural guidance for any DPI effort NYC takes on.',
                     url: 'https://cdpi.dev/',
                 },
                 {
