@@ -23,7 +23,13 @@ export default function ScrollReveal({ children, className = '' }) {
           observer.unobserve(node);
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      // threshold 0 (not 0.1): a fractional threshold can never fire for a
+      // section taller than ~10 viewports' worth of its own height (10% of
+      // the element must fit on screen at once), which left very tall
+      // sections (e.g. a long news grid) permanently hidden after deep hash
+      // jumps. Any-pixel intersection + the -40px bottom margin keeps the
+      // reveal feel while guaranteeing it always fires.
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' }
     );
 
     observer.observe(node);

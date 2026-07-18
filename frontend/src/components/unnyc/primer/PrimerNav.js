@@ -17,13 +17,12 @@ const SECTIONS = [
     { id: 'concepts', label: 'Concepts' },
     { id: 'cases', label: 'Cases' },
     { id: 'policy', label: 'Crosswalk' },
-    { id: 'events', label: 'Events' },
     { id: 'open-source', label: 'Campaign' },
     { id: 'map', label: 'Map' },
     { id: 'endorsers', label: 'Endorsers' },
     { id: 'resources', label: 'Resources' },
     { id: 'contacts', label: 'Contacts' },
-    { id: 'news', label: 'News' },
+    { id: 'news', label: 'News & Events' },
 ];
 
 export default function PrimerNav() {

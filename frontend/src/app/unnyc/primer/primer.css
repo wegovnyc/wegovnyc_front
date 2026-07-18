@@ -116,6 +116,16 @@
     display: block;
   }
 
+  /* --- Merged News & Events: event cards get a gold edge + gold label
+     so upcoming events read distinctly inside the news grid. --- */
+  .unnyc-pr .unnyc-news__card--event {
+    border-left: 3px solid var(--unnyc-gold);
+  }
+
+  .unnyc-pr .unnyc-news__card--event .unnyc-news__source {
+    color: var(--unnyc-gold-dark);
+  }
+
   /* --- Timeline --- */
   .unnyc-pr-timeline {
     list-style: none;

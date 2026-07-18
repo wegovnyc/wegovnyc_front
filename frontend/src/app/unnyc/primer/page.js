@@ -9,9 +9,8 @@ import PrimerMap from '@/components/unnyc/primer/PrimerMap';
 import PrimerEndorsers from '@/components/unnyc/primer/PrimerEndorsers';
 import PrimerResources from '@/components/unnyc/primer/PrimerResources';
 import PrimerContacts from '@/components/unnyc/primer/PrimerContacts';
-import UnnycEvents from '@/components/unnyc/UnnycEvents';
 import UnnycCampaign from '@/components/unnyc/UnnycCampaign';
-import UnnycNews from '@/components/unnyc/UnnycNews';
+import PrimerNewsEvents from '@/components/unnyc/primer/PrimerNewsEvents';
 import ScrollReveal from '@/components/unnyc/ScrollReveal';
 import { fetchAPI } from '@/lib/api';
 import { events as staticEvents, news as staticNews } from '@/data/unnyc';
@@ -37,9 +36,10 @@ export const metadata = {
  * Education-first: explains the concepts the UN system has united around
  * (unopensource.org/agenda) to NYC government tech staff, funneling to the
  * endorse-the-Principles campaign. Same layout/menu concept as the hub,
- * with a self-contained subnav; Events/News/Campaign sections are reused
- * as-is (same CMS data). When approved, this content replaces /unnyc and
- * the global submenu is updated to match.
+ * with a self-contained subnav; the Campaign section is reused as-is and
+ * CMS events + news merge into one "News & Events" section
+ * (PrimerNewsEvents). When approved, this content replaces /unnyc and the
+ * global submenu is updated to match.
  */
 export const revalidate = 3600;
 
@@ -106,9 +106,6 @@ export default async function PrimerPage() {
                 <PrimerPolicy />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycEvents events={events} />
-            </ScrollReveal>
-            <ScrollReveal>
                 <UnnycCampaign />
             </ScrollReveal>
             <ScrollReveal>
@@ -124,7 +121,7 @@ export default async function PrimerPage() {
                 <PrimerContacts />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycNews news={news} />
+                <PrimerNewsEvents news={news} events={events} />
             </ScrollReveal>
         </div>
     );
