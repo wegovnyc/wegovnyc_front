@@ -23,6 +23,15 @@ export default function PrimerMap() {
                 </header>
 
                 <PrimerMapInner />
+
+                <p className="unnyc-pr-map__source">
+                    This map is illustrative. For the full global picture, explore the{' '}
+                    <a href="https://dpimap.org/" target="_blank" rel="noopener noreferrer">
+                        DPI Map
+                    </a>{' '}
+                    (UCL IIPP) — click any of 210 countries to see the digital ID, payment,
+                    and data-exchange systems it runs.
+                </p>
             </div>
         </section>
     );

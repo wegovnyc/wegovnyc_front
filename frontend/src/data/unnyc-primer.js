@@ -353,10 +353,11 @@ export const primerResources = {
             ],
         },
         {
-            title: 'Standards & Registries',
+            title: 'Directories & Registries',
             icon: '📋',
             links: [
-                { text: 'DPG Standard & Registry (DPGA)', url: 'https://www.digitalpublicgoods.net/', desc: 'What qualifies as a digital public good, and the vetted registry.' },
+                { text: 'DPI Map (UCL IIPP)', url: 'https://dpimap.org/', desc: 'Interactive world map — click any country to see the digital ID, payment, and data-exchange systems it uses. 210 countries; 2025 State of DPI report.' },
+                { text: 'DPG Standard & Registry (DPGA)', url: 'https://www.digitalpublicgoods.net/registry', desc: 'The vetted registry of digital public goods, filterable by SDG and searchable by deployment.' },
                 { text: 'Universal DPI Safeguards', url: 'https://www.dpi-safeguards.org/', desc: 'The rights-by-design framework for public digital infrastructure.' },
                 { text: 'GovStack', url: 'https://www.govstack.global/', desc: 'Building-block specifications for government digital services.' },
                 { text: 'X-Road', url: 'https://x-road.global/', desc: 'The open source data exchange layer run by 20+ countries.' },

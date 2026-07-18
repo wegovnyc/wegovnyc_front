@@ -116,6 +116,21 @@
     display: block;
   }
 
+  /* --- Map source note --- */
+  .unnyc-pr-map__source {
+    margin: var(--unnyc-sp-4) auto 0;
+    max-width: 640px;
+    text-align: center;
+    font-size: var(--unnyc-fs-sm);
+    color: var(--unnyc-text-secondary);
+    line-height: 1.6;
+  }
+
+  .unnyc-pr-map__source a {
+    color: var(--un-blue-dark);
+    font-weight: 600;
+  }
+
   /* --- Merged News & Events: event cards get a gold edge + gold label
      so upcoming events read distinctly inside the news grid. --- */
   .unnyc-pr .unnyc-news__card--event {
