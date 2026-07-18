@@ -1,0 +1,444 @@
+/**
+ * Content for the UNNYC "primer" page (/unnyc/primer) — the alternate,
+ * education-first framing of the UNNYC hub. Audience: NYC government
+ * technology staff. Goal: explain the key concepts the UN system has
+ * united around (unopensource.org/agenda) and how the world is advancing
+ * them, funneling to the endorse-the-Principles campaign.
+ *
+ * Sourced/verified against: unite.un.org (UN OS Principles + the 16
+ * endorsing organizations, 25 Mar 2025), unopensource.org/agenda (OSW 2026
+ * themes), OSOR/Interoperable Europe (Barcelona, Paris, Munich OSPOs),
+ * sovereign.tech (funding figures), x-road.global / NIIS (Estonia).
+ * Static-first (like data/unnyc.js); move to Strapi later if needed.
+ */
+
+export const primerHero = {
+    eyebrow: 'A Primer for NYC Government Technologists',
+    titleParts: ['The UN Has United', 'Around Open Source.', 'NYC Should Too.'],
+    subtitle:
+        'Every June the United Nations convenes the world’s open source movement in New York. This page explains the concepts that movement has agreed on — DPI, DPGs, OSPOs, digital sovereignty — and what they mean for the people who build and buy NYC’s technology.',
+    banner: {
+        tag: 'Why now',
+        text: 'Barcelona became the first city to endorse the UN Open Source Principles — NYC should be next →',
+        href: '#open-source',
+    },
+    ctas: [
+        { text: 'Sign the Open Letter', href: '/unnyc/campaign', style: 'primary', internal: true },
+        { text: 'Key Concepts', href: '#concepts', style: 'outline' },
+        { text: 'Case Studies', href: '#cases', style: 'outline' },
+    ],
+    stats: [
+        { number: '8', label: 'UN Open Source Principles' },
+        { number: '17+', label: 'Endorsing Organizations' },
+        { number: '120+', label: 'Countries at UN OSW 2026' },
+        { number: '1', label: 'City Endorsed — NYC Next?' },
+    ],
+};
+
+export const movement = {
+    eyebrow: 'The Movement',
+    title: 'How the UN Came to Champion Open Source',
+    lede:
+        'Open source at the UN is not a side conversation — it is official policy direction, adopted at the highest coordination level of the UN system and backed by an annual summit at UN Headquarters. Here’s the arc.',
+    timeline: [
+        {
+            year: '2019',
+            title: 'Digital Public Goods Alliance founded',
+            desc: 'A multi-stakeholder initiative (endorsed in the Secretary-General’s digital cooperation agenda) begins vetting and promoting open source solutions that advance the SDGs.',
+        },
+        {
+            year: '2020',
+            title: 'SG’s Roadmap for Digital Cooperation',
+            desc: 'The Secretary-General names digital public goods — open source software, open data, open standards — as essential to an inclusive digital future.',
+        },
+        {
+            year: '2023–24',
+            title: '"OSPOs for Good" at UN Headquarters',
+            desc: 'The UN convenes governments and foundations in New York around Open Source Programme Offices as the institutional home for public-sector open source.',
+        },
+        {
+            year: 'Sept 2024',
+            title: 'Global Digital Compact adopted',
+            desc: 'At the Summit of the Future, member states commit to shared principles for an open, safe digital future — including explicit support for digital public goods and infrastructure.',
+        },
+        {
+            year: 'March 2025',
+            title: 'UN Open Source Principles adopted',
+            desc: 'The UN CEB’s Digital and Technology Network adopts eight principles — "open by default," "contribute back," and more. The Open Source Initiative endorses first; sixteen more organizations follow, from the Linux Foundation to Germany’s Sovereign Tech Agency.',
+        },
+        {
+            year: 'June 2025',
+            title: 'First UN Open Source Week',
+            desc: 'OSPOs for Good grows into a full week at UN Headquarters spanning AI, digital public infrastructure, and community-led events.',
+        },
+        {
+            year: 'Nov 2025',
+            title: 'Barcelona endorses — a city first',
+            desc: 'Barcelona becomes the first city in the world to formally endorse the Principles, pairing the signature with an OSPO, a citizen agreement, and a municipal open source fund.',
+        },
+        {
+            year: 'June 2026',
+            title: 'UN OSW draws 2,600+ from 120+ countries',
+            desc: 'Themed days — UN Tech Over, Open Source × AI, DPI Day, OSPOs for Good — plus the launch of the Public Code Observatory mapping public-sector open source worldwide.',
+        },
+    ],
+};
+
+export const concepts = {
+    eyebrow: 'Key Concepts',
+    title: 'The Vocabulary of the Movement',
+    lede:
+        'Ten terms that recur across UN Open Source Week, the Global Digital Compact, and every government open source program worth studying. Learn these and you can follow — and join — any conversation in this space.',
+    terms: [
+        {
+            term: 'Open Source (FOSS)',
+            def: 'Software whose source code anyone can inspect, use, modify, and share. "Free and open source software" is about freedom and public auditability, not price.',
+            nyc: 'NYC already publishes city code on GitHub — open source is a practice the city has started, not a leap into the unknown.',
+        },
+        {
+            term: 'UN Open Source Principles',
+            def: 'Eight commitments adopted by the UN’s Digital and Technology Network in 2025 — from "open by default" to "sustain and scale" — defining how the UN system approaches software.',
+            nyc: 'Endorsement is a signature plus a roadmap, not a procurement overhaul. It’s the entry ticket to a global community of practice.',
+        },
+        {
+            term: 'OSPO — Open Source Programme Office',
+            def: 'A dedicated team that coordinates an institution’s open source strategy: what to use, what to publish, how to contribute, and how to stay secure and compliant.',
+            nyc: 'Paris, Munich, and the UN itself run OSPOs. NYC’s Office of Technology & Innovation is the natural home for one.',
+        },
+        {
+            term: 'Digital Public Goods (DPGs)',
+            def: 'Open source software, open data, open AI models, standards, and content that adhere to privacy and best practices and help attain the SDGs — vetted via the DPG Standard and listed in the DPGA registry.',
+            nyc: 'Tools NYC builds could qualify as DPGs — and tools in the registry are free for NYC to adopt instead of procuring proprietary equivalents.',
+        },
+        {
+            term: 'Digital Public Infrastructure (DPI)',
+            def: 'The shared digital rails a society runs on — identity, payments, data exchange. Like roads or the power grid, DPI works best as interoperable public infrastructure rather than a set of walled gardens.',
+            nyc: 'MyCity, NYC’s benefits-access portal, is DPI thinking in practice. The question is whether NYC builds its rails open and reusable.',
+        },
+        {
+            term: 'Digital Sovereignty',
+            def: 'A government’s ability to control its own digital destiny — to understand, run, audit, and change the systems it depends on, rather than being locked into any single vendor.',
+            nyc: 'Every proprietary contract renewal NYC can’t walk away from is a sovereignty question. Open source is the strongest structural answer.',
+        },
+        {
+            term: 'Global Digital Compact (GDC)',
+            def: 'The framework adopted by UN member states in September 2024 committing to an inclusive, open, safe and secure digital future — with digital public goods and infrastructure named as shared priorities.',
+            nyc: 'The GDC is the diplomatic umbrella. When NYC aligns local tech policy with it, the city speaks a language 193 member states have already agreed to.',
+        },
+        {
+            term: 'Open Standards & Interoperability',
+            def: 'Publicly documented formats and protocols that let systems from different makers work together — the difference between an ecosystem and a lock-in.',
+            nyc: 'Writing open standards into procurement is the single highest-leverage clause NYC’s buyers control.',
+        },
+        {
+            term: 'Universal DPI Safeguards Framework',
+            def: 'A UN-backed framework for building digital public infrastructure that protects rights by design — privacy, security, inclusion, and accountability baked in from the start.',
+            nyc: 'A ready-made rights checklist NYC can apply to MyCity and every future resident-facing system — no need to invent one.',
+        },
+        {
+            term: '"Public Money, Public Code"',
+            def: 'The principle that software paid for by the public should be available to the public as open source — popularized in Europe and adopted as policy by cities like Munich.',
+            nyc: 'A slogan NYC’s civic tech community already believes in; endorsement would make it official posture.',
+        },
+    ],
+};
+
+export const cases = {
+    eyebrow: 'Case Studies',
+    title: 'Governments Doing This Now',
+    lede:
+        'None of this is theoretical. Cities and nations have been running open source government programs for years — with budgets, staff, and measurable results NYC can learn from.',
+    items: [
+        {
+            place: 'Barcelona',
+            flag: '🇪🇸',
+            headline: 'The endorsement playbook',
+            body:
+                'In November 2025 Barcelona became the first city in the world to formally endorse the UN Open Source Principles — sparked by attending UN Open Source Week. The signature came with three commitments: a citizen agreement on democratic technologies, an Open Source Programme Office, and a municipal fund for open source innovation.',
+            lesson: 'Endorsement is cheap, concrete, and pairs a signature with a light-touch roadmap. This is the model NYC can copy directly.',
+            link: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/barcelona-first-city-globally-adopt-un-open-source-principles',
+        },
+        {
+            place: 'Paris',
+            flag: '🇫🇷',
+            headline: 'A city OSPO running 300+ services',
+            body:
+                'Paris runs Lutèce, an open source platform powering more than 300 city web services — permits, housing, the participatory budget. Its OSPO (begun 2019, fully established 2022, among the first city OSPOs anywhere) coordinates the city’s open source assets, and Lutèce has been redeployed as far away as Baltimore.',
+            lesson: 'A city OSPO isn’t bureaucracy — it’s how one city’s investment becomes 300 reusable services, and other cities’ free head start.',
+            link: 'https://www.projets-libres.org/en/podcast/offering-free-digital-services-to-citizens-from-lutece-to-cite-libre-paris-fr/',
+        },
+        {
+            place: 'Munich',
+            flag: '🇩🇪',
+            headline: '"Public money, public code" as council policy',
+            body:
+                'After a decade of hard-won lessons on desktop Linux, Munich came back smarter: a 2023 City Council motion created an OSPO inside its IT department with a dual mandate — use open source where it’s strong, and publish the city’s own software under "public money, public code."',
+            lesson: 'The mature posture isn’t all-or-nothing migration — it’s an institutional office with a publish-by-default rule.',
+            link: 'https://opensource.muenchen.de/ospo.html',
+        },
+        {
+            place: 'Estonia',
+            flag: '🇪🇪',
+            headline: 'Open sourcing the national data backbone',
+            body:
+                'X-Road, the data exchange layer connecting Estonia’s entire digital state, was open sourced under the MIT license in 2016. Estonia and Finland founded a joint institute (NIIS) to steward it; their national systems federated in 2018, Iceland followed, and roughly 20 more countries now run it.',
+            lesson: 'Opening core infrastructure didn’t weaken it — it turned one country’s backbone into a shared international standard with pooled maintenance.',
+            link: 'https://x-road.global/',
+        },
+        {
+            place: 'Germany',
+            flag: '🇩🇪',
+            headline: 'Funding the open source that everything runs on',
+            body:
+                'Germany’s Sovereign Tech Agency (launched 2022) has invested over €24 million in 60+ critical open source components — the libraries, protocols, and tools every government and company silently depends on. Demand tells the story: nearly 500 applications seeking €114M+.',
+            lesson: 'Open source infrastructure needs maintenance money, and a public fund for it is now a proven, exportable model.',
+            link: 'https://www.sovereign.tech/',
+        },
+        {
+            place: 'India',
+            flag: '🇮🇳',
+            headline: 'DPI at population scale',
+            body:
+                'India’s digital public infrastructure — open APIs and platforms for identity and payments — shows what shared rails do at scale: UPI processes billions of transactions a month across hundreds of competing apps. The open source ID platform MOSIP, born of the same thinking, is now adopted by countries across Asia and Africa.',
+            lesson: 'When the rails are open and interoperable, the private sector competes on top of them instead of owning them.',
+            link: 'https://www.mosip.io/',
+        },
+    ],
+};
+
+/* Reframed policy intersections — open source & digital governance only.
+   Same card shape the hub's UnnycPolicy uses (icon / title / un / nyc). */
+export const primerPolicies = {
+    eyebrow: 'The Crosswalk',
+    title: 'UN Concepts ↔ NYC Reality',
+    lede: 'NYC is closer to the UN’s open source posture than most people inside the city realize. Map the concepts to what already exists.',
+    items: [
+        {
+            icon: '🔓',
+            title: 'Open by Default',
+            un: 'UN Open Source Principle #1: open source as the standard approach for projects across the UN system.',
+            nyc: 'NYC Open Data Law (Local Law 11 of 2012) made data open by default — the same move for code is the natural next step. City code already appears on GitHub.',
+        },
+        {
+            icon: '🏛️',
+            title: 'An NYC OSPO',
+            un: 'The UN runs its own OSPO and convenes "OSPOs for Good" at UN Headquarters; Paris, Munich, and Barcelona show the city version.',
+            nyc: 'The Office of Technology & Innovation already coordinates citywide tech — it is the natural institutional home for an NYC OSPO.',
+        },
+        {
+            icon: '🗽',
+            title: 'Digital Public Infrastructure',
+            un: 'DPI Day at UN OSW: identity, payments, and data exchange as open, interoperable public rails, with a Universal Safeguards Framework.',
+            nyc: 'MyCity is NYC’s DPI bet — benefits access as shared infrastructure. Building it on open, reusable components is the open question.',
+        },
+        {
+            icon: '🤝',
+            title: 'Contribute Back',
+            un: 'Principle #2: active participation in the open source ecosystem, not just consumption.',
+            nyc: 'NYC Planning Labs has shipped open source tools for years — proof the city can contribute, not only consume. Policy would scale the practice.',
+        },
+        {
+            icon: '🧩',
+            title: 'Open Standards & Procurement',
+            un: 'GDC and DPI frameworks stress interoperability and open standards as the guard against lock-in.',
+            nyc: 'NYC’s procurement rules are where open standards become real — an "open by default" preference clause is the highest-leverage reform available.',
+        },
+        {
+            icon: '🌐',
+            title: 'A Seat at the Global Table',
+            un: 'UN Open Source Week brings 120+ countries to Manhattan every June; the Global Digital Compact gives the shared vocabulary.',
+            nyc: 'NYC pioneered city-to-UN reporting with its Voluntary Local Review (2018) — endorsement of the Principles is the same move for technology.',
+        },
+    ],
+};
+
+/* Global map — governments and institutions advancing public-sector open source. */
+export const primerMapMarkers = [
+    { type: 'ask', lat: 40.7489, lng: -73.968, label: 'New York City — next?', desc: 'Host of UN Open Source Week. The campaign: make NYC the first city in the Americas to endorse the UN Open Source Principles.' },
+    { type: 'city', lat: 41.3874, lng: 2.1686, label: 'Barcelona', desc: 'First city in the world to endorse the UN Open Source Principles (Nov 2025) — with an OSPO, citizen agreement, and municipal open source fund.' },
+    { type: 'city', lat: 48.8566, lng: 2.3522, label: 'Paris', desc: 'Pioneer city OSPO (est. 2019); its open source Lutèce platform runs 300+ city services and has been redeployed abroad.' },
+    { type: 'city', lat: 48.1351, lng: 11.582, label: 'Munich', desc: 'City Council–mandated OSPO (2023) operating under "public money, public code."' },
+    { type: 'nation', lat: 59.437, lng: 24.7536, label: 'Estonia (Tallinn)', desc: 'Open sourced X-Road, the data exchange layer of its digital state, under MIT (2016); co-founded NIIS to steward it.' },
+    { type: 'nation', lat: 60.1699, lng: 24.9384, label: 'Finland (Helsinki)', desc: 'Co-founder of NIIS; federated its national data exchange with Estonia’s in 2018.' },
+    { type: 'nation', lat: 64.1466, lng: -21.9426, label: 'Iceland (Reykjavík)', desc: 'Runs Straumurinn, its national X-Road environment — open infrastructure crossing borders.' },
+    { type: 'nation', lat: 52.52, lng: 13.405, label: 'Germany (Berlin)', desc: 'Sovereign Tech Agency: €24M+ invested in maintaining critical open source; ZenDiS builds openDesk for public administration. Both endorsed the UN Principles.' },
+    { type: 'nation', lat: 12.9716, lng: 77.5946, label: 'India (Bengaluru)', desc: 'DPI at population scale (identity, payments) and home of MOSIP, the open source ID platform adopted internationally.' },
+    { type: 'nation', lat: 8.4657, lng: -13.2317, label: 'Sierra Leone (Freetown)', desc: 'Ministerial voice at UN OSW 2026 — part of a wide Global South presence shaping the agenda.' },
+    { type: 'nation', lat: 17.9714, lng: -76.7931, label: 'Jamaica (Kingston)', desc: 'At the ministerial table at UN OSW 2026 as the Caribbean engages DPI and open source.' },
+    { type: 'un', lat: 46.2044, lng: 6.1432, label: 'Geneva — UN system', desc: 'ITU, UNICC and the wider UN digital ecosystem driving open standards and shared platforms.' },
+    { type: 'un', lat: 40.7505, lng: -73.9682, label: 'UN Headquarters, NYC', desc: 'Where the UN CEB Digital & Technology Network adopted the eight Principles — and where the world’s open source movement meets every June.' },
+];
+
+export const primerMapLegend = [
+    { type: 'city', label: 'Cities leading' },
+    { type: 'nation', label: 'National programs' },
+    { type: 'un', label: 'UN system' },
+    { type: 'ask', label: 'NYC — the ask' },
+];
+
+export const endorsers = {
+    eyebrow: 'Endorsers & Contributors',
+    title: 'Who Has Already Signed On',
+    lede:
+        'The Open Source Initiative was first to endorse the UN Open Source Principles; sixteen more organizations — foundations, industry, and public agencies — joined at the March 2025 launch, and Barcelona became the first endorsing city that November.',
+    orgs: [
+        { name: 'Open Source Initiative (first endorser)', url: 'https://opensource.org/' },
+        { name: 'The Linux Foundation', url: 'https://www.linuxfoundation.org/' },
+        { name: 'Eclipse Foundation', url: 'https://www.eclipse.org/' },
+        { name: 'GNOME Foundation', url: 'https://foundation.gnome.org/' },
+        { name: 'The Document Foundation', url: 'https://www.documentfoundation.org/' },
+        { name: 'Open Knowledge Foundation', url: 'https://okfn.org/' },
+        { name: 'Open Forum Europe', url: 'https://openforumeurope.org/' },
+        { name: 'OpenInfra Foundation', url: 'https://openinfra.dev/' },
+        { name: 'Matrix.org Foundation', url: 'https://matrix.org/' },
+        { name: 'Sovereign Tech Agency', url: 'https://www.sovereign.tech/' },
+        { name: 'ZenDiS — Centre for Digital Sovereignty', url: 'https://zendis.de/' },
+        { name: 'Nextcloud', url: 'https://nextcloud.com/' },
+        { name: 'Rocket.Chat', url: 'https://www.rocket.chat/' },
+        { name: 'Linagora', url: 'https://www.linagora.com/' },
+        { name: 'RTE (Réseau de Transport d’Électricité)', url: 'https://www.rte-france.com/' },
+        { name: 'Linux Professional Institute', url: 'https://www.lpi.org/' },
+        { name: 'European Open Source Academy', url: 'https://opensource.academy/' },
+    ],
+    city: {
+        name: 'Barcelona',
+        desc: 'First city in the world to endorse (November 2025)',
+    },
+    cta: {
+        text: 'The list of cities has one name on it. Help add New York’s — sign or endorse the open letter.',
+        href: '/unnyc/campaign',
+        label: 'Read & Sign the Open Letter',
+    },
+};
+
+export const primerResources = {
+    eyebrow: 'Resource Directory',
+    title: 'Go Deeper',
+    lede: 'The primary sources — read the frameworks, browse the registries, join the communities.',
+    groups: [
+        {
+            title: 'Start Here',
+            icon: '📖',
+            links: [
+                { text: 'UN Open Source Week', url: 'https://www.unopensource.org/', desc: 'The annual convening at UN HQ — agenda, recordings, and community.' },
+                { text: 'The UN Open Source Principles', url: 'https://unite.un.org/en/news/sixteen-organizations-endorse-un-open-source-principles', desc: 'The eight principles and the launch announcement.' },
+                { text: 'Global Digital Compact', url: 'https://www.un.org/global-digital-compact', desc: 'The member-state framework naming DPGs and DPI as shared priorities.' },
+            ],
+        },
+        {
+            title: 'Standards & Registries',
+            icon: '📋',
+            links: [
+                { text: 'DPG Standard & Registry (DPGA)', url: 'https://www.digitalpublicgoods.net/', desc: 'What qualifies as a digital public good, and the vetted registry.' },
+                { text: 'Universal DPI Safeguards', url: 'https://www.dpi-safeguards.org/', desc: 'The rights-by-design framework for public digital infrastructure.' },
+                { text: 'GovStack', url: 'https://www.govstack.global/', desc: 'Building-block specifications for government digital services.' },
+                { text: 'X-Road', url: 'https://x-road.global/', desc: 'The open source data exchange layer run by 20+ countries.' },
+            ],
+        },
+        {
+            title: 'Communities of Practice',
+            icon: '🤝',
+            links: [
+                { text: 'TODO Group', url: 'https://todogroup.org/', desc: 'The practitioner community for running an OSPO — guides and templates.' },
+                { text: 'OSPO Alliance', url: 'https://ospo-alliance.org/', desc: 'European-rooted alliance with an OSPO onboarding handbook.' },
+                { text: 'EU Open Source Observatory (OSOR)', url: 'https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor', desc: 'Case studies and news on public-sector open source across Europe.' },
+                { text: 'Code for America', url: 'https://codeforamerica.org/', desc: 'The US civic tech network — the domestic ally ecosystem.' },
+            ],
+        },
+        {
+            title: 'Money & Maintenance',
+            icon: '🌱',
+            links: [
+                { text: 'Sovereign Tech Agency', url: 'https://www.sovereign.tech/', desc: 'Germany’s public fund for maintaining critical open source infrastructure.' },
+                { text: 'Digital Public Goods Alliance', url: 'https://www.digitalpublicgoods.net/', desc: 'Pathways to fund, certify, and scale DPGs.' },
+                { text: 'MOSIP', url: 'https://www.mosip.io/', desc: 'The open source ID platform — a study in sustainably governed DPI.' },
+            ],
+        },
+    ],
+};
+
+export const contacts = {
+    eyebrow: 'Who Can Help',
+    title: 'The People to Call',
+    lede:
+        'Outward-facing organizations — with public contact channels — whose job is helping governments adopt open source, DPGs, and DPI. If NYC wants to get on the same page as the UN community, these are the doors to knock on.',
+    note: 'All channels listed are the organizations’ own public contact points.',
+    groups: [
+        {
+            title: 'UN System',
+            items: [
+                {
+                    org: 'UN Office for Digital and Emerging Technologies (ODET)',
+                    role: 'Stewards the Global Digital Compact follow-up; led by USG Amandeep Singh Gill, the UN’s top digital official.',
+                    helps: 'Connecting city digital policy to UN processes and the GDC.',
+                    url: 'https://www.un.org/digital-emerging-technologies/',
+                },
+                {
+                    org: 'UN Open Source Week organizers (OICT)',
+                    role: 'The team behind the annual convening at UN Headquarters.',
+                    helps: 'Getting NYC officials into the room every June — the single easiest first step.',
+                    url: 'https://www.unopensource.org/',
+                },
+            ],
+        },
+        {
+            title: 'Global Institutions',
+            items: [
+                {
+                    org: 'Digital Public Goods Alliance (DPGA)',
+                    role: 'The multi-stakeholder body that maintains the DPG Standard and registry.',
+                    helps: 'Certifying NYC-built tools as DPGs; finding vetted open solutions to adopt.',
+                    url: 'https://www.digitalpublicgoods.net/',
+                },
+                {
+                    org: 'Centre for Digital Public Infrastructure (CDPI)',
+                    role: 'Advisory center (co-founded by India Stack architects) that runs a help desk for governments building DPI.',
+                    helps: 'Free architectural guidance for DPI efforts like MyCity.',
+                    url: 'https://cdpi.dev/',
+                },
+                {
+                    org: 'TODO Group',
+                    role: 'The global community of OSPO practitioners, hosted at the Linux Foundation.',
+                    helps: 'Playbooks, templates, and peer mentors for standing up an NYC OSPO.',
+                    url: 'https://todogroup.org/',
+                },
+                {
+                    org: 'Open Forum Europe',
+                    role: 'Policy think tank on open technologies; among the sixteen endorsers of the UN Principles.',
+                    helps: 'Policy language and precedent from European open source legislation.',
+                    url: 'https://openforumeurope.org/',
+                },
+                {
+                    org: 'Sovereign Tech Agency',
+                    role: 'Germany’s public investor in open source maintenance — and an endorser of the UN Principles.',
+                    helps: 'The blueprint for public funding of critical open infrastructure.',
+                    url: 'https://www.sovereign.tech/',
+                },
+            ],
+        },
+        {
+            title: 'New York City',
+            items: [
+                {
+                    org: 'NYC Office of Technology & Innovation (OTI)',
+                    role: 'The city’s central technology agency — the campaign’s primary addressee and the natural home of an NYC OSPO.',
+                    helps: 'The decision. Endorsing the Principles starts here.',
+                    url: 'https://www.nyc.gov/content/oti/pages/',
+                },
+                {
+                    org: 'Mayor’s Office for International Affairs',
+                    role: 'NYC’s bridge to the UN and diplomatic community; ran the first-ever Voluntary Local Review.',
+                    helps: 'The city-to-UN channel — the office that makes an endorsement diplomatic reality.',
+                    url: 'https://www.nyc.gov/site/international/index.page',
+                },
+                {
+                    org: 'WeGovNYC / Sarapis',
+                    role: 'The civic tech organizers behind this campaign.',
+                    helps: 'Briefings, introductions, and the open letter itself — we’re the local convener.',
+                    url: '/unnyc/campaign',
+                    internal: true,
+                },
+            ],
+        },
+    ],
+};

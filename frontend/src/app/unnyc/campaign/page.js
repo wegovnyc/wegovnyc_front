@@ -194,9 +194,9 @@ export default async function CampaignPage() {
 
                     <h2>The eight principles</h2>
                     <p>
-                        The UN Open Source Principles — endorsed in March 2025 by sixteen organizations
-                        including the Open Source Initiative, the Linux Foundation, and the Eclipse
-                        Foundation — are:
+                        The UN Open Source Principles — endorsed in March 2025 by seventeen
+                        organizations, first the Open Source Initiative and then sixteen more
+                        including the Linux Foundation and the Eclipse Foundation — are:
                     </p>
                     <ol className="unnyc-cmp-letter__principles">
                         {openSource.principles.map((p, i) => (

@@ -56,9 +56,9 @@ its technologists a shared, internationally recognized framework to work within.
 
 ## The eight principles
 
-The UN Open Source Principles — endorsed in March 2025 by sixteen organizations
-including the Open Source Initiative, the Linux Foundation, and the Eclipse
-Foundation — are:
+The UN Open Source Principles — endorsed in March 2025 by seventeen
+organizations, first the Open Source Initiative and then sixteen more including
+the Linux Foundation and the Eclipse Foundation — are:
 
 1. **Open by default** — open source as the standard approach for projects.
 2. **Contribute back** — active participation in the open source ecosystem.

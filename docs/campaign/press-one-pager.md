@@ -18,8 +18,9 @@ building technology as a public good.
 - **November 2025 — Barcelona** becomes the **first city in the world** to
   formally endorse the **UN Open Source Principles**, sparked by attending UN Open
   Source Week.
-- **March 2025 —** sixteen organizations, including the **Open Source Initiative,
-  the Linux Foundation, and the Eclipse Foundation,** endorse the Principles.
+- **March 2025 —** seventeen organizations endorse the Principles — first the
+  **Open Source Initiative**, then sixteen more including the **Linux Foundation
+  and the Eclipse Foundation**.
 - **2026 —** New York City, the permanent host of this global forum, has **still
   not endorsed** them.
 
