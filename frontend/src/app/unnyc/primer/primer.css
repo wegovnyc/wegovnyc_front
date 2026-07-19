@@ -261,6 +261,187 @@
     margin-bottom: var(--unnyc-sp-1);
   }
 
+  /* Make the concept card a column so the reference link pins to the base. */
+  .unnyc-pr-concept {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unnyc-pr-concept__nyc {
+    margin-bottom: var(--unnyc-sp-4);
+  }
+
+  .unnyc-pr-concept__link {
+    margin-top: auto;
+    font-size: var(--unnyc-fs-sm);
+    font-weight: 600;
+    color: var(--un-blue-dark);
+    text-decoration: none;
+  }
+
+  .unnyc-pr-concept__link:hover {
+    text-decoration: underline;
+  }
+
+  /* --- Crosswalk cards link out; add affordance + hover lift --- */
+  .unnyc-page .unnyc-policy__card--link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s var(--unnyc-ease), box-shadow 0.2s var(--unnyc-ease);
+  }
+
+  .unnyc-page .unnyc-policy__card--link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--unnyc-shadow-lg);
+  }
+
+  .unnyc-pr-policy__more {
+    display: inline-block;
+    margin-top: var(--unnyc-sp-4);
+    font-size: var(--unnyc-fs-sm);
+    font-weight: 600;
+    color: var(--un-blue-dark);
+  }
+
+  /* --- Crosswalk detail page (/unnyc/primer/crosswalk) --- */
+  .unnyc-pr-cw__header {
+    padding: var(--unnyc-sp-12) 0 var(--unnyc-sp-10);
+    background:
+      radial-gradient(ellipse at 80% -20%, rgba(75, 146, 219, 0.12), transparent 55%),
+      var(--unnyc-warm-white);
+    border-bottom: 1px solid var(--unnyc-border);
+  }
+
+  .unnyc-pr-cw__header-eyebrow {
+    font-size: var(--unnyc-fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--unnyc-gold-dark);
+    margin-bottom: var(--unnyc-sp-4);
+  }
+
+  .unnyc-pr-cw__header-title {
+    font-family: var(--unnyc-font-display);
+    font-weight: 400;
+    font-size: var(--unnyc-fs-4xl);
+    line-height: 1.15;
+    color: var(--unnyc-navy);
+    margin: 0 0 var(--unnyc-sp-5);
+  }
+
+  .unnyc-pr-cw__lede {
+    font-size: var(--unnyc-fs-lg);
+    color: var(--unnyc-text-secondary);
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0;
+  }
+
+  .unnyc-pr-cw__section {
+    padding: var(--unnyc-sp-12) 0;
+    scroll-margin-top: calc(var(--pr-header-h, 130px) + 72px);
+    border-bottom: 1px solid var(--unnyc-border);
+  }
+
+  .unnyc-pr-cw__heading {
+    display: flex;
+    align-items: center;
+    gap: var(--unnyc-sp-3);
+    margin-bottom: var(--unnyc-sp-6);
+  }
+
+  .unnyc-pr-cw__icon {
+    font-size: var(--unnyc-fs-3xl);
+  }
+
+  .unnyc-pr-cw__title {
+    font-family: var(--unnyc-font-display);
+    font-weight: 400;
+    font-size: var(--unnyc-fs-3xl);
+    color: var(--unnyc-navy);
+    margin: 0;
+  }
+
+  .unnyc-pr-cw__summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--unnyc-sp-5);
+    margin-bottom: var(--unnyc-sp-8);
+  }
+
+  .unnyc-pr-cw__col {
+    padding: var(--unnyc-sp-5);
+    background: var(--unnyc-surface);
+    border: 1px solid var(--unnyc-border);
+    border-radius: var(--unnyc-radius-md);
+  }
+
+  .unnyc-pr-cw__col p {
+    margin: 0;
+    font-size: var(--unnyc-fs-sm);
+    color: var(--unnyc-text-secondary);
+    line-height: 1.6;
+  }
+
+  .unnyc-pr-cw__col-label {
+    font-size: var(--unnyc-fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 var(--unnyc-sp-2);
+  }
+
+  .unnyc-pr-cw__col-label--un {
+    color: var(--un-blue-dark);
+  }
+
+  .unnyc-pr-cw__col-label--nyc {
+    color: var(--unnyc-gold-dark);
+  }
+
+  .unnyc-pr-cw__prose p {
+    font-size: var(--unnyc-fs-lg);
+    line-height: 1.75;
+    color: var(--unnyc-text-primary);
+    margin: 0 0 var(--unnyc-sp-4);
+  }
+
+  .unnyc-pr-cw__prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  .unnyc-pr-cw__foot {
+    padding: var(--unnyc-sp-16) 0;
+    text-align: center;
+  }
+
+  .unnyc-pr-cw__foot p {
+    font-size: var(--unnyc-fs-xl);
+    font-family: var(--unnyc-font-display);
+    color: var(--unnyc-navy);
+    margin: 0 0 var(--unnyc-sp-6);
+  }
+
+  .unnyc-pr-cw__foot-ctas {
+    display: flex;
+    justify-content: center;
+    gap: var(--unnyc-sp-4);
+    flex-wrap: wrap;
+  }
+
+  .unnyc-pr-cw__foot-ctas .unnyc-btn--outline {
+    color: var(--unnyc-navy);
+    border-color: var(--unnyc-border);
+  }
+
+  @media (max-width: 640px) {
+    .unnyc-pr-cw__summary {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* --- Case studies --- */
   .unnyc-pr-cases__grid {
     display: grid;

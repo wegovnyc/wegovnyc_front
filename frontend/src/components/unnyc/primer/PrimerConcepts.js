@@ -24,6 +24,16 @@ export default function PrimerConcepts() {
                                 <span className="unnyc-pr-concept__nyc-label">Why NYC should care</span>
                                 {t.nyc}
                             </p>
+                            {t.link && (
+                                <a
+                                    href={t.link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="unnyc-pr-concept__link"
+                                >
+                                    Learn more · {t.link.label} ↗
+                                </a>
+                            )}
                         </article>
                     ))}
                 </div>
