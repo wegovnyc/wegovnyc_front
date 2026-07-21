@@ -244,7 +244,7 @@ export const cases = {
    Same card shape the hub's UnnycPolicy uses (icon / title / un / nyc). */
 export const primerPolicies = {
     eyebrow: 'The Crosswalk',
-    title: 'UN Concepts ↔ NYC Reality',
+    title: 'Turning UN Concepts into NYC Reality',
     lede: 'NYC is closer to the UN’s open source posture than most people inside the city realize. Map the concepts to what already exists.',
     items: [
         {

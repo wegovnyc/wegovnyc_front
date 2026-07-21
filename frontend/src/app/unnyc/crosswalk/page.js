@@ -4,11 +4,11 @@ import HeaderHeightVar from '@/components/unnyc/primer/HeaderHeightVar';
 import { primerPolicies } from '@/data/unnyc-primer';
 
 export const metadata = {
-    title: 'UN Concepts ↔ NYC Reality — The Crosswalk | UNNYC',
+    title: 'Turning UN Concepts into NYC Reality — The Crosswalk | UNNYC',
     description:
         'A concept-by-concept crosswalk between the UN open source agenda and what New York City already has in place — open by default, an NYC OSPO, digital public infrastructure, contributing back, open-standards procurement, and a seat at the global table.',
     openGraph: {
-        title: 'UN Concepts ↔ NYC Reality — The Crosswalk',
+        title: 'Turning UN Concepts into NYC Reality — The Crosswalk',
         description:
             'How the UN open source agenda maps onto what New York City already does — and the next step in each case.',
         type: 'article',
