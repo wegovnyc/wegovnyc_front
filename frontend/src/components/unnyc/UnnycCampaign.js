@@ -7,21 +7,23 @@ import UnnycCampaignSignup from '@/components/unnyc/UnnycCampaignSignup';
  * Dark-band section: Barcelona precedent + NYC case, the eight principles,
  * and the endorsement ask aimed at OTI / Mayor's Office for International Affairs.
  */
-export default function UnnycCampaign() {
+export default function UnnycCampaign({ hideHeader = false }) {
     return (
         <section id="open-source" className="unnyc-section unnyc-campaign">
             <div className="unnyc-container">
-                <header className="unnyc-section__header">
-                    <span className="unnyc-section__eyebrow unnyc-campaign__eyebrow">
-                        {openSource.eyebrow}
-                    </span>
-                    <h2 className="unnyc-section__title unnyc-campaign__title">
-                        {openSource.title}
-                    </h2>
-                    <p className="unnyc-section__desc unnyc-campaign__lede">
-                        {openSource.lede}
-                    </p>
-                </header>
+                {!hideHeader && (
+                    <header className="unnyc-section__header">
+                        <span className="unnyc-section__eyebrow unnyc-campaign__eyebrow">
+                            {openSource.eyebrow}
+                        </span>
+                        <h2 className="unnyc-section__title unnyc-campaign__title">
+                            {openSource.title}
+                        </h2>
+                        <p className="unnyc-section__desc unnyc-campaign__lede">
+                            {openSource.lede}
+                        </p>
+                    </header>
+                )}
 
                 <div className="unnyc-campaign__columns">
                     <div className="unnyc-campaign__panel">

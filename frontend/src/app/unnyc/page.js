@@ -90,6 +90,7 @@ export default async function UnnycPage() {
         <div className="unnyc-pr">
             <HeaderHeightVar />
             <PrimerHero />
+            <UnnycCampaign hideHeader />
             <ScrollReveal>
                 <PrimerMovement />
             </ScrollReveal>
@@ -101,9 +102,6 @@ export default async function UnnycPage() {
             </ScrollReveal>
             <ScrollReveal>
                 <PrimerPolicy />
-            </ScrollReveal>
-            <ScrollReveal>
-                <UnnycCampaign />
             </ScrollReveal>
             <ScrollReveal>
                 <PrimerMap />

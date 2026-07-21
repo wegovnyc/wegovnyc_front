@@ -47,11 +47,11 @@ export default async function RootLayout({ children }) {
     url: '/unnyc',
     isExternal: false,
     children: [
+      { id: 'unnyc-campaign', label: 'Campaign', url: '/unnyc#open-source', isExternal: false },
       { id: 'unnyc-movement', label: 'Movement', url: '/unnyc#movement', isExternal: false },
       { id: 'unnyc-concepts', label: 'Concepts', url: '/unnyc#concepts', isExternal: false },
       { id: 'unnyc-cases', label: 'Cases', url: '/unnyc#cases', isExternal: false },
       { id: 'unnyc-policy', label: 'Crosswalk', url: '/unnyc#policy', isExternal: false },
-      { id: 'unnyc-campaign', label: 'Campaign', url: '/unnyc#open-source', isExternal: false },
       { id: 'unnyc-map', label: 'Map', url: '/unnyc#map', isExternal: false },
       { id: 'unnyc-endorsers', label: 'Endorsers', url: '/unnyc#endorsers', isExternal: false },
       { id: 'unnyc-resources', label: 'Resources', url: '/unnyc#resources', isExternal: false },

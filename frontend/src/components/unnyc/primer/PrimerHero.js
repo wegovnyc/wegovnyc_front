@@ -15,16 +15,16 @@ export default function PrimerHero() {
 
                 <h1 className="unnyc-hero__title">
                     {primerHero.titleParts.map((part, i) => (
-                        <span key={i} className="unnyc-pr-hero__line">{part}</span>
+                        <span
+                            key={i}
+                            className={`unnyc-pr-hero__line${i === primerHero.titleParts.length - 1 ? ' unnyc-pr-hero__line--ask' : ''}`}
+                        >
+                            {part}
+                        </span>
                     ))}
                 </h1>
 
                 <p className="unnyc-hero__subtitle">{primerHero.subtitle}</p>
-
-                <a href={primerHero.banner.href} className="unnyc-hero__banner">
-                    <span className="unnyc-hero__banner-tag">{primerHero.banner.tag}</span>
-                    {primerHero.banner.text}
-                </a>
 
                 <div className="unnyc-hero__cta">
                     {primerHero.ctas.map((cta, i) => (

@@ -24,7 +24,8 @@
      — so --pr-header-h captures the full stack and only a small gap is added.
      Scoped to revealed hub sections so it never overrides the crosswalk
      page's own .unnyc-pr-cw__section rule. */
-  .unnyc-pr .unnyc-reveal section[id] {
+  .unnyc-pr .unnyc-reveal section[id],
+  .unnyc-pr .unnyc-campaign[id] {
     scroll-margin-top: calc(var(--pr-header-h, 130px) + 28px);
   }
 
@@ -112,9 +113,29 @@
     background: var(--unnyc-gold);
   }
 
-  /* --- Hero tweaks --- */
+  /* --- Hero tweaks ---
+     The combined hero carries a full two-sentence campaign headline, so dial
+     the display size down from the hub hero's clamp and cap the measure. */
+  .unnyc-pr-hero .unnyc-hero__title {
+    font-size: clamp(var(--unnyc-fs-2xl), 3.4vw, var(--unnyc-fs-4xl));
+    max-width: 20ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .unnyc-pr-hero__line {
     display: block;
+  }
+
+  /* Line 1 (context) sits back a touch; line 2 (the ask) pops in the
+     blue→gold gradient so the call to action reads as the emphasis. */
+  .unnyc-pr-hero__line--ask {
+    margin-top: var(--unnyc-sp-3);
+    background: linear-gradient(135deg, var(--un-blue-light), var(--unnyc-gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   /* --- Map source note --- */

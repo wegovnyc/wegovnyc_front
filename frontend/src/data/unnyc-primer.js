@@ -13,14 +13,12 @@
 
 export const primerHero = {
     eyebrow: 'A Primer for NYC Government Technologists',
-    titleParts: ['The UN Has United', 'Around Open Source.', 'NYC Should Too.'],
+    titleParts: [
+        'The UN in New York City is organizing a Global Movement for Open Source Government.',
+        'New York City Government Should Join It.',
+    ],
     subtitle:
-        'Every June the United Nations convenes the world’s open source movement in New York. This page explains the concepts that movement has agreed on — DPI, DPGs, OSPOs, digital sovereignty — and what they mean for the people who build and buy NYC’s technology.',
-    banner: {
-        tag: 'Why now',
-        text: 'Barcelona became the first city to endorse the UN Open Source Principles — NYC should be next →',
-        href: '#open-source',
-    },
+        'Every June, UN Open Source Week brings 2,600+ participants from 120+ countries to UN Headquarters in Manhattan. In 2025, Barcelona became the first city to formally endorse the UN Open Source Principles. The city that hosts the movement hasn’t joined it — yet.',
     ctas: [
         { text: 'Sign the Open Letter', href: '/unnyc/campaign', style: 'primary', internal: true },
         { text: 'Key Concepts', href: '#concepts', style: 'outline' },
