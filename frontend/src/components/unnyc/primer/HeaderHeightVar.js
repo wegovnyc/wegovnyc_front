@@ -19,6 +19,10 @@ export default function HeaderHeightVar() {
         setVar();
         const ro = new ResizeObserver(setVar);
         ro.observe(header);
+        // Web fonts (DM Serif Display / Inter) load after first paint and
+        // reflow the navbar taller; re-measure once they settle so hash-jump
+        // offsets are correct even for an early click.
+        if (document.fonts?.ready) document.fonts.ready.then(setVar).catch(() => { });
         return () => {
             ro.disconnect();
             root.style.removeProperty('--pr-header-h');

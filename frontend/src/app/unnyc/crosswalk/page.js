@@ -13,12 +13,10 @@ export const metadata = {
             'How the UN open source agenda maps onto what New York City already does — and the next step in each case.',
         type: 'article',
     },
-    // Draft companion to /unnyc/primer — keep out of search indexes for now.
-    robots: { index: false, follow: false },
 };
 
 /**
- * /unnyc/primer/crosswalk — full write-up of the primer's "UN Concepts ↔
+ * /unnyc/crosswalk — full write-up of the hub's "UN Concepts ↔
  * NYC Reality" section. Each crosswalk card on the primer links here and
  * jumps to the matching section (#<slug>). Content is the single source in
  * data/unnyc-primer.js (primerPolicies.items), so the primer cards and this
@@ -34,7 +32,7 @@ export default function CrosswalkPage() {
             {/* Mini nav — back to the primer */}
             <nav className="unnyc-pr-nav" aria-label="Crosswalk">
                 <div className="unnyc-pr-nav__inner">
-                    <Link href="/unnyc/primer" className="unnyc-pr-nav__logo" title="Back to the primer">
+                    <Link href="/unnyc" className="unnyc-pr-nav__logo" title="Back to the UNNYC hub">
                         <span className="unnyc-pr-nav__logo-mark">UN</span>
                         <span className="unnyc-pr-nav__logo-ny">NYC</span>
                         <span className="unnyc-pr-nav__logo-tag">Crosswalk</span>
@@ -100,8 +98,8 @@ export default function CrosswalkPage() {
                         <Link href="/unnyc/campaign" className="unnyc-btn unnyc-btn--primary">
                             Read &amp; Sign the Open Letter
                         </Link>
-                        <Link href="/unnyc/primer" className="unnyc-btn unnyc-btn--outline">
-                            ← Back to the primer
+                        <Link href="/unnyc" className="unnyc-btn unnyc-btn--outline">
+                            ← Back to the hub
                         </Link>
                     </div>
                 </div>

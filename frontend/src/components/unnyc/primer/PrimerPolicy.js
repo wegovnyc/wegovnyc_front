@@ -5,7 +5,7 @@ import { primerPolicies } from '@/data/unnyc-primer';
  * PrimerPolicy — the reframed policy-intersections section: open source /
  * digital governance concepts crosswalked to what NYC already has.
  * Reuses the hub's unnyc-policy card CSS; each card links to the matching
- * section on the full crosswalk page (/unnyc/primer/crosswalk#<slug>).
+ * section on the full crosswalk page (/unnyc/crosswalk#<slug>).
  */
 export default function PrimerPolicy() {
     return (
@@ -21,7 +21,7 @@ export default function PrimerPolicy() {
                     {primerPolicies.items.map((policy, index) => (
                         <Link
                             key={index}
-                            href={`/unnyc/primer/crosswalk#${policy.slug}`}
+                            href={`/unnyc/crosswalk#${policy.slug}`}
                             className="unnyc-policy__card unnyc-policy__card--link"
                         >
                             <div className="unnyc-policy__card-header">

@@ -79,6 +79,18 @@ const nextConfig = {
         destination: 'https://wegov.nyc/unnyc/:path*',
         permanent: true,
       },
+      // The primer draft was promoted to be the main /unnyc hub (and its
+      // crosswalk sub-page to /unnyc/crosswalk); keep old draft links working.
+      {
+        source: '/unnyc/primer/crosswalk',
+        destination: '/unnyc/crosswalk',
+        permanent: true,
+      },
+      {
+        source: '/unnyc/primer',
+        destination: '/unnyc',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

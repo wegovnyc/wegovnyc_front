@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 /* UNNYC hub sections, in page (document) order. The scroll-spy marks the
    submenu child whose hash matches whichever of these sits at the top of
    the viewport. Kept in sync with the section ids in components/unnyc/*. */
-const UNNYC_SPY_IDS = ['about', 'events', 'policy', 'open-source', 'resources', 'directory', 'map', 'news'];
+const UNNYC_SPY_IDS = ['movement', 'concepts', 'cases', 'policy', 'open-source', 'map', 'endorsers', 'resources', 'contacts', 'news'];
 
 /**
  * Main site navigation with an optional in-flow submenu bar.
@@ -65,10 +65,18 @@ export default function Navbar({ data, siteName, children }) {
         if (!sections.length) return undefined;
 
         // Line just below the sticky header; a section counts as "current"
-        // once its top crosses above it. Active = last such section.
-        const OFFSET = 96;
+        // once its top crosses above it. Active = last such section. The line
+        // tracks the real header height (navbar + submenu bar, which grows
+        // when web fonts load) plus a small margin, so a section jumped to via
+        // the submenu registers as active immediately rather than only after
+        // an extra nudge of scrolling.
+        const getOffset = () => {
+            const headerEl = document.querySelector('.site-header');
+            return (headerEl ? headerEl.getBoundingClientRect().height : 72) + 40;
+        };
 
         const compute = () => {
+            const OFFSET = getOffset();
             let hash = '';
             for (const sec of sections) {
                 if (sec.getBoundingClientRect().top <= OFFSET) hash = `#${sec.id}`;
@@ -86,7 +94,7 @@ export default function Navbar({ data, siteName, children }) {
         // (rootMargin trims the viewport to a top band); scroll/resize cover
         // the page-bottom edge and deep-link/initial load.
         const observer = new IntersectionObserver(compute, {
-            rootMargin: `-${OFFSET}px 0px -60% 0px`,
+            rootMargin: `-${getOffset()}px 0px -60% 0px`,
             threshold: 0,
         });
         sections.forEach((s) => observer.observe(s));
@@ -94,11 +102,24 @@ export default function Navbar({ data, siteName, children }) {
         compute();
         window.addEventListener('scroll', compute, { passive: true });
         window.addEventListener('resize', compute);
+        window.addEventListener('hashchange', compute);
+        // On a deep-link load the hash scroll, the ScrollReveal fade/transform
+        // transitions, and the late web-font reflow all shift section positions
+        // AFTER this first compute(), and none reliably fires a scroll event to
+        // recompute. Poll briefly so the spy converges on the settled layout;
+        // self-terminates after ~3s (normal scrolling drives it thereafter).
+        let ticks = 0;
+        const settle = setInterval(() => {
+            compute();
+            if (++ticks >= 15) clearInterval(settle);
+        }, 200);
 
         return () => {
             observer.disconnect();
+            clearInterval(settle);
             window.removeEventListener('scroll', compute);
             window.removeEventListener('resize', compute);
+            window.removeEventListener('hashchange', compute);
         };
     }, [pathname]);
 

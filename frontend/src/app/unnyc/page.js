@@ -1,29 +1,45 @@
-import UnnycHero from '@/components/unnyc/UnnycHero';
-import UnnycAbout from '@/components/unnyc/UnnycAbout';
-import UnnycEvents from '@/components/unnyc/UnnycEvents';
-import UnnycPolicy from '@/components/unnyc/UnnycPolicy';
+import './primer.css';
+import HeaderHeightVar from '@/components/unnyc/primer/HeaderHeightVar';
+import PrimerHero from '@/components/unnyc/primer/PrimerHero';
+import PrimerMovement from '@/components/unnyc/primer/PrimerMovement';
+import PrimerConcepts from '@/components/unnyc/primer/PrimerConcepts';
+import PrimerCases from '@/components/unnyc/primer/PrimerCases';
+import PrimerPolicy from '@/components/unnyc/primer/PrimerPolicy';
+import PrimerMap from '@/components/unnyc/primer/PrimerMap';
+import PrimerEndorsers from '@/components/unnyc/primer/PrimerEndorsers';
+import PrimerResources from '@/components/unnyc/primer/PrimerResources';
+import PrimerContacts from '@/components/unnyc/primer/PrimerContacts';
 import UnnycCampaign from '@/components/unnyc/UnnycCampaign';
-import UnnycResources from '@/components/unnyc/UnnycResources';
-import UnnycDirectory from '@/components/unnyc/UnnycDirectory';
-import UnnycMap from '@/components/unnyc/UnnycMap';
-import UnnycNews from '@/components/unnyc/UnnycNews';
+import PrimerNewsEvents from '@/components/unnyc/primer/PrimerNewsEvents';
 import ScrollReveal from '@/components/unnyc/ScrollReveal';
 import { fetchAPI } from '@/lib/api';
 import { events as staticEvents, news as staticNews } from '@/data/unnyc';
 
+export const metadata = {
+    title: 'The UN Open Source Agenda — A Primer for NYC Government | UNNYC',
+    description:
+        'The UN system has united around open source: DPI, digital public goods, OSPOs, and the Global Digital Compact. A primer for NYC government technologists — key concepts, case studies, and how NYC can join.',
+    openGraph: {
+        title: 'The UN Has United Around Open Source. NYC Should Too.',
+        description:
+            'Key concepts, case studies, and the people to call — a primer for NYC government technologists on the UN open source agenda.',
+        type: 'website',
+    },
+};
+
 /**
- * Main UNNYC hub page at /unnyc.
- * Composes all UNNYC sections in order with scroll reveal animations.
+ * /unnyc — the UNNYC hub, framed as an education-first primer on the UN open
+ * source agenda (unopensource.org/agenda) for NYC government technologists,
+ * funneling to the endorse-the-Principles campaign.
  *
- * Events and news are managed in Strapi (content types `event` / `news-item`)
- * and fetched here; the static arrays in @/data/unnyc are kept as a fallback
- * so the page still renders if the CMS is unavailable at build/revalidate time.
- * Revalidated hourly so new CMS entries appear without a manual rebuild; the
- * date-aware components then handle upcoming-vs-past and ordering client-side.
+ * Sections are navigated by the global UNNYC submenu (see app/layout.js
+ * children + Navbar UNNYC_SPY_IDS, kept in sync with the section ids here).
+ * The Campaign section is reused as-is; CMS events + news merge into one
+ * "News & Events" section (PrimerNewsEvents). The full crosswalk write-up
+ * lives at /unnyc/crosswalk. Revalidated hourly so new CMS entries appear.
  */
 export const revalidate = 3600;
 
-/** Strapi `event` -> the shape UnnycEvents expects. */
 const mapEvent = (i) => ({
     id: i.id,
     category: i.category,
@@ -36,7 +52,6 @@ const mapEvent = (i) => ({
     link: i.link,
 });
 
-/** Strapi `news-item` -> the shape UnnycNews expects. */
 const mapNews = (i) => ({
     source: i.source,
     title: i.title,
@@ -72,32 +87,39 @@ export default async function UnnycPage() {
     const [events, news] = await Promise.all([getEvents(), getNews()]);
 
     return (
-        <>
-            <UnnycHero />
+        <div className="unnyc-pr">
+            <HeaderHeightVar />
+            <PrimerHero />
             <ScrollReveal>
-                <UnnycAbout />
+                <PrimerMovement />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycEvents events={events} />
+                <PrimerConcepts />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycPolicy />
+                <PrimerCases />
+            </ScrollReveal>
+            <ScrollReveal>
+                <PrimerPolicy />
             </ScrollReveal>
             <ScrollReveal>
                 <UnnycCampaign />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycResources />
+                <PrimerMap />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycDirectory />
+                <PrimerEndorsers />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycMap />
+                <PrimerResources />
             </ScrollReveal>
             <ScrollReveal>
-                <UnnycNews news={news} />
+                <PrimerContacts />
             </ScrollReveal>
-        </>
+            <ScrollReveal>
+                <PrimerNewsEvents news={news} events={events} />
+            </ScrollReveal>
+        </div>
     );
 }

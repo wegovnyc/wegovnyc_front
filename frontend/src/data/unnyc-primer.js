@@ -1,7 +1,6 @@
 /**
- * Content for the UNNYC "primer" page (/unnyc/primer) — the alternate,
- * education-first framing of the UNNYC hub. Audience: NYC government
- * technology staff. Goal: explain the key concepts the UN system has
+ * Content for the UNNYC hub (/unnyc) — the education-first "primer" framing.
+ * Audience: NYC government technology staff. Goal: explain the key concepts the UN system has
  * united around (unopensource.org/agenda) and how the world is advancing
  * them, funneling to the endorse-the-Principles campaign.
  *

@@ -1,5 +1,5 @@
 /* ============================================
-   UNNYC Primer page (/unnyc/primer) — DRAFT alternate hub framing
+   UNNYC hub (/unnyc) — the education-first "primer" framing
    Scoped under `.unnyc-pr`, prefix `unnyc-pr-`.
    Lives in @layer unnyc; inherits --unnyc-* tokens from .unnyc-page
    and reuses the hub's section/hero/policy/map classes from unnyc.css.
@@ -7,9 +7,9 @@
 
 @layer unnyc {
 
-  /* --- Local sticky subnav (mirrors the global UNNYC submenu look) ---
+  /* --- Local sticky subnav (used on the crosswalk sub-page) ---
      Sticks just below the global sticky site-header; --pr-header-h is
-     measured and set by PrimerNav.js (ResizeObserver on .site-header). */
+     measured and set by HeaderHeightVar (ResizeObserver on .site-header). */
   .unnyc-pr-nav {
     position: sticky;
     top: var(--pr-header-h, 0px);
@@ -19,12 +19,13 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   }
 
-  /* Hash jumps must land sections below the two stacked sticky bars
-     (site-header + this nav ≈ 58px tall). Kept a hair inside the
-     scroll-spy threshold (nav bottom + 10px) so the jumped-to section
-     becomes the active one. */
-  .unnyc-pr section[id] {
-    scroll-margin-top: calc(var(--pr-header-h, 0px) + 64px);
+  /* Hub hash jumps (global UNNYC submenu → /unnyc#section) must land below
+     the sticky site-header, which on /unnyc already includes the submenu bar
+     — so --pr-header-h captures the full stack and only a small gap is added.
+     Scoped to revealed hub sections so it never overrides the crosswalk
+     page's own .unnyc-pr-cw__section rule. */
+  .unnyc-pr .unnyc-reveal section[id] {
+    scroll-margin-top: calc(var(--pr-header-h, 130px) + 28px);
   }
 
   .unnyc-pr-nav__inner {
@@ -304,7 +305,7 @@
     color: var(--un-blue-dark);
   }
 
-  /* --- Crosswalk detail page (/unnyc/primer/crosswalk) --- */
+  /* --- Crosswalk detail page (/unnyc/crosswalk) --- */
   .unnyc-pr-cw__header {
     padding: var(--unnyc-sp-12) 0 var(--unnyc-sp-10);
     background:
