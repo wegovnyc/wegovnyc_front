@@ -5,8 +5,7 @@ import PrimerMovement from '@/components/unnyc/primer/PrimerMovement';
 import PrimerConcepts from '@/components/unnyc/primer/PrimerConcepts';
 import PrimerCases from '@/components/unnyc/primer/PrimerCases';
 import PrimerPolicy from '@/components/unnyc/primer/PrimerPolicy';
-import PrimerMap from '@/components/unnyc/primer/PrimerMap';
-import PrimerEndorsers from '@/components/unnyc/primer/PrimerEndorsers';
+import PrimerMovementNow from '@/components/unnyc/primer/PrimerMovementNow';
 import PrimerResources from '@/components/unnyc/primer/PrimerResources';
 import PrimerContacts from '@/components/unnyc/primer/PrimerContacts';
 import UnnycCampaign from '@/components/unnyc/UnnycCampaign';
@@ -104,10 +103,7 @@ export default async function UnnycPage() {
                 <PrimerPolicy />
             </ScrollReveal>
             <ScrollReveal>
-                <PrimerMap />
-            </ScrollReveal>
-            <ScrollReveal>
-                <PrimerEndorsers />
+                <PrimerMovementNow />
             </ScrollReveal>
             <ScrollReveal>
                 <PrimerResources />

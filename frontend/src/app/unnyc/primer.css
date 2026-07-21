@@ -138,6 +138,32 @@
     color: transparent;
   }
 
+  /* --- Combined "The World is Going Open Source": endorsers block under the
+     map, separated by a divider. --- */
+  .unnyc-pr-mn__endorsers {
+    margin-top: var(--unnyc-sp-16);
+    padding-top: var(--unnyc-sp-12);
+    border-top: 1px solid var(--unnyc-border);
+  }
+
+  .unnyc-pr-mn__subhead {
+    font-family: var(--unnyc-font-display);
+    font-weight: 400;
+    font-size: var(--unnyc-fs-2xl);
+    color: var(--unnyc-navy);
+    text-align: center;
+    margin: 0 0 var(--unnyc-sp-3);
+  }
+
+  .unnyc-pr-mn__lede {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--unnyc-sp-8);
+    font-size: var(--unnyc-fs-base);
+    color: var(--unnyc-text-secondary);
+    line-height: 1.6;
+  }
+
   /* --- Map source note --- */
   .unnyc-pr-map__source {
     margin: var(--unnyc-sp-4) auto 0;
