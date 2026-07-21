@@ -14,7 +14,7 @@
 export const primerHero = {
     eyebrow: 'A Primer for NYC Government Technologists',
     titleParts: [
-        'The UN in New York City is organizing a Global Movement for Open Source Government.',
+        'The UN’s New York City office organizes the world’s open source government movement.',
         'New York City Government Should Join It.',
     ],
     subtitle:
