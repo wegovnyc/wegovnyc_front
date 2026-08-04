@@ -8,3 +8,20 @@ node_modules
 # Backend is in separate repo: wegovnyc/wegovnyc_back
 backend/
 frontend/.next-local/
+
+# ---------------------------------------------------------------------------
+# Secrets — never commit. Two unencrypted private keys and a set of expect
+# scripts carrying a literal passphrase were committed to this PUBLIC repo in
+# 58b858e and removed on 2026-08-04. They remain in git history: purging that
+# needs `git filter-repo` plus re-cloning the fork (see docs/SECRET-PURGE.md).
+# ---------------------------------------------------------------------------
+*.pem
+*.key
+*.ppk
+*.exp
+ssh_key*
+ssh.pub
+id_rsa*
+id_ed25519*
+.env.*
+!.env.example
