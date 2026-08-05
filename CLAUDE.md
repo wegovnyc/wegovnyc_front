@@ -3,6 +3,28 @@
 > WeGov marketing website — Next.js on Vercel, content from the **Sarapis Payload CMS**, WeGov theme (UNNY design system)
 
 > [!IMPORTANT]
+> **UNNYC moved out of this repo (2026-08-04).** The campaign now lives in its own repo and site:
+> **[`sarapis/unnyc`](https://github.com/sarapis/unnyc) → https://unnyc.wegov.nyc**.
+> The `/unnyc*` routes still in this repo are a **stale duplicate** — they build and serve, but
+> the campaign is developed elsewhere now. **Do not add features to `/unnyc` here.**
+>
+> Two follow-ups are still open in this repo:
+> 1. Add a 301 from `wegov.nyc/unnyc/*` → `unnyc.wegov.nyc/*` (until then, two copies compete in search).
+> 2. Delete the dead `unnyc.wegov.nyc` host redirect in `frontend/next.config.mjs` — it never fired
+>    (DNS points that host at a different Vercel project) and now points the wrong way.
+
+> [!WARNING]
+> **Secrets were committed to this PUBLIC repo and are still in git history.** Two unencrypted
+> private keys (`ssh_key.pem`, `LightsailDefaultKey-us-east-1.pem`), a public key, and 12 `*.exp`
+> scripts carrying a literal passphrase were removed from the tree in `509149b` (2026-08-04), and
+> `.gitignore` now blocks them. GitHub secret scanning + push protection are now ON (both had been
+> off, which is why no alert ever fired). **History is NOT purged** — see
+> [`docs/SECRET-PURGE.md`](docs/SECRET-PURGE.md) for fingerprints, per-key risk and the
+> `git filter-repo` procedure. Verified during triage: the exposed `ssh_key.pem` is NOT trusted by
+> root on Hetzner `utilities-2`, and the owner confirms Lightsail is retired — so this is hygiene,
+> not an active incident. Tracked as task `51968fc0`.
+
+> [!IMPORTANT]
 > **Strapi is gone (retired + deleted 2026-07-24/29).** wegov.nyc now reads its content from the
 > multi-brand **Sarapis Payload CMS** at `https://next.sarapis.org`. `strapi.wegov.nyc` returns
 > **410 Gone**, the `opt-strapi-1` container and `/opt/strapi` on utilities-2 were deleted, and a
