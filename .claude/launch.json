@@ -1,0 +1,33 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "marketing-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "frontend"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "marketing-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start", "--prefix", "frontend", "--", "-p", "3210"],
+      "port": 3210,
+      "autoPort": true
+    },
+    {
+      "name": "unnyc-campaign",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/devin/Antigravity/unnyc"],
+      "port": 3100,
+      "autoPort": true
+    },
+    {
+      "name": "ds-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8123", "--directory", "/private/tmp/claude-501/-Users-devin-Antigravity-WeGovMarketing/ac522b15-c65a-4230-a28a-0d5f1add8839/scratchpad/wegov-ds/ds-bundle"],
+      "port": 8123,
+      "autoPort": true
+    }
+  ]
+}

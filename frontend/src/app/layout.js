@@ -39,24 +39,22 @@ export default async function RootLayout({ children }) {
 
   const { footer, navbar } = global || {};
 
-  // Inject UNNYC nav item with dropdown submenu
+  // UNNYC is its own site now (github.com/sarapis/unnyc → unnyc.wegov.nyc), so this
+  // is a plain EXTERNAL link. It used to point at /unnyc with a ten-item submenu of
+  // `/unnyc#section` anchors; that campaign was restructured into separate routes
+  // (/start, /crosswalk, /success, /campaign, /resources) when it moved out, so
+  // every one of those anchors had stopped resolving — they landed on the hub with a
+  // dead fragment. Linking the site directly is both correct and one hop shorter
+  // than going through the /unnyc redirect.
+  //
+  // Injected here rather than in the CMS so it sits next to Databook (the other
+  // product) regardless of how the CMS orders its own links. Move it into the
+  // Payload Site doc if you'd rather edit it without a deploy.
   const unnycNavItem = {
     id: 'unnyc',
     label: 'UNNYC',
-    url: '/unnyc',
-    isExternal: false,
-    children: [
-      { id: 'unnyc-campaign', label: 'Campaign', url: '/unnyc#open-source', isExternal: false },
-      { id: 'unnyc-timeline', label: 'Timeline', url: '/unnyc#movement', isExternal: false },
-      { id: 'unnyc-concepts', label: 'Concepts', url: '/unnyc#concepts', isExternal: false },
-      { id: 'unnyc-cases', label: 'Cases', url: '/unnyc#cases', isExternal: false },
-      { id: 'unnyc-policy', label: 'Crosswalk', url: '/unnyc#policy', isExternal: false },
-      { id: 'unnyc-movement', label: 'Movement', url: '/unnyc#going-open-source', isExternal: false },
-      { id: 'unnyc-resources', label: 'Resources', url: '/unnyc#resources', isExternal: false },
-      { id: 'unnyc-contacts', label: 'Contacts', url: '/unnyc#contacts', isExternal: false },
-      { id: 'unnyc-news', label: 'News & Events', url: '/unnyc#news', isExternal: false },
-      { id: 'unnyc-guide', label: 'Guide', url: '/unnyc/guide', isExternal: false },
-    ],
+    url: 'https://unnyc.wegov.nyc',
+    isExternal: true,
   };
 
   const navbarWithUnnyc = navbar ? (() => {

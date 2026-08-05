@@ -5,8 +5,18 @@
 > [!IMPORTANT]
 > **UNNYC moved out of this repo (2026-08-04).** The campaign now lives in its own repo and site:
 > **[`sarapis/unnyc`](https://github.com/sarapis/unnyc) → https://unnyc.wegov.nyc**.
-> The `/unnyc*` routes still in this repo are **dead code** — they build, but every path is now
-> redirected away, so nothing here is reachable. **Do not add features to `/unnyc` here.**
+> **The `/unnyc*` routes are GONE from this repo as of 2026-08-05** — route tree, 25 components,
+> both data files and `public/unnyc/` deleted (~7,400 lines). Only the redirects remain, and they
+> are what serves those URLs now. **Do not re-add `/unnyc` here.** Recover any of it from git
+> history; the campaign's live source is `sarapis/unnyc`.
+>
+> What the deletion also removed, so you don't go looking: the hardcoded UNNYC nav item and its
+> ten-item `/unnyc#section` submenu (those anchors had already stopped resolving — the campaign
+> was restructured into `/start`, `/crosswalk`, `/success`, `/campaign`, `/resources` when it
+> moved out), the `UNNYC_SPY_IDS` IntersectionObserver scroll-spy in `Navbar.js`, and the `unnyc`
+> cascade layer. The nav now carries a single **external** link to `https://unnyc.wegov.nyc`.
+> `Navbar.js`'s submenu machinery is kept but is **currently unexercised** — no CMS nav link
+> defines `children`, and hash children can no longer report active without the scroll-spy.
 >
 > **Both follow-ups are done as of `84a83de` (2026-08-04)** — `frontend/next.config.mjs` now
 > redirects all of `/unnyc/*` to the standalone site, and the dead `unnyc.wegov.nyc` host rule
@@ -22,8 +32,9 @@
 > - `/unnyc/` (trailing slash) takes two hops: Next's own trailing-slash normalization runs
 >   before custom redirects. Not worth fighting.
 >
-> The `/unnyc*` route directory could now be deleted outright. Left in place deliberately —
-> it still holds the only copy of the `guide` article's JSX in this repo's working tree.
+> The `guide` article's JSX went with the deletion. It is recoverable from git history, and the
+> rendered article is still live at `old-unnyc.wegov.nyc/guide.html` — which the `/unnyc/guide`
+> redirect above depends on remaining true, so **that old site is load-bearing.**
 
 > [!WARNING]
 > **Secrets were committed to this PUBLIC repo and are still in git history.** Two unencrypted
