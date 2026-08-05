@@ -1,7 +1,5 @@
 import { fetchAPI, getStrapiMedia } from '@/lib/api';
 import "./base.css";
-import { ThemeProvider } from '@/context/ThemeContext';
-import ThemeToggle from '@/components/ThemeToggle';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
@@ -70,20 +68,23 @@ export default async function RootLayout({ children }) {
     return { ...navbar, links };
   })() : navbar;
 
+  // Both attributes are STATIC and server-rendered: this site has exactly one
+  // theme and one brand.
+  //   data-theme="wegov" — selects the theme in app/wegov.css. The runtime
+  //     switcher that used to write this after hydration was retired
+  //     2026-08-05; see docs/RETIRED-THEMES.md. Setting it here also removes
+  //     the unthemed flash the old effect-based write caused on first paint.
+  //   data-brand="wegov" — selects the @wegovnyc/design-tokens brand variant.
   return (
-    <html lang="en">
+    <html lang="en" data-theme="wegov" data-brand="wegov">
       <body>
-        <ThemeProvider>
-          <div className="site-wrapper">
-            <header className="site-header">
-              <Navbar data={navbarWithUnnyc} siteName={global?.siteName}>
-                <ThemeToggle />
-              </Navbar>
-            </header>
-            <main>{children}</main>
-            <Footer data={footer} siteName={global?.siteName} />
-          </div>
-        </ThemeProvider>
+        <div className="site-wrapper">
+          <header className="site-header">
+            <Navbar data={navbarWithUnnyc} siteName={global?.siteName} />
+          </header>
+          <main>{children}</main>
+          <Footer data={footer} siteName={global?.siteName} />
+        </div>
       </body>
     </html>
   );

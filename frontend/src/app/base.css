@@ -8,23 +8,40 @@
    Order (lowest → highest priority):
      reset < theme < components < unnyc
 
-   The four global theme stylesheets are imported into `@layer theme` here
+   The global theme stylesheets are imported into `@layer theme` here
    (preserving their mutual source order). The whole app's CSS surface lives in
    these files + the page layers, so nothing unlayered competes with the theme
    on the main site — layering is transparent there and only changes the
    theme-vs-page relationship on /unnyc.
+
+   ONE THEME. The runtime theme switcher and its `nyc` / `amsterdam` stylesheets
+   were retired 2026-08-05; wegov.nyc is committed to the WeGov theme. Both
+   themes, the switcher, and how to restore them are preserved in
+   ../../../docs/RETIRED-THEMES.md. `data-theme="wegov"` is now a STATIC
+   attribute on <html> (app/layout.js) rather than something written after
+   hydration, which is also why the unthemed first-paint flash is gone.
    ========================================================================== */
 
 @layer reset, theme, components, unnyc;
 
 @import url('./globals.css') layer(theme);
-@import url('./nyc.css') layer(theme);
-@import url('./amsterdam.css') layer(theme);
 @import url('./wegov.css') layer(theme);
 
-/* Shared WeGovNYC design-system token core — unlayered custom properties
-   (definitions only; they don't participate in layer priority conflicts). */
-@import url('../styles/wegov-tokens.css');
+/* WeGovNYC design system — @wegovnyc/design-tokens, installed from
+   github:sarapis/wegovnyc-design-tokens. Unlayered custom-property
+   definitions, so they don't participate in layer priority conflicts.
+
+   Core supplies both tiers (reference --db-*, semantic --wg-*); the `wegov`
+   variant is the seam for this brand's divergence and is applied by
+   data-brand="wegov" on <html> (see app/layout.js). wegov.css maps its own
+   legacy names (--foreground, --primary-color, --wegov-*) onto the SEMANTIC
+   tier.
+
+   To change a token, change it in that repo and bump the dependency — never
+   patch node_modules and never re-add a local copy. This replaced a hand-copied
+   wegov-tokens.css that had already forked into two repos. */
+@import '@wegovnyc/design-tokens/core.css';
+@import '@wegovnyc/design-tokens/wegov.css';
 
 /* ---- Shared components ---------------------------------------------------
    Lives in @layer components (above `theme`) so component rules beat the
@@ -38,7 +55,7 @@
     /* Raised secondary-nav band: a lighter navy than the header, lifted with a
        soft shadow so it reads as a distinct bar without a coloured divider
        line. z-index keeps the shadow above the hero (which sits at z-index 0). */
-    background: var(--db-navy-600, #1f3a63);
+    background: var(--wg-brand-raised, #1f3a63);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
     position: relative;

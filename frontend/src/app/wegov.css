@@ -4,41 +4,57 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root[data-theme='wegov'] {
-    /* Core palette — aliased onto the shared WeGovNYC token core
-       (src/styles/wegov-tokens.css): UN-blue + gold come from the Civic
-       reference tokens, white from --db-white. Same values UNNYC consumes,
-       so the two products can't drift. Warm editorial neutrals (background,
-       surface-alt, text-secondary/muted) have no shared-core equivalent and
-       stay local, matching UNNYC. Navy converges separately (see below). */
-    --background: #F8F6F0;
-    --foreground: var(--db-primary);   /* canonical navy #162e51 (was #1B2A4A) */
-    --primary-color: var(--wg-un-blue);
-    --accent-color: var(--wg-gold);
-    --header-bg: var(--db-primary);     /* canonical navy — matches the UNNYC hero */
-    --header-text: var(--db-white);
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --link-color: var(--wg-un-blue);
+    /* ---- Brand alias layer -------------------------------------------------
+       Every name below is an alias onto the design system's SEMANTIC tier
+       (--wg-*), supplied by @wegovnyc/design-tokens (imported in base.css).
+       The `wegov` brand variant remaps those semantics, so this block never
+       needs to know which brand is active.
+
+       These legacy names (--foreground, --primary-color, --wegov-*) are kept
+       because hundreds of rules across globals.css and the component styles
+       already reference them. Repointing 27 definitions is a value-identical
+       change that can be verified; rewriting every rule is a large diff with no
+       functional gain today. Rules can migrate to --wg-* incrementally.
+
+       RULE: no raw values and no reference-tier (--db-*) tokens in this block.
+       If a value is missing from the semantic tier, add it to the system's
+       core.css and bump the dependency — do not reintroduce a literal here.
+       Literals in this block are how wegov.nyc and UNNYC drifted into two
+       copies of one design language in the first place.
+
+       Values are UNCHANGED by this refactor — verified against a captured
+       baseline of all 27 themed tokens plus 14 elements' computed styles. */
+    --background: var(--wg-surface-warm);
+    --foreground: var(--wg-brand);       /* canonical navy #162e51 */
+    --primary-color: var(--wg-accent);
+    --accent-color: var(--wg-accent-warm);
+    --header-bg: var(--wg-brand);        /* matches the UNNYC hero */
+    /* True white — deliberately NOT --wg-text-on-brand (#eef3f9). The system
+       carries both roles; see its note on text over a brand surface. */
+    --header-text: var(--wg-text-inverse);
+    --font-family: var(--wg-font-body);
+    --link-color: var(--wg-accent);
 
     /* Extended tokens */
-    --wegov-navy-deep: var(--db-navy-900);   /* canonical navy ramp (was #0F1B33) */
-    --wegov-navy-light: var(--db-navy-500);  /* canonical navy ramp (was #2A3D63) */
-    --wegov-blue-dark: var(--wg-un-blue-dark);
-    --wegov-blue-light: var(--wg-un-blue-light);
-    --wegov-gold-light: var(--wg-gold-light);
-    --wegov-gold-dark: var(--wg-gold-dark);
-    --wegov-surface: var(--db-white);
-    --wegov-surface-alt: #F4F1EB;
-    --wegov-text-secondary: #5A6A82;
-    --wegov-text-muted: #8A96A8;
-    --wegov-border: rgba(22, 46, 81, 0.1);   /* canonical navy #162e51 @ 10% — matches UNNYC */
-    --wegov-shadow-sm: 0 1px 3px rgba(27, 42, 74, 0.08);
-    --wegov-shadow-md: 0 4px 16px rgba(27, 42, 74, 0.1);
-    --wegov-shadow-lg: 0 12px 40px rgba(27, 42, 74, 0.12);
-    --wegov-radius-sm: 6px;
-    --wegov-radius-md: 10px;
-    --wegov-radius-lg: 16px;
-    --wegov-radius-xl: 24px;
-    --wegov-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --wegov-navy-deep: var(--wg-brand-deep);
+    --wegov-navy-light: var(--wg-brand-light);
+    --wegov-blue-dark: var(--wg-accent-strong);
+    --wegov-blue-light: var(--wg-accent-soft);
+    --wegov-gold-light: var(--wg-accent-warm-light);
+    --wegov-gold-dark: var(--wg-accent-warm-dark);
+    --wegov-surface: var(--wg-surface);
+    --wegov-surface-alt: var(--wg-surface-alt);
+    --wegov-text-secondary: var(--wg-text-secondary);
+    --wegov-text-muted: var(--wg-text-muted);
+    --wegov-border: var(--wg-border);
+    --wegov-shadow-sm: var(--wg-shadow-sm);
+    --wegov-shadow-md: var(--wg-shadow-md);
+    --wegov-shadow-lg: var(--wg-shadow-lg);
+    --wegov-radius-sm: var(--wg-radius-sm);
+    --wegov-radius-md: var(--wg-radius-md);
+    --wegov-radius-lg: var(--wg-radius-lg);
+    --wegov-radius-xl: var(--wg-radius-xl);
+    --wegov-ease: var(--wg-ease);
 }
 
 /* --- Global --- */

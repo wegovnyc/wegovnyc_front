@@ -10,6 +10,17 @@ export function ThemeProvider({ children }) {
     useEffect(() => {
         // Apply theme to document root
         document.documentElement.setAttribute('data-theme', theme);
+
+        // Keep the design-system brand variant in step with the theme.
+        // @wegovnyc/design-tokens ships a `wegov` variant scoped to
+        // [data-brand="wegov"]; the nyc and amsterdam themes are NOT part of
+        // that system, so the attribute is removed for them rather than left
+        // asserting a brand that isn't active.
+        if (theme === 'wegov') {
+            document.documentElement.setAttribute('data-brand', 'wegov');
+        } else {
+            document.documentElement.removeAttribute('data-brand');
+        }
     }, [theme]);
 
     // Optionally persist key

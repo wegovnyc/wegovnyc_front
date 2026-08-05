@@ -14,7 +14,7 @@ const UNNYC_SPY_IDS = ['open-source', 'movement', 'concepts', 'cases', 'policy',
  * exactly when that link's section is active (route-driven, not click-toggled):
  * it appears on the section's pages and is hidden everywhere else.
  */
-export default function Navbar({ data, siteName, children }) {
+export default function Navbar({ data, siteName }) {
     const pathname = usePathname();
 
     // Hash of the UNNYC section currently at the top of the viewport
@@ -151,10 +151,12 @@ export default function Navbar({ data, siteName, children }) {
                     {siteName || 'WeGovNYC'}
                 </Link>
 
-                {/* Center Content (Theme Toggle) */}
-                <div className="navbar-center">
-                    {children}
-                </div>
+                {/* Spacer. Held the theme-switcher until it was retired
+                    (2026-08-05, docs/RETIRED-THEMES.md) and is now empty — but
+                    it is NOT decorative: `.navbar-center { flex: 1 }` is what
+                    pushes the logo and the nav apart. Deleting the div collapses
+                    the navbar layout. */}
+                <div className="navbar-center" />
 
                 {/* Hamburger — visible only below the mobile breakpoint (CSS). */}
                 <button

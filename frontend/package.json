@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@wegovnyc/design-tokens": "github:sarapis/wegovnyc-design-tokens",
     "dotenv": "^17.2.3",
     "leaflet": "^1.9.4",
     "next": "16.1.1",
