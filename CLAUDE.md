@@ -5,13 +5,25 @@
 > [!IMPORTANT]
 > **UNNYC moved out of this repo (2026-08-04).** The campaign now lives in its own repo and site:
 > **[`sarapis/unnyc`](https://github.com/sarapis/unnyc) → https://unnyc.wegov.nyc**.
-> The `/unnyc*` routes still in this repo are a **stale duplicate** — they build and serve, but
-> the campaign is developed elsewhere now. **Do not add features to `/unnyc` here.**
+> The `/unnyc*` routes still in this repo are **dead code** — they build, but every path is now
+> redirected away, so nothing here is reachable. **Do not add features to `/unnyc` here.**
 >
-> Two follow-ups are still open in this repo:
-> 1. Add a 301 from `wegov.nyc/unnyc/*` → `unnyc.wegov.nyc/*` (until then, two copies compete in search).
-> 2. Delete the dead `unnyc.wegov.nyc` host redirect in `frontend/next.config.mjs` — it never fired
->    (DNS points that host at a different Vercel project) and now points the wrong way.
+> **Both follow-ups are done as of `84a83de` (2026-08-04)** — `frontend/next.config.mjs` now
+> redirects all of `/unnyc/*` to the standalone site, and the dead `unnyc.wegov.nyc` host rule
+> is deleted. Things to know about that config:
+> - `permanent: true` emits **308**, not 301. Equivalent for search engines.
+> - Rules are ordered **specific-before-catch-all** — Next.js matches redirects in array order,
+>   so a new specific `/unnyc/…` rule must go **above** the `/unnyc/:path*` catch-all or it
+>   will never fire.
+> - **`/unnyc/guide` is special-cased** to `unnyc.wegov.nyc/resources`. That long-form article
+>   was never carried over to the campaign site, so the catch-all would have 404'd it. The
+>   original still serves at `old-unnyc.wegov.nyc/guide.html` — one more reason not to retire
+>   that site casually.
+> - `/unnyc/` (trailing slash) takes two hops: Next's own trailing-slash normalization runs
+>   before custom redirects. Not worth fighting.
+>
+> The `/unnyc*` route directory could now be deleted outright. Left in place deliberately —
+> it still holds the only copy of the `guide` article's JSX in this repo's working tree.
 
 > [!WARNING]
 > **Secrets were committed to this PUBLIC repo and are still in git history.** Two unencrypted
