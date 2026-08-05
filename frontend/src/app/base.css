@@ -33,9 +33,17 @@
 
    Core supplies both tiers (reference --db-*, semantic --wg-*); the `wegov`
    variant is the seam for this brand's divergence and is applied by
-   data-brand="wegov" on <html> (see app/layout.js). wegov.css maps its own
-   legacy names (--foreground, --primary-color, --wegov-*) onto the SEMANTIC
-   tier.
+   data-brand="wegov" on <html> (see app/layout.js).
+
+   ⚠ THE RULES IN THIS APP CONSUME --wg-* DIRECTLY. There is no local alias
+   layer any more — the 27 legacy names (--foreground, --primary-color,
+   --wegov-*) were deleted on 2026-08-05 after migrating all 128 reads. So:
+     • Never reintroduce a local palette variable. Use a --wg-* semantic.
+     • Never read a reference token (--db-*) or write a raw value in a rule;
+       both are invisible to the brand variant, which is the bug the tier split
+       exists to prevent.
+     • If a value you need is missing, add the SEMANTIC token upstream in the
+       package's core.css and bump the dependency.
 
    To change a token, change it in that repo and bump the dependency — never
    patch node_modules and never re-add a local copy. This replaced a hand-copied
@@ -50,7 +58,7 @@
 @layer components {
   /* Navbar in-flow submenu — civic/prestige treatment. Continues the navy
      header as a band, closed by a gold accent line; refined uppercase links
-     in soft white that warm to gold on hover. Tokens from wegov-tokens.css. */
+     in soft white that warm to gold on hover. Tokens: --wg-* semantics. */
   .navbar-submenu-bar {
     /* Raised secondary-nav band: a lighter navy than the header, lifted with a
        soft shadow so it reads as a distinct bar without a coloured divider
@@ -71,10 +79,10 @@
     padding-bottom: 0;
   }
 
-  /* Single swipeable line at every width (the UNNYC submenu now carries ~11
-     section links — wrapping would stack it 3 rows tall). Overflows scroll
-     horizontally, scrollbar hidden; Navbar auto-centers the active chip as the
-     scroll-spy advances so the "you are here" highlight stays in view. */
+  /* Single swipeable line at every width rather than wrapping to multiple rows.
+     Overflows scroll horizontally, scrollbar hidden; Navbar auto-centers the
+     active chip so the "you are here" highlight stays in view. (Unexercised
+     today — no CMS nav link defines `children`; see components/Navbar.js.) */
   .navbar-submenu-links {
     display: flex;
     justify-content: flex-start;
@@ -111,7 +119,7 @@
   }
 
   .navbar-submenu-link:hover {
-    color: var(--wg-gold-light, #e8c978);
+    color: var(--wg-accent-warm-light);
     text-decoration: none;
   }
 
@@ -119,16 +127,16 @@
      (distinct from the theme's blue hover underline) to read as "you are
      here" and tie into the subnav's gold line. */
   .navbar-link--active {
-    color: #fff;
+    color: var(--wg-text-inverse);
   }
 
   .navbar-link--active::after {
     width: 100%;
-    background: var(--wg-gold, #d4a843);
+    background: var(--wg-accent-warm);
   }
 
   .navbar-submenu-link--active {
-    color: #fff;
+    color: var(--wg-text-inverse);
   }
 
   .navbar-submenu-link--active::after {
@@ -138,7 +146,7 @@
     right: 0;
     bottom: 0;
     height: 2px;
-    background: var(--wg-gold, #d4a843);
+    background: var(--wg-accent-warm);
   }
 
   /* Mobile: tighten the gap on the (already single-line) subnav. */

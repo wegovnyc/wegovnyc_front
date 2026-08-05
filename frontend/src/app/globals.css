@@ -1,11 +1,13 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* No local palette. Colours come from the design system's semantic tier
+   (--wg-*, via @wegovnyc/design-tokens in base.css). The --background /
+   --foreground pair that used to sit here was an UNTHEMED default (#ffffff /
+   #171717) that the WeGov theme always overrode, so it never rendered — but it
+   would have surfaced the moment the theme stopped winning. Removed 2026-08-05
+   with the rest of the alias layer. */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--wg-text);
+  background: var(--wg-surface-warm);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -46,8 +48,8 @@ a:hover {
 
 /* Hero Section */
 .hero {
-  background-color: var(--header-bg);
-  color: var(--header-text);
+  background-color: var(--wg-brand);
+  color: var(--wg-text-inverse);
   padding: 6rem 2rem 4rem;
   /* NYC Spacing */
   text-align: center;
@@ -160,7 +162,7 @@ a:hover {
 .card-link {
   display: inline-block;
   margin-top: 1rem;
-  color: var(--link-color, #0070f3);
+  color: var(--wg-accent, #0070f3);
   font-weight: bold;
 }
 
@@ -205,7 +207,7 @@ a:hover {
 .cta-section {
   padding: 5rem 2rem;
   text-align: center;
-  background-color: var(--accent-color, #f0f0f0);
+  background-color: var(--wg-accent-warm, #f0f0f0);
 }
 
 .cta-section h2 {
@@ -481,7 +483,7 @@ a:hover {
 .news-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: var(--header-text, #111);
+  color: var(--wg-text-inverse, #111);
   text-decoration: none;
   line-height: 1.4;
   display: block;
@@ -489,7 +491,7 @@ a:hover {
 }
 
 .news-title:hover {
-  color: var(--link-color, #0070f3);
+  color: var(--wg-accent, #0070f3);
 }
 
 .news-excerpt {
