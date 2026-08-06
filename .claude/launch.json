@@ -23,6 +23,13 @@
       "autoPort": true
     },
     {
+      "name": "unnyc-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start", "--prefix", "/Users/devin/Antigravity/unnyc", "--", "-p", "3220"],
+      "port": 3220,
+      "autoPort": true
+    },
+    {
       "name": "ds-preview",
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8123", "--directory", "/private/tmp/claude-501/-Users-devin-Antigravity-WeGovMarketing/ac522b15-c65a-4230-a28a-0d5f1add8839/scratchpad/wegov-ds/ds-bundle"],
