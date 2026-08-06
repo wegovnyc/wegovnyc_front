@@ -1,6 +1,6 @@
 # WeGovMarketing
 
-> WeGov marketing website — Next.js on Vercel, content from the **Sarapis Payload CMS**, WeGov theme (UNNY design system)
+> WeGov marketing website — Next.js on Vercel, content from the **Sarapis Payload CMS**, styled by the shared **WeGovNYC design system** (`@wegovnyc/design-tokens`, `wegov` variant). Single-theme since 2026-08-05.
 
 > [!IMPORTANT]
 > **UNNYC moved out of this repo (2026-08-04).** The campaign now lives in its own repo and site:
@@ -65,10 +65,10 @@ search_knowledge(topic="WeGovMarketing") → web_infrastructure_and_security KI
 
 ## Tech Stack
 
-- **Frontend**: Next.js utilizing the UNNY design system. Hosted on **Vercel** (`devins-projects-1baf43f0/wegovnyc-frontend`); deploys automatically on push to `main`.
+- **Frontend**: Next.js, styled by `@wegovnyc/design-tokens` (`wegov` brand variant). Hosted on **Vercel** (`devins-projects-1baf43f0/wegovnyc-frontend`); deploys automatically on push to `main`.
 - **CMS**: the **Sarapis Payload** instance (`next.sarapis.org`), shared with sarapis.org and databook.nyc. Content is brand-scoped — this site reads only docs whose `sites` includes the **`wegovnyc`** brand (Sites doc #2). Edit in that one admin; a post can be published to several brands at once.
-- **What comes from the CMS**: blog posts (`/blog`, `/blog/[slug]`, category + tag pages), the `/unnyc` **events** and **news items**, and the site chrome (navbar/footer/SEO via the brand's Site doc).
-- **What does NOT**: the home page and `/about` are **frozen** in `frontend/src/content/frozen-pages.js` (section data rendered by the existing `SectionRenderer`), and all of `/unnyc`'s primer/crosswalk/glossary content is hardcoded React. Edit those files, not the CMS.
+- **What comes from the CMS**: blog posts (`/blog`, `/blog/[slug]`, category + tag pages) and the site chrome (navbar/footer/SEO via the brand's Site doc). ⚠ The `events` and `news-items` collections are still populated for the **wegovnyc** brand but nothing in THIS repo renders them any more — they were the `/unnyc` hub's, and that tree is deleted. `sarapis/unnyc` does not read them either (its copy is static). `lib/api.js` still handles those endpoints; treat them as unused here, not as a live dependency.
+- **What does NOT**: the home page and `/about` are **frozen** in `frontend/src/content/frozen-pages.js` (section data rendered by the existing `SectionRenderer`). Edit that file, not the CMS.
 
 ## Repositories & URLs
 
@@ -98,28 +98,36 @@ never had to change. The `getStrapiMedia` name survives only because those files
 
 1. **Develop locally** against the live Payload (the defaults already point at it).
 2. **Push to GitHub** — Vercel deploys `main` automatically (preview builds on PRs).
-3. **Content changes** happen in the Sarapis Payload admin, not in a deploy. Blog/news/events appear
-   without a rebuild; `/unnyc` is `revalidate = 3600`, so give it up to an hour or redeploy to force it.
+3. **Content changes** happen in the Sarapis Payload admin, not in a deploy. Blog posts appear without
+   a rebuild (`/blog` is `revalidate = 3600`, so allow up to an hour or redeploy to force it).
 
 ## Gotchas
 
 - **Frozen marketing pages**: home + `/about` come from `frontend/src/content/frozen-pages.js`, and
   their images from `frontend/public/frozen-media/` (migrated off Strapi 2026-07-29). Editing them in
   any CMS will do nothing.
-- **`/unnyc` has a static fallback**: `app/unnyc/page.js` does `rows.length ? rows : staticEvents/staticNews`
-  from `@/data/unnyc`, so a CMS outage degrades instead of emptying the page. That fallback also *masked*
-  a real content loss once — three CMS-only news items silently vanished at cutover and a
-  "byte-identical" check passed because it was comparing against an already-degraded page. **If you
-  change the news/events source, diff row counts against the CMS, not just rendered output.**
-- **Events are date-aware**: `UnnycEvents` drops any event past its `end`/`endDate` client-side and sorts
-  soonest-first; news sorts newest-first by `sortDate` (`dateLabel` is a fuzzy display string like
-  "Q1 2025" and cannot be sorted on).
-- **CSS architecture (cascade layers)**: order `reset < theme < components < unnyc`, declared in
-  `frontend/src/app/base.css`. Shared tokens in `frontend/src/styles/wegov-tokens.css` (canonical navy
-  `#162e51`; `--wg-*` semantic aliases). **Component styling goes in `@layer components`, page/microsite
-  styling in its own later layer** — later layers beat the theme regardless of specificity, so no
-  `:root`/`!important` hacks. UNNYC (`app/unnyc/unnyc.css`) is wrapped in `@layer unnyc`. Full model:
-  `wegovnyc-design-system` KI + Claude Design project.
+- **The `/unnyc` gotchas are GONE with the routes** (deleted 2026-08-05). The static fallback that once
+  masked three lost CMS news items, and the date-aware events filtering, both lived in that tree. The
+  lesson survives them though: **that fallback made a real content loss look like success** — a
+  "byte-identical" check passed because it compared against an already-degraded page. If you change a
+  CMS-backed source, diff row counts against the CMS, not just rendered output.
+- **CSS / design system.** Layer order is `reset < theme < components`, declared in
+  `frontend/src/app/base.css`. The `unnyc` layer went with the routes. Component styling goes in
+  `@layer components`; a new microsite needing to beat the theme declares its layer *after* it —
+  later layers win regardless of specificity, so no `:root`/`!important` hacks.
+  - Tokens come from **[`@wegovnyc/design-tokens`](https://github.com/sarapis/wegovnyc-design-tokens)**
+    (a git dependency), not a local file. `frontend/src/styles/wegov-tokens.css` was DELETED
+    2026-08-05 — it had silently forked into a byte-identical copy in `sarapis/unnyc`.
+  - **Every rule reads the SEMANTIC tier (`--wg-*`) directly.** The 27 legacy aliases
+    (`--foreground`, `--primary-color`, `--wegov-*`) were removed after migrating all 128 reads.
+    **Never write a colour literal or read a reference token (`--db-*`) in a rule** — both are
+    invisible to the brand variant, which is the whole point of the two tiers. If a value is
+    missing, add a semantic upstream and bump the dependency **in every consumer** (a git dep pins
+    to a commit, and a missing custom property fails *silently*).
+  - `npm run lint:tokens` warns on violations; it also runs as `prebuild`, so it prints on every
+    Vercel build. It is warn-only and baselined — `globals.css` carries 46 known pre-system literals
+    in `.wg-lint-baseline.json`, so only NEW findings are reported.
+  - Full model: the `wegovnyc-design-system` KI.
 - **The old Strapi hygiene cron is gone** with the container (it used to unpublish past events weekly).
   Nothing replaces it yet — past events are only hidden client-side, so stale ones linger in the CMS.
 
